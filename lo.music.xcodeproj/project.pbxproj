@@ -22,6 +22,8 @@
 		39633D6F1DDB862F0051D6BF /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39633D6D1DDB862F0051D6BF /* AuthorizationViewController.swift */; };
 		39633D701DDB862F0051D6BF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39633D6E1DDB862F0051D6BF /* SettingsViewController.swift */; };
 		39633D751DDBA6B70051D6BF /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */; };
+		39633D771DDBB2300051D6BF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D761DDBB2300051D6BF /* Realm.framework */; };
+		39633D791DDBB2340051D6BF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D781DDBB2340051D6BF /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		39633D6D1DDB862F0051D6BF /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		39633D6E1DDB862F0051D6BF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		39633D761DDBB2300051D6BF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		39633D781DDBB2340051D6BF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39633D791DDBB2340051D6BF /* RealmSwift.framework in Frameworks */,
 				39633D751DDBA6B70051D6BF /* VKSdkFramework.framework in Frameworks */,
+				39633D771DDBB2300051D6BF /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +120,8 @@
 		39633D731DDBA6B70051D6BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39633D781DDBB2340051D6BF /* RealmSwift.framework */,
+				39633D761DDBB2300051D6BF /* Realm.framework */,
 				39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */,
 			);
 			name = Frameworks;
@@ -201,6 +209,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = "Carthage Run Script";
 			outputPaths = (

@@ -1,1 +1,2 @@
 github "lo-sultan/vk-sdk" >= 1.4
+github "lo-sultan/realm-cocoa"
