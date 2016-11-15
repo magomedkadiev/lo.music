@@ -24,6 +24,7 @@
 		39633D751DDBA6B70051D6BF /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */; };
 		39633D771DDBB2300051D6BF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D761DDBB2300051D6BF /* Realm.framework */; };
 		39633D791DDBB2340051D6BF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39633D781DDBB2340051D6BF /* RealmSwift.framework */; };
+		39D5BDC41DDBC0B6004D7F7C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 39D5BDC31DDBC0B6004D7F7C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		39633D761DDBB2300051D6BF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		39633D781DDBB2340051D6BF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		39D5BDC31DDBC0B6004D7F7C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				39633D681DDB85E30051D6BF /* Log */,
+				39D5BDC31DDBC0B6004D7F7C /* .gitignore */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				39633D641DDB857E0051D6BF /* Main.storyboard in Resources */,
 				39633D601DDB856C0051D6BF /* Settings.storyboard in Resources */,
 				39633D621DDB85740051D6BF /* Favorites.storyboard in Resources */,
+				39D5BDC41DDBC0B6004D7F7C /* .gitignore in Resources */,
 				3918D8331DDB813D0018FAA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
