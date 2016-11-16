@@ -11,6 +11,10 @@
 		3918D82E1DDB813D0018FAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3918D82D1DDB813D0018FAA9 /* ViewController.swift */; };
 		3918D8331DDB813D0018FAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3918D8321DDB813D0018FAA9 /* Assets.xcassets */; };
 		3918D8361DDB813D0018FAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3918D8341DDB813D0018FAA9 /* LaunchScreen.storyboard */; };
+		392E5A9B1DDC88AC00A13ED9 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392E5A9A1DDC88AC00A13ED9 /* SongsViewController.swift */; };
+		392E5A9D1DDC994B00A13ED9 /* Keychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E5A9C1DDC994B00A13ED9 /* Keychain.framework */; };
+		392E5A9F1DDC995100A13ED9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E5A9E1DDC995100A13ED9 /* Alamofire.framework */; };
+		392E5AA11DDC995F00A13ED9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E5AA01DDC995F00A13ED9 /* SwiftyJSON.framework */; };
 		39633D5C1DDB85610051D6BF /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39633D5B1DDB85610051D6BF /* Authorization.storyboard */; };
 		39633D5E1DDB85670051D6BF /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39633D5D1DDB85670051D6BF /* Player.storyboard */; };
 		39633D601DDB856C0051D6BF /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39633D5F1DDB856C0051D6BF /* Settings.storyboard */; };
@@ -34,6 +38,10 @@
 		3918D8321DDB813D0018FAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3918D8351DDB813D0018FAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3918D8371DDB813D0018FAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		392E5A9A1DDC88AC00A13ED9 /* SongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		392E5A9C1DDC994B00A13ED9 /* Keychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keychain.framework; path = Carthage/Build/iOS/Keychain.framework; sourceTree = "<group>"; };
+		392E5A9E1DDC995100A13ED9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		392E5AA01DDC995F00A13ED9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		39633D5B1DDB85610051D6BF /* Authorization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorization.storyboard; sourceTree = "<group>"; };
 		39633D5D1DDB85670051D6BF /* Player.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		39633D5F1DDB856C0051D6BF /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -55,9 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392E5A9F1DDC995100A13ED9 /* Alamofire.framework in Frameworks */,
 				39633D791DDBB2340051D6BF /* RealmSwift.framework in Frameworks */,
 				39633D751DDBA6B70051D6BF /* VKSdkFramework.framework in Frameworks */,
 				39633D771DDBB2300051D6BF /* Realm.framework in Frameworks */,
+				392E5A9D1DDC994B00A13ED9 /* Keychain.framework in Frameworks */,
+				392E5AA11DDC995F00A13ED9 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +109,7 @@
 				3918D8371DDB813D0018FAA9 /* Info.plist */,
 				39633D6D1DDB862F0051D6BF /* AuthorizationViewController.swift */,
 				39633D6E1DDB862F0051D6BF /* SettingsViewController.swift */,
+				392E5A9A1DDC88AC00A13ED9 /* SongsViewController.swift */,
 			);
 			path = lo.music;
 			sourceTree = "<group>";
@@ -123,6 +135,9 @@
 		39633D731DDBA6B70051D6BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				392E5AA01DDC995F00A13ED9 /* SwiftyJSON.framework */,
+				392E5A9E1DDC995100A13ED9 /* Alamofire.framework */,
+				392E5A9C1DDC994B00A13ED9 /* Keychain.framework */,
 				39633D781DDBB2340051D6BF /* RealmSwift.framework */,
 				39633D761DDBB2300051D6BF /* Realm.framework */,
 				39633D741DDBA6B70051D6BF /* VKSdkFramework.framework */,
@@ -215,6 +230,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Keychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			name = "Carthage Run Script";
 			outputPaths = (
@@ -236,6 +254,7 @@
 				39633D6F1DDB862F0051D6BF /* AuthorizationViewController.swift in Sources */,
 				39633D6B1DDB85EF0051D6BF /* Log.swift in Sources */,
 				39633D701DDB862F0051D6BF /* SettingsViewController.swift in Sources */,
+				392E5A9B1DDC88AC00A13ED9 /* SongsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

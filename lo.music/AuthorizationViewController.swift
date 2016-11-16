@@ -79,6 +79,7 @@ class AuthorizationViewController: UIViewController, VKSdkDelegate, VKSdkUIDeleg
         
         if token != nil {
             goToMainStoryboard()
+            print(result.token.userId)
         } else {
             Log.addMessage(message: " Token - \(token) is empty", type: .info)
         }
