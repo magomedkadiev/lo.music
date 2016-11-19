@@ -15,21 +15,27 @@ import VKSdkFramework
 class AuthorizationViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
 
     // MARK: - Properties
+    let appID = "5728731"
     
     /// The enter button.
     @IBOutlet weak var enterButton: UIButton!
     
-    let appID = "5728731"
-    
+    /// The array of parametres that user allows when authorized the app.
     let scope = [VK_PER_EMAIL, VK_PER_WALL, VK_PER_AUDIO, VK_PER_NOHTTPS, VK_PER_EMAIL, VK_PER_PHOTOS, VK_PER_OFFLINE, VK_PER_GROUPS]
 
     // MARK: - Initialization
     
+    /**
+     Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVK()
     }
     
+    /**
+     Initialize SDK with responder for global SDK events with default api.
+     */
     private func setupVK() {
         let sdk = VKSdk.initialize(withAppId: appID)
         sdk!.register(self)
@@ -45,6 +51,9 @@ class AuthorizationViewController: UIViewController, VKSdkDelegate, VKSdkUIDeleg
         }
     }
     
+    /**
+     Called if authorization state equal authorized.
+     */
     private func goToMainStoryboard() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -70,34 +79,33 @@ class AuthorizationViewController: UIViewController, VKSdkDelegate, VKSdkUIDeleg
     
     func vkSdkTokenHasExpired(_ expiredToken: VKAccessToken!) {
         Log.addMessage(message: "vkSdkTokenHasExpired", type: .info)
-
     }
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        let token = result.token
-        Log.addMessage(message: "vkSdkAccessAuthorizationFinished with result \(token)", type: .info)
+        Log.addMessage(message: "vkSdkAccessAuthorizationFinished with result", type: .info)
         
-        if token != nil {
+        if result.token != nil {
             goToMainStoryboard()
-            print(result.token.userId)
         } else {
-            Log.addMessage(message: " Token - \(token) is empty", type: .info)
+            Log.addMessage(message: " Token is empty", type: .info)
         }
-
+    }
+    
+    func vkSdkAccessTokenUpdated(_ newToken: VKAccessToken!, oldToken: VKAccessToken!) {
+        Log.addMessage(message: "vkSdkAccessTokenUpdated", type: .info)
     }
     
     // MARK: - VKSdkUIDelegate
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError) {
         Log.addMessage(message: "vkSdkNeedCaptchaEnter", type: .info)
-        let vc: VKCaptchaViewController = VKCaptchaViewController.captchaControllerWithError(captchaError)
-        vc.present(in: self.navigationController!.topViewController!)
+        let viewController: VKCaptchaViewController = VKCaptchaViewController.captchaControllerWithError(captchaError)
+        viewController.present(in: self.navigationController!.topViewController!)
 
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
         Log.addMessage(message: "vkSdkShouldPresent", type: .info)
-
         self.navigationController!.present(controller, animated: true, completion: nil)
     }
  

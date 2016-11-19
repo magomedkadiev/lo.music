@@ -1,3 +1,0 @@
-framework module Keychain {
-    header "Keychain-Swift.h"
-}

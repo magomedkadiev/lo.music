@@ -80,7 +80,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gLx-de-2Jc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.049202699744883872" green="0.050542376481150057" blue="0.051606789088692429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
