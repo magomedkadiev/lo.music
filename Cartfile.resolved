@@ -1,2 +1,5 @@
+github "Alamofire/Alamofire" "3.5.1"
+github "lo-sultan/Keychain" "1.5.0"
+github "lo-sultan/SwiftyJSON" "3.1.2"
 github "lo-sultan/realm-cocoa" "v2.0.4"
 github "lo-sultan/vk-sdk" "1.4.4"

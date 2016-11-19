@@ -27,7 +27,6 @@
                                 <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="QOr-9P-fdJ">
                                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="barTintColor" red="0.1584911128" green="0.16141537710000001" blue="0.16286836139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </tableView>
@@ -54,10 +53,9 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorites" id="V6a-mO-BqQ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kaN-sM-ZPd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kaN-sM-ZPd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.092446781199999994" green="0.094963895150000005" blue="0.096963816290000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
