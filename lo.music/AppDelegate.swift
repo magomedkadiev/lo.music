@@ -7,16 +7,49 @@
 //
 
 import UIKit
-import VKSdkFramework
+import SwiftyVK
+import RealmSwift
 
+/**
+ The `AppDelegate` class defines the delegate object of the app.
+ */
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Properties
+    
+    /// The window.
     var window: UIWindow?
+    
+    /// The vkDelegate reference.
+    var vkReference : VKDelegate?
+    
+    /// The background session.
+    var backgroundSessionCompletionHandler: (() -> Void)?
 
+    
+    // MARK: - UIApplicationDelegate
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    /**
+     Contains app configuration and specifies initial storyboard: `Main` (if the  user is already registered) or `Registration` (otherwise).
+     */
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
+        Log.addMessage(message: "\(Realm.Configuration.defaultConfiguration.fileURL!)", type: .debug)
+
+        if !User.isRegistered {
+            window?.rootViewController = UIStoryboard(name: "Authorization", bundle: nil).instantiateInitialViewController()!
+        }
+        
+        return true
+    }
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        backgroundSessionCompletionHandler = completionHandler
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        vkReference = VKManager()
         return true
     }
 
@@ -35,19 +68,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // MARK: - VKSDK
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        VKSdk.processOpen(url as URL!, fromApplication: sourceApplication)
+    /**
+     Make application process for iOS 9 and higher.
+     */
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if #available(iOS 9.0, *) {
+            VK.process(url: url, options: options)
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
+        }
         return true
     }
- 
+
 }
 

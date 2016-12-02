@@ -60,12 +60,12 @@ class Audio {
      
      - returns: The `Audio` instance.
      */
-    init(url: String, title: String, artist: String , duration: Int) {
+    init(id: Int, ownerID: Int, url: String, title: String, artist: String , duration: Int) {
+        self.id = id
         self.url = url
         self.title = title
         self.artist = artist
+        self.ownerID = ownerID
         self.duration = duration
-        id = 0
-        ownerID = 0
     }
 }
