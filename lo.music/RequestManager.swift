@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VKSdkFramework
+import SwiftyVK
 
 /**
   Contains all requset with internet.
@@ -19,25 +19,30 @@ class RequestManager {
     /// The singleton `RequestManager` instance.
     static let shared = RequestManager()
     
-    /// The access token from VKSdk.
-    let accessToken = VKSdk.accessToken()
-    
     /**
      VK request return array of audios by registered userID.
      */
-    func getAudio(success: @escaping (_ serverData: [AnyObject]) -> Void) {
-        let request = VKRequest(method: "audio.get", parameters: [VK_API_OWNER_ID: accessToken!.userId])
-    
-        request?.execute( resultBlock: { (response) -> Void in
-            Log.addMessage(message: "Get audio succsess: \(response!.json)", type: .debug)
+    func getAudios(completionHandler: @escaping (_ error: Error?) -> Void) {
+        VK.API.Audio.get().send(
+            onSuccess: { response in
+                var audioList = [Audio]()
+                
+                for data in response["items"] {
+                    let audio = Audio(serverData: data.1.object as! [String : AnyObject])
+                    audioList.append(audio)
+                    RealmManager.shared.saveAudios(audio: audio)
+                }
             
-            let dataDict = response?.json as! [String : AnyObject]
-            if let serverData = dataDict["items"] as? [AnyObject] {
-                success(serverData)
-            }
-            
-        }, errorBlock: { (error) -> Void in
-            Log.addMessage(message: "Get audio failed: \(error!.localizedDescription)", type: .debug)
+                RealmManager.shared.removeLocalAudioThatNotContainsInResponse(response: audioList)
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(nil)
+                })
+            }, onError: { error in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(error)
+                })
         })
     }
+    
 }

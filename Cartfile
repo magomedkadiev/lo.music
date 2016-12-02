@@ -1,7 +1,5 @@
 github "lo-sultan/vk-sdk" >= 1.4
 github "Alamofire/Alamofire" == 3.5.1
 github "lo-sultan/realm-cocoa"
-github "lo-sultan/Keychain"
-github "lo-sultan/SwiftyJSON"
-
-
+github "valery-bashkatov/Keychain" ~> 2.0.0
+github "WE-St0r/SwiftyVK"
