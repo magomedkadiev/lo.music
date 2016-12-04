@@ -8,18 +8,34 @@
 
 import UIKit
 import SwiftyVK
+import RealmSwift
 
 /**
  The `ProfileViewController` is a view controller of the profile scene.
  */
 class ProfileViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    /// The count label.
+    @IBOutlet weak var countLabel: UILabel!
+    
+    /// The size label.
+    @IBOutlet weak var sizeLabel: UILabel!
+    
     /**
      Initializes a view controller.
      */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let realm = try! Realm()
+        let count: Double = realm.objects(SavedAudio.self).sum(ofProperty: "size")
+        let countSavedAudios = realm.objects(SavedAudio.self).count
+        
+        countLabel.text = "\(countSavedAudios) песни в избранном"
+        sizeLabel.text = "\(count) MB из 2.0 GB"
     }
  
     /**

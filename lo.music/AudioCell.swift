@@ -21,4 +21,31 @@ class AudioCell: UITableViewCell {
     /// The artist label.
     @IBOutlet weak var artistLabel: UILabel!
     
+    /// The start download button.
+    @IBOutlet weak var startDownloadButton: UIButton!
+    
+    /// The stop download button.
+    @IBOutlet weak var stopDownloadButton: UIButton!
+    
+    /// The progress view.
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    /// Object of download action delegate.
+    var delegate: DownloadActionDelegate?
+    
+    // MARK: - Actions
+    
+    /// Start download action.
+    ///
+    /// - Parameter sender: Any.
+    @IBAction func startDownloadAction(_ sender: AnyObject) {
+        delegate?.startDownloadTapped(self)
+    }
+    
+    /// Stop download action
+    ///
+    /// - Parameter sender: Any.
+    @IBAction func stopDownloadAction(_ sender: AnyObject) {
+        delegate?.stopDownloadTapped(self)
+    }
 }

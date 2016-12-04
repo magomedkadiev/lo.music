@@ -1,58 +1,45 @@
 //
-//  Audio.swift
+//  SavedAudio.swift
 //  lo.music
 //
-//  Created by Султан Магомедкадиев on 19/11/2016.
+//  Created by Султан Магомедкадиев on 30/11/2016.
 //  Copyright © 2016 lo.music. All rights reserved.
 //
 
 import Foundation
+import RealmSwift
 
 /**
- The `Audio` is class that contains properties of the audio.
+ The `Audio` is a model class that contains properties of the audio.
  */
-class Audio {
+class Audio: Object {
     
     // MARK: - Properties
     
     /// The ID.
-    var id: Int
+    dynamic var id = 0
     
     /// The song's url.
-    let url: String
+    dynamic var url = ""
     
     /// The song's title.
-    let title: String
+    dynamic var title = ""
     
     /// The song's artist.
-    let artist: String
+    dynamic var artist = ""
     
     /// The song's duration.
-    let duration: Int
+    dynamic var duration = 0
     
-    /// The owner ID.
-    var ownerID: Int
+    /// The ownerID.
+    dynamic var ownerID = 0
     
     // MARK: - Initialization
     
     /**
-     Initialized server data parameters.
-     
-     - parameter serverData: The dict.
-     */
-    init(serverData: [String: AnyObject]) {
-        
-        id = serverData["id"] as! Int
-        url = "\(serverData["url"]!)"
-        title = "\(serverData["title"]!)"
-        artist = "\(serverData["artist"]!)"
-        duration = serverData["duration"] as! Int
-        ownerID = serverData["owner_id"] as! Int
-    }
-    
-    /**
      Creates `Audio` with specified properties.
      
+     - parameter id: The ID.
      - parameter url: The song's url.
      - parameter title: The song's title.
      - parameter artist: The song's artist.
@@ -60,12 +47,26 @@ class Audio {
      
      - returns: The `Audio` instance.
      */
-    init(id: Int, ownerID: Int, url: String, title: String, artist: String , duration: Int) {
+    convenience init(id: Int,
+                     url: String,
+                     ownerID: Int,
+                     title: String,
+                     artist: String,
+                     duration: Int){
+        self.init()
+        
         self.id = id
         self.url = url
         self.title = title
         self.artist = artist
         self.ownerID = ownerID
         self.duration = duration
+    }
+    
+    /**
+     Sets primary key.
+     */
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
