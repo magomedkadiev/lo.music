@@ -4,13 +4,11 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Songs-->
+        <!--Песни-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="AudioViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="AudioViewController" customModule="lo_music" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,37 +33,53 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptX-t3-9DU" id="MOf-XW-Vbf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qJs-ni-Sy6">
-                                                    <rect key="frame" x="16" y="12" width="288" height="35.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gx-cAH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Ug-rGe">
-                                                            <rect key="frame" x="0.0" y="24.5" width="288" height="11"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gx-cAH">
+                                                    <rect key="frame" x="83" y="5" width="179" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Ug-rGe">
+                                                    <rect key="frame" x="83" y="32" width="179" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewE-aA-8Fw">
+                                                    <rect key="frame" x="16" y="51" width="296" height="2"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </progressView>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVo-Rc-LMC">
+                                                    <rect key="frame" x="15" y="1" width="60" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="stop"/>
+                                                    <connections>
+                                                        <action selector="stopDownloadAction:" destination="ptX-t3-9DU" eventType="touchUpInside" id="KYY-Pz-hux"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-zr-kTe">
+                                                    <rect key="frame" x="15" y="1" width="60" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="download"/>
+                                                    <connections>
+                                                        <action selector="startDownloadAction:" destination="ptX-t3-9DU" eventType="touchUpInside" id="c18-JF-YHi"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="qJs-ni-Sy6" firstAttribute="top" secondItem="MOf-XW-Vbf" secondAttribute="topMargin" constant="4" id="MoS-di-lM8"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qJs-ni-Sy6" secondAttribute="bottom" constant="4" id="WVy-1H-sw1"/>
-                                                <constraint firstItem="qJs-ni-Sy6" firstAttribute="leading" secondItem="MOf-XW-Vbf" secondAttribute="leadingMargin" constant="8" id="v4d-jS-4Sc"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qJs-ni-Sy6" secondAttribute="trailing" constant="8" id="yNN-8K-NSB"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="artistLabel" destination="6xb-Ug-rGe" id="01T-KF-3F0"/>
-                                            <outlet property="titleLabel" destination="07F-gx-cAH" id="OMh-xs-AJ2"/>
+                                            <outlet property="artistLabel" destination="6xb-Ug-rGe" id="YxK-HA-KUR"/>
+                                            <outlet property="progressView" destination="ewE-aA-8Fw" id="pT1-Yl-1Ku"/>
+                                            <outlet property="startDownloadButton" destination="bg6-zr-kTe" id="cLd-kd-OD5"/>
+                                            <outlet property="stopDownloadButton" destination="xVo-Rc-LMC" id="fsV-Bh-pGO"/>
+                                            <outlet property="titleLabel" destination="07F-gx-cAH" id="DwE-NS-gY4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -83,7 +97,7 @@
                             <constraint firstItem="aGf-L7-gA5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uGc-7U-KNu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Songs" id="0Vx-1y-s3X">
+                    <navigationItem key="navigationItem" title="Песни" id="0Vx-1y-s3X">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="GDG-1E-xeq">
                             <connections>
                                 <segue destination="6z2-yK-20G" kind="presentation" id="SUt-YC-We4"/>
@@ -114,7 +128,7 @@
                     <tabBarItem key="tabBarItem" title="Songs" image="songs" id="gId-vL-qnx"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FFx-8d-zkb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FFx-8d-zkb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

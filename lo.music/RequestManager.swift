@@ -25,12 +25,12 @@ class RequestManager {
     func getAudios(completionHandler: @escaping (_ error: Error?) -> Void) {
         VK.API.Audio.get().send(
             onSuccess: { response in
-                var audioList = [Audio]()
+                var audioList = [AudioItem]()
                 
                 for data in response["items"] {
-                    let audio = Audio(serverData: data.1.object as! [String : AnyObject])
+                    let audio = AudioItem(serverData: data.1.object as! [String : AnyObject])
                     audioList.append(audio)
-                    RealmManager.shared.saveAudios(audio: audio)
+                    RealmManager.shared.saveAudioFromNet(item: audio)
                 }
             
                 RealmManager.shared.removeLocalAudioThatNotContainsInResponse(response: audioList)

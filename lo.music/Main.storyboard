@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="912" y="139"/>
         </scene>
-        <!--Favorites-->
+        <!--SavedAudio-->
         <scene sceneID="Le1-x8-WqO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Favorites" id="ftr-4t-5Nc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SavedAudio" id="ftr-4t-5Nc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Fuf-es-PV6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TC8-1q-2Gl" userLabel="First Responder" sceneMemberID="firstResponder"/>

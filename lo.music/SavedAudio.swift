@@ -2,7 +2,7 @@
 //  SavedAudio.swift
 //  lo.music
 //
-//  Created by Султан Магомедкадиев on 30/11/2016.
+//  Created by Султан Магомедкадиев on 04/12/2016.
 //  Copyright © 2016 lo.music. All rights reserved.
 //
 
@@ -31,6 +31,18 @@ class SavedAudio: Object {
     /// The song's duration.
     dynamic var duration = 0
     
+    /// The ownerID.
+    dynamic var ownerID = 0
+    
+    /// The saved date.
+    dynamic var date = ""
+    
+    /// The sorted parameter.
+    dynamic var order = 0
+    
+    /// The size of audio.
+    dynamic var size: Double = 0.0
+    
     // MARK: - Initialization
     
     /**
@@ -46,6 +58,7 @@ class SavedAudio: Object {
      */
     convenience init(id: Int,
                      url: String,
+                     ownerID: Int,
                      title: String,
                      artist: String,
                      duration: Int){
@@ -55,6 +68,7 @@ class SavedAudio: Object {
         self.url = url
         self.title = title
         self.artist = artist
+        self.ownerID = ownerID
         self.duration = duration
     }
     
