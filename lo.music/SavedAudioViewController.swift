@@ -10,14 +10,18 @@ import UIKit
 import RealmSwift
 
 /// The saved audis view controller scene.
-class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     // MARK: - Properties
     
     /// The table view.
     @IBOutlet weak var tableView: UITableView!
     
+    /// The left bar button item.
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
+    
+    /// Interacted class contains parameters.
+    let interactor = Interactor()
     
     /// The saved audio. Result of `Realm`'s query.
     private var allAudios: Results<SavedAudio>! {
@@ -104,6 +108,11 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    /// Calls when user tapped to cell.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        toPlayerScene()
+    }
     
     /// Return height for each row.
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -151,5 +160,35 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
             Log.addMessage(message: "Audio successfully removed", type: .info)
         }
     }
-
+    
+    // MARK: - Actions
+    
+    /// Call when user wants to see player scene from tapping to cell.
+    func toPlayerScene() {
+        let storyboard = UIStoryboard(name: "Player", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        viewController.transitioningDelegate = self
+        viewController.interactor = interactor
+        viewController.hidesBottomBarWhenPushed = true
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    /// The delete method.
+    ///
+    /// - Parameter dismissed: The view controller.
+    /// - Returns: Object value.
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    
+    /// An object that implements the protocol vends the objects used to manage a fixed-length or interactive transition between view controllers
+    ///
+    /// - Parameter animator: The animator.
+    /// - Returns: Bool vaue if interactive transitiong.
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+    
 }
