@@ -10,6 +10,9 @@
 		3918D82C1DDB813D0018FAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3918D82B1DDB813D0018FAA9 /* AppDelegate.swift */; };
 		3918D8331DDB813D0018FAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3918D8321DDB813D0018FAA9 /* Assets.xcassets */; };
 		3918D8361DDB813D0018FAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3918D8341DDB813D0018FAA9 /* LaunchScreen.storyboard */; };
+		391949601DF5E291000CA149 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3919495F1DF5E291000CA149 /* PlayerViewController.swift */; };
+		391949631DF5F18D000CA149 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391949621DF5F18D000CA149 /* Interactor.swift */; };
+		391949651DF5F1C5000CA149 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391949641DF5F1C5000CA149 /* DismissAnimator.swift */; };
 		3929DC481DECC27700F7B383 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3929DC471DECC27700F7B383 /* SwiftyVK.framework */; };
 		3929DC4C1DECC2E200F7B383 /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929DC4B1DECC2E200F7B383 /* VKManager.swift */; };
 		392E5A9B1DDC88AC00A13ED9 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392E5A9A1DDC88AC00A13ED9 /* AudioViewController.swift */; };
@@ -46,6 +49,9 @@
 		3918D8321DDB813D0018FAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3918D8351DDB813D0018FAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3918D8371DDB813D0018FAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3919495F1DF5E291000CA149 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		391949621DF5F18D000CA149 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		391949641DF5F1C5000CA149 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		3929DC471DECC27700F7B383 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVK.framework; path = Carthage/Build/iOS/SwiftyVK.framework; sourceTree = "<group>"; };
 		3929DC4B1DECC2E200F7B383 /* VKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		392E5A9A1DDC88AC00A13ED9 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
@@ -124,11 +130,29 @@
 				39633D671DDB85DC0051D6BF /* Utilities */,
 				394B2E521DE0827000565177 /* Authorization */,
 				394B2E4F1DE081D000565177 /* Audio */,
+				3919495E1DF5E15D000CA149 /* Player */,
 				394E0DD61DF44ABA00297B5F /* SavedAudio */,
 				394B2E511DE0821600565177 /* Profile */,
 				394B2E501DE081D900565177 /* Supported file */,
 			);
 			path = lo.music;
+			sourceTree = "<group>";
+		};
+		3919495E1DF5E15D000CA149 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				3919495F1DF5E291000CA149 /* PlayerViewController.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		391949611DF5F112000CA149 /* Dismiss Animator */ = {
+			isa = PBXGroup;
+			children = (
+				391949621DF5F18D000CA149 /* Interactor.swift */,
+				391949641DF5F1C5000CA149 /* DismissAnimator.swift */,
+			);
+			name = "Dismiss Animator";
 			sourceTree = "<group>";
 		};
 		394B2E481DE06C2D00565177 /* Managers */ = {
@@ -194,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				39633D681DDB85E30051D6BF /* Log */,
+				391949611DF5F112000CA149 /* Dismiss Animator */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -332,6 +357,7 @@
 				394B2E4E1DE079D100565177 /* AudioCell.swift in Sources */,
 				39F2CBA01DEF638A003F6C54 /* RealmManager.swift in Sources */,
 				394E0DDE1DF44B3B00297B5F /* SavedAudioViewController.swift in Sources */,
+				391949601DF5E291000CA149 /* PlayerViewController.swift in Sources */,
 				394B2E4A1DE06C4900565177 /* RequestManager.swift in Sources */,
 				39633D6F1DDB862F0051D6BF /* AuthorizationViewController.swift in Sources */,
 				39633D6B1DDB85EF0051D6BF /* Log.swift in Sources */,
@@ -339,9 +365,11 @@
 				392E5A9B1DDC88AC00A13ED9 /* AudioViewController.swift in Sources */,
 				394E0DDC1DF44B2C00297B5F /* SavedAudioCell.swift in Sources */,
 				39B358AF1DEDE774002143DE /* User.swift in Sources */,
+				391949651DF5F1C5000CA149 /* DismissAnimator.swift in Sources */,
 				39A38E1B1DF2EB9B00EB9A19 /* DownloadActionDelegate.swift in Sources */,
 				394E0DD81DF44B0200297B5F /* SavedAudio.swift in Sources */,
 				39A38E181DF2EB0700EB9A19 /* DownloadManager.swift in Sources */,
+				391949631DF5F18D000CA149 /* Interactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
