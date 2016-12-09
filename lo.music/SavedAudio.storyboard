@@ -94,11 +94,13 @@
             </objects>
             <point key="canvasLocation" x="2139.375" y="583.09859154929575"/>
         </scene>
-        <!--Favorites-->
+        <!--Navigation Controller-->
         <scene sceneID="TQi-hU-nUe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Etu-1w-QLq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="favorites" id="V6a-mO-BqQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_saved_audio" id="V6a-mO-BqQ">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kaN-sM-ZPd">
@@ -124,6 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favorites" width="20" height="20"/>
+        <image name="icon_saved_audio" width="27" height="27"/>
     </resources>
 </document>

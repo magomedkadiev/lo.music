@@ -58,11 +58,13 @@
             </objects>
             <point key="canvasLocation" x="2015.2" y="-308.09595202398805"/>
         </scene>
-        <!--Player-->
+        <!--Navigation Controller-->
         <scene sceneID="X2O-Sp-UPM">
             <objects>
                 <navigationController storyboardIdentifier="NPlayerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Wgz-zz-drS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player" image="player" id="jvL-hf-a2i"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_player" id="jvL-hf-a2i">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -81,6 +83,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="player" width="25" height="25"/>
+        <image name="icon_player" width="22" height="23"/>
     </resources>
 </document>

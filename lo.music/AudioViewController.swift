@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyVK
 import RealmSwift
+import MDSOfferView
 
 /**
  The `AudioViewController` is a view controller of the list audio scene.
@@ -149,34 +150,65 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "audioCell") as! AudioCell
-        let audio = allAudios[indexPath.row]
-        
+
         cell.titleLabel.text = allAudios[indexPath.row].title
         cell.artistLabel.text = allAudios[indexPath.row].artist
-        cell.delegate = self
-        
-        var showDownloadControls = false
-        if let download = activeDownloads[audio.url] {
-            showDownloadControls = true
-            cell.progressView.progress = download.progress
-           // cell.progressLabel.text = (download.isDownloading) ? "Downloading..." : "Paused"
-        }
-        
-        cell.progressView.isHidden = !showDownloadControls
-        //cell.progressLabel.isHidden = !showDownloadControls
-       // cell.trackDurationLabel.isHidden = showDownloadControls
-        
-        let downloaded = DownloadManager.shared.localFileExistsForTrack(audio, activeDownloads)
-        cell.stopDownloadButton.isHidden = !showDownloadControls
-        cell.startDownloadButton.isHidden = showDownloadControls
-        if downloaded {
-            cell.accessoryType = .checkmark
-            cell.startDownloadButton.isHidden = true
-        } else {
-            cell.accessoryType = .none
-        }
-        
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let audioCell = cell as? AudioCell {
+            audioCell.delegate = self
+            audioCell.audio = allAudios[indexPath.row]
+        
+            let audio = allAudios[indexPath.row]
+            
+            let downloaded = DownloadManager.shared.localFileExistsForTrack(audio, activeDownloads)
+
+            if downloaded {
+                
+                audioCell.offerView.state = .normal
+                audioCell.offerView.enabled = false
+                audioCell.offerView.setTitle("", for: .normal)
+                audioCell.offerView.actionButton.setTitle("", for: .normal)
+                audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "downloded"), for: .normal)
+                audioCell.offerView.actionButton.layer.cornerRadius = 0
+                audioCell.offerView.actionButton.layer.borderWidth = 0
+                
+            } else {
+                
+                if let download = activeDownloads[audio.url] {
+                    audioCell.offerView.setProgress(Double(download.progress), animated: true)
+
+                    if download.isDownloading {
+                        audioCell.offerView.state = .pendingDownload
+                        audioCell.offerView.enabled = true
+                        audioCell.offerView.setTitle("", for: .normal)
+                        audioCell.offerView.actionButton.setTitle("", for: .normal)
+                        audioCell.offerView.actionButton.setBackgroundImage(nil, for: .normal)
+                        audioCell.offerView.actionButton.layer.cornerRadius = 0
+                        audioCell.offerView.actionButton.layer.borderWidth = 0
+                    } else {
+                        audioCell.offerView.state = .normal
+                        audioCell.offerView.enabled = true
+                        audioCell.offerView.setTitle("", for: .normal)
+                        audioCell.offerView.actionButton.setTitle("", for: .normal)
+                        audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
+                        audioCell.offerView.actionButton.layer.cornerRadius = 0
+                        audioCell.offerView.actionButton.layer.borderWidth = 0
+                    }
+                } else {
+                    audioCell.offerView.state = .normal
+                    audioCell.offerView.enabled = true
+                    audioCell.offerView.setTitle("", for: .normal)
+                    audioCell.offerView.actionButton.setTitle("", for: .normal)
+                    audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
+                    audioCell.offerView.actionButton.layer.cornerRadius = 0
+                    audioCell.offerView.actionButton.layer.borderWidth = 0
+                }
+            }
+        }
     }
     
     func currentTimeMillis() -> String {
@@ -319,9 +351,13 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         let bitRate = String(Int(totalBytesExpectedToWrite) * 8 / 1000 / download.duration)
                         let progress = String(format: "%.1f%% of %@",  download.progress * 100, totalSize) + " \(bitRate)kbps"
                         
-                        trackCell.progressView.isHidden = false
-                        trackCell.progressView.progress = download.progress
-                        Log.addMessage(message:  (progress), type: .info)
+                        
+                        trackCell.offerView.state = .downloading
+                        trackCell.offerView.setProgress(Double(download.progress), animated: true)
+                        trackCell.offerView.actionButton.setBackgroundImage(nil, for: .normal)
+
+                        
+                        //Log.addMessage(message:  (progress), type: .info)
                         // Show download progress for user.
                     })
                 }
