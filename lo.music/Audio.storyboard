@@ -37,48 +37,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gx-cAH">
-                                                    <rect key="frame" x="83" y="5" width="179" height="24"/>
+                                                    <rect key="frame" x="16" y="8" width="260" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Ug-rGe">
-                                                    <rect key="frame" x="83" y="32" width="179" height="14"/>
+                                                    <rect key="frame" x="16" y="35" width="260" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewE-aA-8Fw">
-                                                    <rect key="frame" x="16" y="51" width="296" height="2"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2K-qE-7Uq" customClass="MDSOfferView">
+                                                    <rect key="frame" x="284" y="18" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </progressView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVo-Rc-LMC">
-                                                    <rect key="frame" x="15" y="1" width="60" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="stop"/>
-                                                    <connections>
-                                                        <action selector="stopDownloadAction:" destination="ptX-t3-9DU" eventType="touchUpInside" id="KYY-Pz-hux"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-zr-kTe">
-                                                    <rect key="frame" x="15" y="1" width="60" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="download"/>
-                                                    <connections>
-                                                        <action selector="startDownloadAction:" destination="ptX-t3-9DU" eventType="touchUpInside" id="c18-JF-YHi"/>
-                                                    </connections>
-                                                </button>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="6xb-Ug-rGe" id="YxK-HA-KUR"/>
-                                            <outlet property="progressView" destination="ewE-aA-8Fw" id="pT1-Yl-1Ku"/>
-                                            <outlet property="startDownloadButton" destination="bg6-zr-kTe" id="cLd-kd-OD5"/>
-                                            <outlet property="stopDownloadButton" destination="xVo-Rc-LMC" id="fsV-Bh-pGO"/>
+                                            <outlet property="offerView" destination="z2K-qE-7Uq" id="Ko0-Hl-xFf"/>
                                             <outlet property="titleLabel" destination="07F-gx-cAH" id="DwE-NS-gY4"/>
                                         </connections>
                                     </tableViewCell>
@@ -98,7 +79,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Песни" id="0Vx-1y-s3X">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="GDG-1E-xeq">
+                        <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="GDG-1E-xeq">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6z2-yK-20G" kind="presentation" id="SUt-YC-We4"/>
                             </connections>
@@ -121,14 +103,16 @@
             </objects>
             <point key="canvasLocation" x="2513" y="137"/>
         </scene>
-        <!--Songs-->
+        <!--Navigation Controller-->
         <scene sceneID="avz-MG-jkN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="koD-U8-xbT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Songs" image="songs" id="gId-vL-qnx"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_audio" id="gId-vL-qnx">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FFx-8d-zkb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FFx-8d-zkb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -143,6 +127,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="songs" width="25" height="25"/>
+        <image name="contact" width="30" height="30"/>
+        <image name="icon_audio" width="22" height="22"/>
     </resources>
 </document>

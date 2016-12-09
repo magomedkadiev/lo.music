@@ -3,3 +3,4 @@ github "Alamofire/Alamofire" == 3.5.1
 github "lo-sultan/realm-cocoa"
 github "valery-bashkatov/Keychain" ~> 2.0.0
 github "WE-St0r/SwiftyVK"
+github "YuAo/MDSOfferView" == 0.3

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDSOfferView
 
 /**
  The `AudioCell` is a base class for the list audio.
@@ -21,31 +22,41 @@ class AudioCell: UITableViewCell {
     /// The artist label.
     @IBOutlet weak var artistLabel: UILabel!
     
-    /// The start download button.
-    @IBOutlet weak var startDownloadButton: UIButton!
+    //@IBOutlet weak var downloadButton: UIButton!
     
-    /// The stop download button.
-    @IBOutlet weak var stopDownloadButton: UIButton!
-    
-    /// The progress view.
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var offerView: MDSOfferView!
     
     /// Object of download action delegate.
     var delegate: DownloadActionDelegate?
     
     // MARK: - Actions
     
-    /// Start download action.
-    ///
-    /// - Parameter sender: Any.
-    @IBAction func startDownloadAction(_ sender: AnyObject) {
-        delegate?.startDownloadTapped(self)
+    var audio: Audio? {
+        didSet {
+            self.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
+            self.offerView.setTitle("", for: .normal)
+            self.offerView.tintColor = nil
+            self.offerView.actionButton.layer.cornerRadius = 0
+            self.offerView.actionButton.layer.borderWidth = 0
+            
+            self.offerView.actionHandler = { _ in
+                
+                switch MDSOfferViewState(rawValue: self.offerView.state.rawValue)! {
+                case .downloading, .pendingDownload:
+                    self.delegate?.stopDownloadTapped(self)
+                case .normal:
+                    self.offerViewTapped()
+                    self.delegate?.startDownloadTapped(self)
+                default:
+                    Log.addMessage(message: "Default downlaod state", type: .debug)
+                }
+            }
+        }
     }
     
-    /// Stop download action
-    ///
-    /// - Parameter sender: Any.
-    @IBAction func stopDownloadAction(_ sender: AnyObject) {
-        delegate?.stopDownloadTapped(self)
-    }
+    func offerViewTapped() {
+        self.offerView.setTitle("", for: .normal)
+        self.offerView.state = .pendingDownload
+    } 
+    
 }

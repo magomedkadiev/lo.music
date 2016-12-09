@@ -1,4 +1,5 @@
 github "Alamofire/Alamofire" "3.5.1"
+github "YuAo/MDSOfferView" "0.3"
 github "WE-St0r/SwiftyVK" "2.0.0"
 github "lo-sultan/realm-cocoa" "v2.0.4"
 github "lo-sultan/vk-sdk" "1.4.4"
