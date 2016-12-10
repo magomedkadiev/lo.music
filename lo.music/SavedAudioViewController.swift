@@ -17,8 +17,12 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
     /// The table view.
     @IBOutlet weak var tableView: UITableView!
     
+    /// The search bar.
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     /// The left bar button item.
-    @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
+    // TODO: Wrong sorting.
+    //@IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     
     /// Interacted class contains parameters.
     let interactor = Interactor()
@@ -60,12 +64,17 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
  
         allAudios = RealmManager.shared.savedAudios.sorted(byProperty: "date", ascending: false)
+        
+        tableView.tableHeaderView = searchBar
     }
   
     /// Calls when user tap to edit button.
     ///
     /// - Parameter sender: Left bar button item.
-    @IBAction func editAction(_ sender: UIBarButtonItem) {
+    
+    // TODO: Stopped work for now. Cause need to sort all saved audio not only for 'date' but `order` too.
+    
+    /*@IBAction func editAction(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
             tableView.setEditing(false, animated: true)
             leftBarButtonItem.style = .plain
@@ -75,6 +84,14 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
             leftBarButtonItem.title = "Done"
             leftBarButtonItem.style =  .done
         }
+    }*/
+    
+    /// Calls reloadData to update all download components if nedeed.
+    ///
+    /// - Parameter animated: animated value.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.hideSearchBarIfNeeded()
     }
     
     // MARK: - Deinitialization

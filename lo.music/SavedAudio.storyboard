@@ -17,16 +17,19 @@
                         <viewControllerLayoutGuide type="bottom" id="jrU-ut-73D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kgQ-fB-KOB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WMK-r0-ANz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="QOr-9P-fdJ">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Поиск" id="QOr-9P-fdJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="l5S-Q3-PCs" id="IUL-xB-2Jm"/>
+                                    </connections>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="savedAudioCell" rowHeight="60" id="orm-tM-bkU" customClass="SavedAudioCell" customModule="lo_music" customModuleProvider="target">
@@ -72,13 +75,10 @@
                             <constraint firstItem="WMK-r0-ANz" firstAttribute="leading" secondItem="kgQ-fB-KOB" secondAttribute="leading" id="vv1-aj-BdC"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Сохраненные" id="1eE-BW-hyE">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="TGw-VF-oiK">
-                            <connections>
-                                <action selector="editAction:" destination="l5S-Q3-PCs" id="ULI-jW-QNs"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="N7W-ai-L8Y">
+                        <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="N7W-ai-L8Y">
+                            <color key="tintColor" red="0.22063228630000001" green="0.22063228630000001" blue="0.22063228630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="rwu-az-wC3" kind="presentation" id="azz-4i-tvy"/>
                             </connections>
@@ -86,7 +86,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="leftBarButtonItem" destination="TGw-VF-oiK" id="EMF-JM-bhm"/>
+                        <outlet property="searchBar" destination="QOr-9P-fdJ" id="DJq-uz-TVX"/>
                         <outlet property="tableView" destination="WMK-r0-ANz" id="Xdz-QF-GfJ"/>
                     </connections>
                 </viewController>
@@ -103,7 +103,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kaN-sM-ZPd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="kaN-sM-ZPd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -126,6 +126,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="contact" width="30" height="30"/>
         <image name="icon_saved_audio" width="27" height="27"/>
     </resources>
 </document>

@@ -14,16 +14,23 @@ import MDSOfferView
 /**
  The `AudioViewController` is a view controller of the list audio scene.
  */
-class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URLSessionDelegate, URLSessionDownloadDelegate, DownloadActionDelegate {
+class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URLSessionDelegate, URLSessionDownloadDelegate, DownloadActionDelegate,UIViewControllerTransitioningDelegate {
     
     // MARK: - Properties
 
     /// The table view.
     @IBOutlet weak var tableView: UITableView!
     
+    /// The search bar.
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    /// Interacted class contains parameters.
+    let interactor = Interactor()
+    
     /// The refresh control for pull two refresh gesture.
     var tableViewRefreshControl = UIRefreshControl()
     
+    /// The array of active downloads.
     var activeDownloads = [String: SavedAudioItem]()
     
     /// The download session.
@@ -80,6 +87,7 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         allAudios = RealmManager.shared.audios.sorted(byProperty: "id", ascending: false)
         addRefreshControl()
+        tableView.tableHeaderView = searchBar
     }
     
     
@@ -88,7 +96,8 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /// - Parameter animated: animated value.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.hideSearchBarIfNeeded()
+
         guard activeDownloads.count == 0 else {
             return
         }
@@ -118,6 +127,18 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableViewController.refreshControl = tableViewRefreshControl
     }
     
+    // MARK: - Handler
+    
+    /// Call when user wants to see player scene from tapping to cell.
+    func toPlayerScene() {
+        let storyboard = UIStoryboard(name: "Player", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        viewController.transitioningDelegate = self
+        viewController.interactor = interactor
+        viewController.hidesBottomBarWhenPushed = true
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
     // MARK: - Requests
     
     /**
@@ -145,6 +166,11 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return allAudios.count
     }
     
+    /// Returns the height of each row.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     /**
      Initializes `allAudios.count` rows.
      */
@@ -157,6 +183,7 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    /// Tells the delegate the table view is about to draw a cell for a particular row.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let audioCell = cell as? AudioCell {
             audioCell.delegate = self
@@ -211,6 +238,12 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    /// Tells the delegate that the specified row is now selected.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toPlayerScene()
+    }
+    
+    /// Conver time to milliseconds.
     func currentTimeMillis() -> String {
         let nowDouble = NSDate().timeIntervalSince1970
         return "\(Int64(nowDouble*1000))"
@@ -363,5 +396,23 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             })
         }
+    }
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    /// The delete method.
+    ///
+    /// - Parameter dismissed: The view controller.
+    /// - Returns: Object value.
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    
+    /// An object that implements the protocol vends the objects used to manage a fixed-length or interactive transition between view controllers
+    ///
+    /// - Parameter animator: The animator.
+    /// - Returns: Bool vaue if interactive transitiong.
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
 }
