@@ -18,7 +18,7 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     /// - Parameter transitionContext: The view controller context.
     /// - Returns: float time interval value.
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.2
+        return 0.1
     }
     
     /// The protocol’s method provide contextual information for transition animations between view controllers.

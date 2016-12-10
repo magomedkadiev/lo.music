@@ -17,6 +17,8 @@
 		3929DC4C1DECC2E200F7B383 /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929DC4B1DECC2E200F7B383 /* VKManager.swift */; };
 		392E5A9B1DDC88AC00A13ED9 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392E5A9A1DDC88AC00A13ED9 /* AudioViewController.swift */; };
 		3932F9C81DF70A3600859EC3 /* MDSOfferView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3932F9C71DF70A3600859EC3 /* MDSOfferView.framework */; };
+		394199D01DFB63CA00C8751A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394199CF1DFB63CA00C8751A /* TabBarViewController.swift */; };
+		394199D41DFB7BCD00C8751A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394199D31DFB7BCD00C8751A /* UITableView+Extension.swift */; };
 		394B2E4A1DE06C4900565177 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B2E491DE06C4900565177 /* RequestManager.swift */; };
 		394B2E4C1DE0783500565177 /* AudioItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B2E4B1DE0783500565177 /* AudioItem.swift */; };
 		394B2E4E1DE079D100565177 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B2E4D1DE079D100565177 /* AudioCell.swift */; };
@@ -59,6 +61,8 @@
 		3929DC4B1DECC2E200F7B383 /* VKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		392E5A9A1DDC88AC00A13ED9 /* AudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		3932F9C71DF70A3600859EC3 /* MDSOfferView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MDSOfferView.framework; path = Carthage/Build/iOS/MDSOfferView.framework; sourceTree = "<group>"; };
+		394199CF1DFB63CA00C8751A /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		394199D31DFB7BCD00C8751A /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		394B2E491DE06C4900565177 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		394B2E4B1DE0783500565177 /* AudioItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioItem.swift; sourceTree = "<group>"; };
 		394B2E4D1DE079D100565177 /* AudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				39B358AE1DEDE774002143DE /* User.swift */,
 				3918D82B1DDB813D0018FAA9 /* AppDelegate.swift */,
+				394199CF1DFB63CA00C8751A /* TabBarViewController.swift */,
 				39633D5B1DDB85610051D6BF /* Authorization.storyboard */,
 				39633D631DDB857E0051D6BF /* Main.storyboard */,
 				39633D651DDB858E0051D6BF /* Audio.storyboard */,
@@ -265,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				39F706E21DF7257900A36BBF /* Double+Extension.swift */,
+				394199D31DFB7BCD00C8751A /* UITableView+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				391949601DF5E291000CA149 /* PlayerViewController.swift in Sources */,
 				394B2E4A1DE06C4900565177 /* RequestManager.swift in Sources */,
 				39633D6F1DDB862F0051D6BF /* AuthorizationViewController.swift in Sources */,
+				394199D01DFB63CA00C8751A /* TabBarViewController.swift in Sources */,
 				39633D6B1DDB85EF0051D6BF /* Log.swift in Sources */,
 				39633D701DDB862F0051D6BF /* ProfileViewController.swift in Sources */,
 				392E5A9B1DDC88AC00A13ED9 /* AudioViewController.swift in Sources */,
@@ -399,6 +406,7 @@
 				394E0DD81DF44B0200297B5F /* SavedAudio.swift in Sources */,
 				39A38E181DF2EB0700EB9A19 /* DownloadManager.swift in Sources */,
 				391949631DF5F18D000CA149 /* Interactor.swift in Sources */,
+				394199D41DFB7BCD00C8751A /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,11 +19,10 @@ class PlayerViewController: UIViewController {
     
     // MARK: - Initialization
     
-    
     /// Initialazie view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     /// Calls when user tapped to hide controller button.
