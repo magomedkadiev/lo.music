@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,25 +40,51 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Хочется жить" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gx-cAH">
-                                                    <rect key="frame" x="16" y="8" width="260" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Al Rakhim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Ug-rGe">
-                                                    <rect key="frame" x="16" y="37" width="260" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2K-qE-7Uq" customClass="MDSOfferView">
-                                                    <rect key="frame" x="279" y="17" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="898-3D-EKp">
+                                                    <rect key="frame" x="16" y="8" width="255" height="44"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q0Y-2q-oDQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="255" height="44"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Хочется жить Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gx-cAH">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="255" height="29.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al Rakhim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Ug-rGe">
+                                                                    <rect key="frame" x="0.0" y="29.5" width="255" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="q0Y-2q-oDQ" firstAttribute="leading" secondItem="898-3D-EKp" secondAttribute="leading" id="05E-au-Lxr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="q0Y-2q-oDQ" secondAttribute="trailing" id="915-8p-2sl"/>
+                                                        <constraint firstItem="q0Y-2q-oDQ" firstAttribute="top" secondItem="898-3D-EKp" secondAttribute="top" id="U46-rB-T3f"/>
+                                                        <constraint firstAttribute="bottom" secondItem="q0Y-2q-oDQ" secondAttribute="bottom" id="ZPA-58-fXh"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2K-qE-7Uq" customClass="MDSOfferView">
+                                                    <rect key="frame" x="279" y="18" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="KvF-4H-gXg"/>
+                                                        <constraint firstAttribute="width" constant="25" id="ogn-w3-js3"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="898-3D-EKp" firstAttribute="top" secondItem="MOf-XW-Vbf" secondAttribute="top" constant="8" id="TP3-vJ-UEc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="z2K-qE-7Uq" secondAttribute="bottom" constant="8" id="U8u-7G-Uzt"/>
+                                                <constraint firstItem="z2K-qE-7Uq" firstAttribute="top" secondItem="MOf-XW-Vbf" secondAttribute="top" constant="18" id="e2h-AK-cj1"/>
+                                                <constraint firstAttribute="bottom" secondItem="898-3D-EKp" secondAttribute="bottom" constant="8" id="lDE-pq-20U"/>
+                                                <constraint firstItem="898-3D-EKp" firstAttribute="leading" secondItem="MOf-XW-Vbf" secondAttribute="leading" constant="16" id="rzM-90-mK4"/>
+                                                <constraint firstAttribute="trailing" secondItem="z2K-qE-7Uq" secondAttribute="trailing" constant="16" id="xgB-02-uSe"/>
+                                                <constraint firstItem="z2K-qE-7Uq" firstAttribute="leading" secondItem="898-3D-EKp" secondAttribute="trailing" constant="8" id="zSz-rx-OUG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="6xb-Ug-rGe" id="YxK-HA-KUR"/>
@@ -83,7 +110,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Песни" id="0Vx-1y-s3X">
                         <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="GDG-1E-xeq">
-                            <color key="tintColor" red="0.2206322862694301" green="0.2206322862694301" blue="0.2206322862694301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6z2-yK-20G" kind="presentation" id="SUt-YC-We4"/>
                             </connections>
@@ -111,12 +138,12 @@
         <scene sceneID="avz-MG-jkN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="koD-U8-xbT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_audio" id="gId-vL-qnx">
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_icon_audio" id="gId-vL-qnx">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="FFx-8d-zkb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FFx-8d-zkb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -132,6 +159,6 @@
     </scenes>
     <resources>
         <image name="contact" width="30" height="30"/>
-        <image name="icon_audio" width="22" height="22"/>
+        <image name="tab_bar_icon_audio" width="22" height="22"/>
     </resources>
 </document>

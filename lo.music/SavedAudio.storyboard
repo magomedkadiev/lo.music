@@ -39,21 +39,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-EC-nxH">
-                                                    <rect key="frame" x="16" y="8" width="296" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K3-eO-kWL">
-                                                    <rect key="frame" x="16" y="30" width="296" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-VJ-bvL">
+                                                    <rect key="frame" x="16" y="8" width="296" height="44"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-EC-nxH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="29.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K3-eO-kWL">
+                                                            <rect key="frame" x="0.0" y="29.5" width="296" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="JO4-VJ-bvL" secondAttribute="bottom" constant="8" id="F0b-nF-NkJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="JO4-VJ-bvL" secondAttribute="trailing" constant="8" id="RmN-PR-FR5"/>
+                                                <constraint firstItem="JO4-VJ-bvL" firstAttribute="top" secondItem="ars-6f-xIe" secondAttribute="top" constant="8" id="hQ8-8Y-Lcm"/>
+                                                <constraint firstItem="JO4-VJ-bvL" firstAttribute="leading" secondItem="ars-6f-xIe" secondAttribute="leading" constant="16" id="nKv-JB-rKK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="4K3-eO-kWL" id="QLJ-Jb-HrX"/>
@@ -78,7 +87,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Сохраненные" id="1eE-BW-hyE">
                         <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="N7W-ai-L8Y">
-                            <color key="tintColor" red="0.22063228630000001" green="0.22063228630000001" blue="0.22063228630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="rwu-az-wC3" kind="presentation" id="azz-4i-tvy"/>
                             </connections>
@@ -98,12 +107,12 @@
         <scene sceneID="TQi-hU-nUe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Etu-1w-QLq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_saved_audio" id="V6a-mO-BqQ">
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_icon_saved_audio" id="V6a-mO-BqQ">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="kaN-sM-ZPd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kaN-sM-ZPd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -127,6 +136,6 @@
     </scenes>
     <resources>
         <image name="contact" width="30" height="30"/>
-        <image name="icon_saved_audio" width="27" height="27"/>
+        <image name="tab_bar_icon_saved_audio" width="24" height="24"/>
     </resources>
 </document>

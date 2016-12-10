@@ -195,16 +195,17 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
             if downloaded {
                 
-                audioCell.offerView.state = .normal
-                audioCell.offerView.enabled = false
-                audioCell.offerView.setTitle("", for: .normal)
-                audioCell.offerView.actionButton.setTitle("", for: .normal)
-                audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "downloded"), for: .normal)
-                audioCell.offerView.actionButton.layer.cornerRadius = 0
-                audioCell.offerView.actionButton.layer.borderWidth = 0
+                audioCell.offerView.isHidden = true
+//                audioCell.offerView.enabled = false
+//                audioCell.offerView.setTitle("", for: .normal)
+//                audioCell.offerView.actionButton.setTitle("", for: .normal)
+//                audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "downloded"), for: .normal)
+//                audioCell.offerView.actionButton.layer.cornerRadius = 0
+//                audioCell.offerView.actionButton.layer.borderWidth = 0
                 
             } else {
-                
+                audioCell.offerView.isHidden = false
+
                 if let download = activeDownloads[audio.url] {
                     audioCell.offerView.setProgress(Double(download.progress), animated: true)
 

@@ -49,9 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        vkReference = VKManager()
-        UITabBar.appearance().tintColor = UIColor.white
-        
+        vkReference = VKManager()        
         return true
     }
 
