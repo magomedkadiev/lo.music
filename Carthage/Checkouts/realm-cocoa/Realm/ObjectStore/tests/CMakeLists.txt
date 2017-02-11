@@ -8,11 +8,12 @@ set(HEADERS
 
 set(SOURCES
     collection_change_indices.cpp
-    handover.cpp
+    thread_safe_reference.cpp
     index_set.cpp
     list.cpp
     main.cpp
     migrations.cpp
+    object.cpp
     object_store.cpp
     parser.cpp
     realm.cpp
@@ -22,6 +23,7 @@ set(SOURCES
     util/event_loop.cpp
     util/test_file.cpp
 )
+
 
 if(REALM_ENABLE_SYNC)
     list(APPEND HEADERS

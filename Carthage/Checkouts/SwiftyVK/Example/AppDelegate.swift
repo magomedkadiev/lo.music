@@ -22,8 +22,10 @@ var vkDelegateReference : VKDelegate?
         
         
         
+        @available(iOS 9.0, *)
         func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-            VK.process(url: url, options: options)
+            let app = options[.sourceApplication] as? String
+            VK.process(url: url, sourceApplication: app)
             return true
         }
         
@@ -34,12 +36,10 @@ var vkDelegateReference : VKDelegate?
             return true
         }
     }
-#endif
-
-
-
-
-#if os(OSX)
+    
+    
+    
+#elseif os(OSX)
     import Cocoa
     
     

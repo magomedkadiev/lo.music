@@ -311,15 +311,19 @@ class RealmCollectionTypeTests: TestCase {
         guard let collection = collection else {
             fatalError("Test precondition failed")
         }
-        var sorted = collection.sorted(byProperty: "stringCol", ascending: true)
+        var sorted = collection.sorted(byKeyPath: "stringCol", ascending: true)
         XCTAssertEqual("1", sorted[0].stringCol)
         XCTAssertEqual("2", sorted[1].stringCol)
 
-        sorted = collection.sorted(byProperty: "stringCol", ascending: false)
+        sorted = collection.sorted(byKeyPath: "stringCol", ascending: false)
         XCTAssertEqual("2", sorted[0].stringCol)
         XCTAssertEqual("1", sorted[1].stringCol)
 
-        assertThrows(collection.sorted(byProperty: "noSuchCol", ascending: true), named: "Invalid sort property")
+        sorted = collection.sorted(byKeyPath: "linkCol.id", ascending: true)
+        XCTAssertEqual("1", sorted[0].stringCol)
+        XCTAssertEqual("2", sorted[1].stringCol)
+
+        assertThrows(collection.sorted(byKeyPath: "noSuchCol", ascending: true), named: "Invalid property name")
     }
 
     func testSortWithDescriptor() {
@@ -329,19 +333,19 @@ class RealmCollectionTypeTests: TestCase {
         XCTAssertEqual(collection[0], notActuallySorted[0])
         XCTAssertEqual(collection[1], notActuallySorted[1])
 
-        var sorted = collection.sorted(by: [SortDescriptor(property: "intCol", ascending: true)])
+        var sorted = collection.sorted(by: [SortDescriptor(keyPath: "intCol", ascending: true)])
         XCTAssertEqual(1, sorted[0].intCol)
         XCTAssertEqual(2, sorted[1].intCol)
 
-        sorted = collection.sorted(by: [SortDescriptor(property: "doubleCol", ascending: false),
-            SortDescriptor(property: "intCol", ascending: false)])
+        sorted = collection.sorted(by: [SortDescriptor(keyPath: "doubleCol", ascending: false),
+            SortDescriptor(keyPath: "intCol", ascending: false)])
         XCTAssertEqual(2.22, sorted[0].doubleCol)
         XCTAssertEqual(3, sorted[0].intCol)
         XCTAssertEqual(2.22, sorted[1].doubleCol)
         XCTAssertEqual(2, sorted[1].intCol)
         XCTAssertEqual(1.11, sorted[2].doubleCol)
 
-        assertThrows(collection.sorted(by: [SortDescriptor(property: "noSuchCol")]), named: "Invalid sort property")
+        assertThrows(collection.sorted(by: [SortDescriptor(keyPath: "noSuchCol")]), named: "Invalid property name")
     }
 
     func testMin() {
@@ -481,7 +485,7 @@ class RealmCollectionTypeTests: TestCase {
             fatalError("Test precondition failed")
         }
 
-        let theExpectation = expectation(description: "")
+        var theExpectation = expectation(description: "")
         let token = collection.addNotificationBlock { (changes: RealmCollectionChange) in
             switch changes {
             case .initial(let collection):
@@ -499,7 +503,24 @@ class RealmCollectionTypeTests: TestCase {
         }
         waitForExpectations(timeout: 1, handler: nil)
 
+        // add a second notification and wait for it
+        theExpectation = expectation(description: "")
+        let token2 = collection.addNotificationBlock { _ in
+            theExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        // make a write and implicitly verify that only the unskipped
+        // notification is called (the first would error on .update)
+        theExpectation = expectation(description: "")
+        let realm = realmWithTestPath()
+        realm.beginWrite()
+        realm.delete(collection)
+        try! realm.commitWrite(withoutNotifying: [token])
+        waitForExpectations(timeout: 1, handler: nil)
+
         token.stop()
+        token2.stop()
     }
 
     func testValueForKeyPath() {
@@ -751,11 +772,11 @@ class ListRealmCollectionTypeTests: RealmCollectionTypeTests {
     func testAddNotificationBlockDirect() {
         let collection = collectionBase()
 
-        let theExpectation = expectation(description: "")
+        var theExpectation = expectation(description: "")
         let token = collection.addNotificationBlock { (changes: RealmCollectionChange) in
             switch changes {
-            case .initial(let list):
-                XCTAssertEqual(list.count, 2)
+            case .initial(let collection):
+                XCTAssertEqual(collection.count, 2)
                 break
             case .update:
                 XCTFail("Shouldn't happen")
@@ -764,11 +785,29 @@ class ListRealmCollectionTypeTests: RealmCollectionTypeTests {
                 XCTFail("Shouldn't happen")
                 break
             }
+
             theExpectation.fulfill()
         }
         waitForExpectations(timeout: 1, handler: nil)
 
+        // add a second notification and wait for it
+        theExpectation = expectation(description: "")
+        let token2 = collection.addNotificationBlock { _ in
+            theExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        // make a write and implicitly verify that only the unskipped
+        // notification is called (the first would error on .update)
+        theExpectation = expectation(description: "")
+        let realm = realmWithTestPath()
+        realm.beginWrite()
+        realm.delete(collection)
+        try! realm.commitWrite(withoutNotifying: [token])
+        waitForExpectations(timeout: 1, handler: nil)
+
         token.stop()
+        token2.stop()
     }
 }
 
@@ -808,9 +847,9 @@ class ListStandaloneRealmCollectionTypeTests: ListRealmCollectionTypeTests {
 
     override func testSortWithDescriptor() {
         let collection = getAggregateableCollection()
-        assertThrows(collection.sorted(by: [SortDescriptor(property: "intCol", ascending: true)]))
-        assertThrows(collection.sorted(by: [SortDescriptor(property: "doubleCol", ascending: false),
-            SortDescriptor(property: "intCol", ascending: false)]))
+        assertThrows(collection.sorted(by: [SortDescriptor(keyPath: "intCol", ascending: true)]))
+        assertThrows(collection.sorted(by: [SortDescriptor(keyPath: "doubleCol", ascending: false),
+            SortDescriptor(keyPath: "intCol", ascending: false)]))
     }
 
     override func testFastEnumerationWithMutation() {
@@ -837,8 +876,8 @@ class ListStandaloneRealmCollectionTypeTests: ListRealmCollectionTypeTests {
         guard let collection = collection else {
             fatalError("Test precondition failed")
         }
-        assertThrows(collection.sorted(byProperty: "stringCol", ascending: true))
-        assertThrows(collection.sorted(byProperty: "noSuchCol", ascending: true))
+        assertThrows(collection.sorted(byKeyPath: "stringCol", ascending: true))
+        assertThrows(collection.sorted(byKeyPath: "noSuchCol", ascending: true))
     }
 
     override func testFilterFormat() {
@@ -955,12 +994,12 @@ class ListStandaloneRealmCollectionTypeTests: ListRealmCollectionTypeTests {
         guard let collection = collection else {
             fatalError("Test precondition failed")
         }
-        assertThrows(collection.addNotificationBlock { (changes: RealmCollectionChange) in })
+        assertThrows(collection.addNotificationBlock { _ in })
     }
 
     override func testAddNotificationBlockDirect() {
         let collection = collectionBase()
-        assertThrows(collection.addNotificationBlock { (changes: RealmCollectionChange) in })
+        assertThrows(collection.addNotificationBlock { _ in })
     }
 }
 
@@ -1330,7 +1369,11 @@ class RealmCollectionTypeTests: TestCase {
         XCTAssertEqual("2", sorted[0].stringCol)
         XCTAssertEqual("1", sorted[1].stringCol)
 
-        assertThrows(self.collection.sorted("noSuchCol", ascending: true), named: "Invalid sort property")
+        sorted = collection.sorted("linkCol.id", ascending: true)
+        XCTAssertEqual("1", sorted[0].stringCol)
+        XCTAssertEqual("2", sorted[1].stringCol)
+
+        assertThrows(self.collection.sorted("noSuchCol", ascending: true), named: "Invalid property name")
     }
 
     func testSortWithDescriptor() {
@@ -1340,19 +1383,19 @@ class RealmCollectionTypeTests: TestCase {
         XCTAssertEqual(collection[0], notActuallySorted[0])
         XCTAssertEqual(collection[1], notActuallySorted[1])
 
-        var sorted = collection.sorted([SortDescriptor(property: "intCol", ascending: true)])
+        var sorted = collection.sorted([SortDescriptor(keyPath: "intCol", ascending: true)])
         XCTAssertEqual(1, sorted[0].intCol)
         XCTAssertEqual(2, sorted[1].intCol)
 
-        sorted = collection.sorted([SortDescriptor(property: "doubleCol", ascending: false),
-            SortDescriptor(property: "intCol", ascending: false)])
+        sorted = collection.sorted([SortDescriptor(keyPath: "doubleCol", ascending: false),
+            SortDescriptor(keyPath: "intCol", ascending: false)])
         XCTAssertEqual(2.22, sorted[0].doubleCol)
         XCTAssertEqual(3, sorted[0].intCol)
         XCTAssertEqual(2.22, sorted[1].doubleCol)
         XCTAssertEqual(2, sorted[1].intCol)
         XCTAssertEqual(1.11, sorted[2].doubleCol)
 
-        assertThrows(collection.sorted([SortDescriptor(property: "noSuchCol")]), named: "Invalid sort property")
+        assertThrows(collection.sorted([SortDescriptor(keyPath: "noSuchCol")]), named: "Invalid property name")
     }
 
     func testMin() {
@@ -1472,7 +1515,7 @@ class RealmCollectionTypeTests: TestCase {
     }
 
     func testAddNotificationBlock() {
-        let expectation = expectationWithDescription("")
+        var expectation = expectationWithDescription("")
         let token = collection.addNotificationBlock { (changes: RealmCollectionChange) in
             switch changes {
             case .Initial(let collection):
@@ -1490,7 +1533,24 @@ class RealmCollectionTypeTests: TestCase {
         }
         waitForExpectationsWithTimeout(1, handler: nil)
 
+        // add a second notification and wait for it
+        expectation = expectationWithDescription("")
+        let token2 = collection.addNotificationBlock { (changes: RealmCollectionChange) in
+            expectation.fulfill()
+        }
+        waitForExpectationsWithTimeout(1, handler: nil)
+
+        // make a write and implicitly verify that only the unskipped
+        // notification is called (the first would error on .update)
+        expectation = expectationWithDescription("")
+        let realm = realmWithTestPath()
+        realm.beginWrite()
+        realm.delete(collection)
+        try! realm.commitWrite(withoutNotifying: [token])
+        waitForExpectationsWithTimeout(1, handler: nil)
+
         token.stop()
+        token2.stop()
     }
 
     func testValueForKeyPath() {
@@ -1726,11 +1786,11 @@ class ListRealmCollectionTypeTests: RealmCollectionTypeTests {
     func testAddNotificationBlockDirect() {
         let collection = collectionBase()
 
-        let expectation = expectationWithDescription("")
+        var expectation = expectationWithDescription("")
         let token = collection.addNotificationBlock { (changes: RealmCollectionChange) in
             switch changes {
-            case .Initial(let list):
-                XCTAssertEqual(list.count, 2)
+            case .Initial(let collection):
+                XCTAssertEqual(collection.count, 2)
                 break
             case .Update:
                 XCTFail("Shouldn't happen")
@@ -1739,11 +1799,29 @@ class ListRealmCollectionTypeTests: RealmCollectionTypeTests {
                 XCTFail("Shouldn't happen")
                 break
             }
+
             expectation.fulfill()
         }
         waitForExpectationsWithTimeout(1, handler: nil)
 
+        // add a second notification and wait for it
+        expectation = expectationWithDescription("")
+        let token2 = collection.addNotificationBlock { (changes: RealmCollectionChange) in
+            expectation.fulfill()
+        }
+        waitForExpectationsWithTimeout(1, handler: nil)
+
+        // make a write and implicitly verify that only the unskipped
+        // notification is called (the first would error on .update)
+        expectation = expectationWithDescription("")
+        let realm = realmWithTestPath()
+        realm.beginWrite()
+        realm.delete(collection)
+        try! realm.commitWrite(withoutNotifying: [token])
+        waitForExpectationsWithTimeout(1, handler: nil)
+
         token.stop()
+        token2.stop()
     }
 }
 
@@ -1771,9 +1849,9 @@ class ListUnmanagedRealmCollectionTypeTests: ListRealmCollectionTypeTests {
 
     override func testSortWithDescriptor() {
         let collection = getAggregateableCollection()
-        assertThrows(collection.sorted([SortDescriptor(property: "intCol", ascending: true)]))
-        assertThrows(collection.sorted([SortDescriptor(property: "doubleCol", ascending: false),
-            SortDescriptor(property: "intCol", ascending: false)]))
+        assertThrows(collection.sorted([SortDescriptor(keyPath: "intCol", ascending: true)]))
+        assertThrows(collection.sorted([SortDescriptor(keyPath: "doubleCol", ascending: false),
+            SortDescriptor(keyPath: "intCol", ascending: false)]))
     }
 
     override func testFastEnumerationWithMutation() {

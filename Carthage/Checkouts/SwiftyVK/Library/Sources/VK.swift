@@ -1,8 +1,7 @@
 import Foundation
 #if os(iOS)
     import UIKit
-#endif
-#if os(OSX)
+#elseif os(OSX)
     import Cocoa
 #endif
 
@@ -67,25 +66,28 @@ public struct VK {
 
 
     /**
-     Getting authenticate token.
+     Gets authenticate token.
      * If the token is already stored in the file, then the authentication takes place in the background
      * If not, shows a pop-up notification with authorization request
      */
     public static func logIn() {
         _ = Authorizator.authorize()
     }
+    
+    
+    
+    /**
+     Creates a token from string
+     - parameter rawToken: token string repersented e.g. "487tajfalsf476tir0jfao4804slrjgsf3"
+     - parameter expiresIn: expiry time in milliseconds from now. By default = 0 (infinite token)
+     */
+    public static func logInWith(rawToken: String, expiresIn: Int = 0) {
+        Authorizator.authorizeWith(rawToken: rawToken, expiresIn: expiresIn)
+    }
 
 
 
     #if os(iOS)
-    @available(iOS 9.0, *)
-    public static func process(url: URL, options: [AnyHashable: Any]) {
-        Authorizator.recieveTokenURL(url: url, fromApp: options[UIApplicationOpenURLOptionsKey.sourceApplication.rawValue] as? String)
-    }
-
-
-    
-    @available(iOS, introduced:4.2, deprecated:9.0, message:"Please use url:options:")
     public static func process(url: URL, sourceApplication app: String?) {
         Authorizator.recieveTokenURL(url: url, fromApp: app)
     }
@@ -108,13 +110,21 @@ public struct VK {
 //
 //
 //
-//MARK: - States
+// MARK: - States
 extension VK {
     public enum States: Int, Comparable {
         case unknown = 0
-        case configured  = 1
-        //        case authorization
+        case configured = 1
+        // case authorization
         case authorized = 2
+        // equatable
+	public static func == (lhs: VK.States, rhs: VK.States) -> Bool {
+		return lhs.rawValue == rhs.rawValue
+	}
+	// comparable
+	public static func < (lhs: VK.States, rhs: VK.States) -> Bool {
+		return lhs.rawValue < rhs.rawValue
+	}
     }
     
     
@@ -139,35 +149,11 @@ extension VK {
 //
 //
 //
-//MARK: - Extensions
+// MARK: - Extensions
 extension VK {
     ///Access to the API methods
     public typealias API = _VKAPI
     public typealias SuccessBlock = (_ response: JSON) -> ()
     public typealias ErrorBlock = (_ error: Swift.Error) -> ()
     public typealias ProgressBlock = (_ done: Int64, _ total: Int64) -> ()
-}
-
-
-
-public func > (lhs: VK.States, rhs: VK.States) -> Bool {
-    return lhs.rawValue > rhs.rawValue
-}
-
-
-
-public func >= (lhs: VK.States, rhs: VK.States) -> Bool {
-    return lhs.rawValue >= rhs.rawValue
-}
-
-
-
-public func < (lhs: VK.States, rhs: VK.States) -> Bool {
-    return lhs.rawValue < rhs.rawValue
-}
-
-
-
-public func <= (lhs: VK.States, rhs: VK.States) -> Bool {
-    return lhs.rawValue <= rhs.rawValue
 }

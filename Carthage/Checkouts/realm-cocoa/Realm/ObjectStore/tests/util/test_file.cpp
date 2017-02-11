@@ -24,6 +24,7 @@
 #if REALM_ENABLE_SYNC
 #include "sync/sync_config.hpp"
 #include "sync/sync_manager.hpp"
+#include "sync/sync_session.hpp"
 #endif
 
 #include <realm/disable_sync_to_disk.hpp>
@@ -31,7 +32,15 @@
 #include <realm/string_data.hpp>
 
 #include <cstdlib>
+
+#if WIN32
+#include <io.h>
+#include <fcntl.h>
+
+inline static int mkstemp(char* _template) { return _open(_mktemp(_template), _O_CREAT | _O_TEMPORARY, _S_IREAD | _S_IWRITE); }
+#else
 #include <unistd.h>
+#endif
 
 #if REALM_HAVE_CLANG_FEATURE(thread_sanitizer)
 #include <condition_variable>
@@ -50,11 +59,22 @@ TestFile::TestFile()
         const char* dir = getenv("TMPDIR");
         if (dir && *dir)
             return dir;
+#if REALM_ANDROID
+        return "/data/local/tmp";
+#else
         return "/tmp";
+#endif
     }();
     path = tmpdir + "/realm.XXXXXX";
-    mktemp(&path[0]);
+    int fd = mkstemp(&path[0]);
+    if (fd < 0) {
+        int err = errno;
+        throw std::system_error(err, std::system_category());
+    }
+    close(fd);
     unlink(path.c_str());
+
+    schema_version = 0;
 }
 
 TestFile::~TestFile()
@@ -75,6 +95,21 @@ SyncTestFile::SyncTestFile(const SyncConfig& sync_config)
     schema_mode = SchemaMode::Additive;
 }
 
+SyncTestFile::SyncTestFile(SyncServer& server)
+{
+    auto name = path.substr(path.rfind('/') + 1);
+    auto url = server.url_for_realm(name);
+
+    sync_config = std::make_shared<SyncConfig>(SyncConfig{
+        SyncManager::shared().get_user("user", "not_a_real_token"),
+        url,
+        SyncSessionStopPolicy::Immediately,
+        [=](auto&, auto&, auto session) { session->refresh_access_token(s_test_token, url); },
+        [](auto, auto) { abort(); }
+    });
+    schema_mode = SchemaMode::Additive;
+}
+
 sync::Server::Config TestLogger::server_config() {
     sync::Server::Config config;
 #if TEST_ENABLE_SYNC_LOGGING
@@ -87,7 +122,7 @@ sync::Server::Config TestLogger::server_config() {
     return config;
 }
 
-SyncServer::SyncServer()
+SyncServer::SyncServer(bool start_immediately)
 : m_server(util::make_temp_dir(), util::none, TestLogger::server_config())
 {
 #if TEST_ENABLE_SYNC_LOGGING
@@ -105,18 +140,26 @@ SyncServer::SyncServer()
             m_server.start("127.0.0.1", util::to_string(port));
             break;
         }
-        catch (std::runtime_error) {
+        catch (std::runtime_error const&) {
             continue;
         }
     }
     m_url = util::format("realm://127.0.0.1:%1", port);
-    m_thread = std::thread([this]{ m_server.run(); });
+    if (start_immediately)
+        start();
 }
 
 SyncServer::~SyncServer()
 {
     m_server.stop();
-    m_thread.join();
+    if (m_thread.joinable())
+        m_thread.join();
+}
+
+void SyncServer::start()
+{
+    REALM_ASSERT(!m_thread.joinable());
+    m_thread = std::thread([this]{ m_server.run(); });
 }
 
 std::string SyncServer::url_for_realm(StringData realm_name) const

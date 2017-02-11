@@ -177,14 +177,14 @@
     @autoreleasepool {
         XCTAssertNoThrow([self realmWithTestPath]);
     }
-    
+
     // Make Realm at test path temporarily unreadable
     NSError *error;
     NSNumber *permissions = [NSFileManager.defaultManager attributesOfItemAtPath:RLMTestRealmURL().path error:&error][NSFilePosixPermissions];
     assert(!error);
     [NSFileManager.defaultManager setAttributes:@{NSFilePosixPermissions: @(0000)} ofItemAtPath:RLMTestRealmURL().path error:&error];
     assert(!error);
-    
+
     RLMAssertThrowsWithCodeMatching([self realmWithTestPath], RLMErrorFilePermissionDenied);
 
     [NSFileManager.defaultManager setAttributes:@{NSFilePosixPermissions: permissions} ofItemAtPath:RLMTestRealmURL().path error:&error];
@@ -203,6 +203,26 @@
     else \
         XCTAssertEqualObjects(oldData, newData); \
 } while (0)
+
+- (void)testFileFormatUpgradeRequiredDeleteRealmIfNeeded {
+    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    config.deleteRealmIfMigrationNeeded = YES;
+
+    NSURL *bundledRealmURL = [[NSBundle bundleForClass:[RealmTests class]] URLForResource:@"fileformat-pre-null" withExtension:@"realm"];
+    [NSFileManager.defaultManager copyItemAtURL:bundledRealmURL toURL:config.fileURL error:nil];
+
+    @autoreleasepool {
+        XCTAssertTrue([[RLMRealm realmWithConfiguration:config error:nil] isEmpty]);
+    }
+
+    bundledRealmURL = [[NSBundle bundleForClass:[RealmTests class]] URLForResource:@"fileformat-old-date" withExtension:@"realm"];
+    [NSFileManager.defaultManager removeItemAtURL:config.fileURL error:nil];
+    [NSFileManager.defaultManager copyItemAtURL:bundledRealmURL toURL:config.fileURL error:nil];
+
+    @autoreleasepool {
+        XCTAssertTrue([[RLMRealm realmWithConfiguration:config error:nil] isEmpty]);
+    }
+}
 
 - (void)testFileFormatUpgradeRequiredButDisabled {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
@@ -837,6 +857,122 @@
     [token stop];
 }
 
+- (void)testBeginWriteTransactionFromWithinRefreshRequiredNotification {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    realm.autorefresh = NO;
+
+    auto expectation = [self expectationWithDescription:@""];
+    RLMNotificationToken *token = [realm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
+        XCTAssertEqual(RLMRealmRefreshRequiredNotification, note);
+        XCTAssertEqual(0U, [StringObject allObjectsInRealm:realm].count);
+        [realm beginWriteTransaction];
+        XCTAssertEqual(1U, [StringObject allObjectsInRealm:realm].count);
+        [realm cancelWriteTransaction];
+        [expectation fulfill]; // note that this will throw if the notification is incorrectly called twice
+    }];
+
+    [self dispatchAsyncAndWait:^{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [StringObject createInRealm:realm withValue:@[@"string"]];
+        [realm commitWriteTransaction];
+    }];
+
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
+    [token stop];
+}
+
+- (void)testBeginWriteTransactionFromWithinRealmChangedNotification {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+
+    auto createObject = ^{
+        [self dispatchAsyncAndWait:^{
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            [StringObject createInRealm:realm withValue:@[@"string"]];
+            [realm commitWriteTransaction];
+        }];
+    };
+
+    // Test with the triggering transaction on a different thread
+    auto expectation = [self expectationWithDescription:@""];
+    RLMNotificationToken *token = [realm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
+        XCTAssertEqual(RLMRealmDidChangeNotification, note);
+
+        // We're in DidChange, so the first object is already present
+        XCTAssertEqual(1U, [StringObject allObjectsInRealm:realm].count);
+        createObject();
+
+        // Haven't refreshed yet, so still one
+        XCTAssertEqual(1U, [StringObject allObjectsInRealm:realm].count);
+
+        // Refreshes without sending notifications since we're within a notification
+        [realm beginWriteTransaction];
+        XCTAssertEqual(2U, [StringObject allObjectsInRealm:realm].count);
+        [realm cancelWriteTransaction];
+        [expectation fulfill]; // note that this will throw if the notification is incorrectly called twice
+    }];
+
+    createObject();
+
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
+    [token stop];
+
+    // Test with the triggering transaction on the same thread
+    __block bool first = true;
+    token = [realm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
+        XCTAssertTrue(first);
+        XCTAssertEqual(RLMRealmDidChangeNotification, note);
+        XCTAssertEqual(3U, [StringObject allObjectsInRealm:realm].count);
+        first = false;
+
+        [realm beginWriteTransaction]; // should not trigger a notification
+        [StringObject createInRealm:realm withValue:@[@"string"]];
+        [realm commitWriteTransaction]; // also should not trigger a notification
+    }];
+
+    [realm beginWriteTransaction];
+    [StringObject createInRealm:realm withValue:@[@"string"]];
+    [realm commitWriteTransaction];
+}
+
+- (void)testBeginWriteTransactionFromWithinCollectionChangedNotification {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+
+    auto createObject = ^{
+        [self dispatchAsyncAndWait:^{
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            [StringObject createInRealm:realm withValue:@[@"string"]];
+            [realm commitWriteTransaction];
+        }];
+    };
+
+    __block auto expectation = [self expectationWithDescription:@""];
+    __block RLMNotificationToken *token;
+    auto block = ^(RLMResults *results, RLMCollectionChange *changes, NSError *) {
+        if (!changes) {
+            [expectation fulfill];
+            return;
+        }
+
+        XCTAssertEqual(1U, results.count);
+        createObject();
+        XCTAssertEqual(1U, results.count);
+        [realm beginWriteTransaction];
+        XCTAssertEqual(2U, results.count);
+        [realm cancelWriteTransaction];
+        [expectation fulfill];
+        [token stop];
+    };
+    token = [StringObject.allObjects addNotificationBlock:block];
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
+
+    createObject();
+    expectation = [self expectationWithDescription:@""];
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
+}
+
 - (void)testReadOnlyRealmIsImmutable
 {
     @autoreleasepool { [self realmWithTestPath]; }
@@ -1133,7 +1269,7 @@
     [token stop];
 }
 
-- (void)testThrowingFromDidChangeNotificationCancelsTransaction {
+- (void)testThrowingFromDidChangeNotificationFromBeginWriteCancelsTransaction {
     RLMRealm *realm = RLMRealm.defaultRealm;
     realm.autorefresh = NO;
 
@@ -1149,6 +1285,29 @@
 
     try {
         [realm beginWriteTransaction];
+        XCTFail(@"should have thrown");
+    }
+    catch (int) { }
+    [token stop];
+
+    XCTAssertFalse(realm.inWriteTransaction);
+    XCTAssertNoThrow([realm beginWriteTransaction]);
+    [realm cancelWriteTransaction];
+}
+
+- (void)testThrowingFromDidChangeNotificationAfterLocalCommit {
+    RLMRealm *realm = RLMRealm.defaultRealm;
+    realm.autorefresh = NO;
+
+    RLMNotificationToken *token = [realm addNotificationBlock:^(NSString *note, RLMRealm *) {
+        if (note == RLMRealmDidChangeNotification) {
+            throw 0;
+        }
+    }];
+
+    [realm beginWriteTransaction];
+    try {
+        [realm commitWriteTransaction];
         XCTFail(@"should have thrown");
     }
     catch (int) { }
@@ -1331,7 +1490,7 @@
     RLMResults *results = [IntObject allObjectsInRealm:realm];
     XCTAssertEqual(0U, results.count);
     XCTAssertEqual(results, [results objectsWhere:@"intCol = 5"]);
-    XCTAssertEqual(results, [results sortedResultsUsingProperty:@"intCol" ascending:YES]);
+    XCTAssertEqual(results, [results sortedResultsUsingKeyPath:@"intCol" ascending:YES]);
     XCTAssertThrows([results objectAtIndex:0]);
     XCTAssertEqual(NSNotFound, [results indexOfObject:self.nonLiteralNil]);
     XCTAssertEqual(NSNotFound, [results indexOfObjectWhere:@"intCol = 5"]);
@@ -1684,10 +1843,6 @@
         [expectation fulfill];
     });
     [self waitForExpectationsWithTimeout:1 handler:nil];
-}
-
-- (void)runBlock:(void (^)())block {
-    block();
 }
 
 @end

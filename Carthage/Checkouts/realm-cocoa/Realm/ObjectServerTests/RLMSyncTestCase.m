@@ -22,7 +22,6 @@
 #import <Realm/Realm.h>
 
 #import "RLMSyncManager+ObjectServerTests.h"
-#import "RLMSyncUser+ObjectServerTests.h"
 
 #if !TARGET_OS_MAC
 #error These tests can only be run on a macOS host.
@@ -37,7 +36,25 @@
 @property (nonatomic) NSTask *task;
 @end
 
+@interface RLMSyncSession ()
+- (BOOL)waitForUploadCompletionOnQueue:(dispatch_queue_t)queue callback:(void(^)(void))callback;
+- (BOOL)waitForDownloadCompletionOnQueue:(dispatch_queue_t)queue callback:(void(^)(void))callback;
+@end
+
 @implementation SyncObject
+@end
+
+@implementation HugeSyncObject
+
++ (instancetype)object  {
+    const NSInteger fakeDataSize = 1000000;
+    HugeSyncObject *object = [[self alloc] init];
+    char fakeData[fakeDataSize];
+    memset(fakeData, sizeof(fakeData), 16);
+    object.dataProp = [NSData dataWithBytes:fakeData length:sizeof(fakeData)];
+    return object;
+}
+
 @end
 
 static NSTask *s_task;
@@ -83,7 +100,7 @@ static NSURL *syncDirectoryForChildProcess() {
 - (void)addSyncObjectsToRealm:(RLMRealm *)realm descriptions:(NSArray<NSString *> *)descriptions {
     [realm beginWriteTransaction];
     for (NSString *desc in descriptions) {
-        [realm addObject:[[SyncObject alloc] initWithValue:@[desc]]];
+        [SyncObject createInRealm:realm withValue:@[desc]];
     }
     [realm commitWriteTransaction];
 }
@@ -95,49 +112,33 @@ static NSURL *syncDirectoryForChildProcess() {
     NSAssert(realms.count == counts.count && realms.count == realmURLs.count,
              @"Test logic error: all array arguments must be the same size.");
     for (NSUInteger i = 0; i < realms.count; i++) {
-        WAIT_FOR_DOWNLOAD(user, realmURLs[i]);
+        [self waitForDownloadsForUser:user url:realmURLs[i]];
         [realms[i] refresh];
         CHECK_COUNT([counts[i] integerValue], SyncObject, realms[i]);
     }
 }
 
 - (RLMRealm *)openRealmForURL:(NSURL *)url user:(RLMSyncUser *)user {
-    NSError *error = nil;
     const NSTimeInterval timeout = 4;
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    RLMSyncBasicErrorReportingBlock basicBlock = ^(NSError *error) {
+    RLMSyncManager.sharedManager.sessionCompletionNotifier = ^(NSError *error) {
         if (error) {
             XCTFail(@"Received an asynchronous error: %@ (process: %@)", error, self.isParent ? @"parent" : @"child");
         }
         dispatch_semaphore_signal(sema);
     };
-    [[RLMSyncManager sharedManager] setSessionCompletionNotifier:basicBlock];
-    RLMRealmConfiguration *c = [[RLMRealmConfiguration defaultConfiguration] copy];
-    c.syncConfiguration = [[RLMSyncConfiguration alloc] initWithUser:user realmURL:url];
-    RLMRealm *realm = [RLMRealm realmWithConfiguration:c error:&error];
+
+    RLMRealm *realm = [self immediatelyOpenRealmForURL:url user:user];
     // Wait for login to succeed or fail.
     XCTAssert(dispatch_semaphore_wait(sema, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC))) == 0,
               @"Timed out while trying to asynchronously open Realm for URL: %@", url);
     return realm;
 }
 
-- (RLMRealm *)managementRealmForUser:(RLMSyncUser *)user {
-    NSError *error = nil;
-    RLMRealm *managementRealm = [user managementRealmWithError:&error];
-
-    XCTAssertNotNil(managementRealm);
-    XCTAssertNil(error, @"Error when opening management Realm: %@", error);
-
-    return managementRealm;
-}
-
 - (RLMRealm *)immediatelyOpenRealmForURL:(NSURL *)url user:(RLMSyncUser *)user {
-    NSError *error = nil;
-    RLMRealmConfiguration *c = [[RLMRealmConfiguration defaultConfiguration] copy];
+    RLMRealmConfiguration *c = [RLMRealmConfiguration defaultConfiguration];
     c.syncConfiguration = [[RLMSyncConfiguration alloc] initWithUser:user realmURL:url];
-    RLMRealm *realm = [RLMRealm realmWithConfiguration:c error:&error];
-    XCTAssertNil(error, @"Experienced an error opening the Realm at %@: %@", url, error);
-    return realm;
+    return [RLMRealm realmWithConfiguration:c error:nil];
 }
 
 - (RLMSyncUser *)logInUserForCredentials:(RLMSyncCredentials *)credentials
@@ -159,6 +160,28 @@ static NSURL *syncDirectoryForChildProcess() {
     XCTAssertTrue(theUser.state == RLMSyncUserStateActive,
                   @"User should have been valid, but wasn't. (process: %@)", process);
     return theUser;
+}
+
+- (void)waitForDownloadsForUser:(RLMSyncUser *)user url:(NSURL *)url {
+    RLMSyncSession *session = [user sessionForURL:url];
+    NSAssert(session, @"Cannot call with invalid URL");
+    XCTestExpectation *ex = [self expectationWithDescription:@"Download waiter expectation"];
+    [session waitForDownloadCompletionOnQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
+                                     callback:^{
+                                         [ex fulfill];
+                                     }];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)waitForUploadsForUser:(RLMSyncUser *)user url:(NSURL *)url {
+    RLMSyncSession *session = [user sessionForURL:url];
+    NSAssert(session, @"Cannot call with invalid URL");
+    XCTestExpectation *ex = [self expectationWithDescription:@"Upload waiter expectation"];
+    [session waitForUploadCompletionOnQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
+                                                    callback:^{
+                                                        [ex fulfill];
+                                                    }];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 // FIXME: remove this API once the new token system is implemented.

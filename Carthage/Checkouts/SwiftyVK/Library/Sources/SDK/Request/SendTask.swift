@@ -16,21 +16,14 @@ internal final class SendTask: Operation {
 
 
     override var description: String {
-        return "send task #\(delegate.id)-\(id)"
+        return "task #\(delegate.id)-\(id)"
     }
 
 
 
     static func createWith(id: Int, config: RequestConfig, delegate: RequestInstance) -> SendTask {
         let operation = SendTask(id: id, config: config, delegate: delegate)
-
-
-        if config.api {
-            SendQueue.queue.addApi(operation)
-        }
-        else {
-            SendQueue.queue.addNotApi(operation)
-        }
+        SendQueue.queue.add(task: operation, api: config.api)
         return operation
     }
 
@@ -47,27 +40,26 @@ internal final class SendTask: Operation {
 
 
 
-
     override func main() {
         let semaphore = DispatchSemaphore(value: 0)
 
         let completeon: (Data?, URLResponse?, Error?) -> () = {data, response, error in
-            guard !self.isCancelled else {
+            
+            defer {
                 semaphore.signal()
-                return
             }
+            
+            guard !self.isCancelled else {return}
 
-            if let data = data {
-                self.delegate.handle(data: data)
-            }
-            else if let error = error {
+            if let error = error {
                 self.delegate.handle(error: error)
+            }
+            else if let data = data {
+                self.delegate.handle(data: data)
             }
             else {
                 self.delegate.handle(error: RequestError.unexpectedResponse)
             }
-
-            semaphore.signal()
         }
 
         let urlRequest = UrlFabric.createWith(config: config)

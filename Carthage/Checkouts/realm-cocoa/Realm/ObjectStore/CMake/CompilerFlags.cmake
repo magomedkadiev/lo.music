@@ -16,21 +16,38 @@
 #
 ###########################################################################
 
+include(CheckSymbolExists)
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_EXTENSIONS off)
-add_compile_options("$<$<CONFIG:DEBUG>:-DREALM_DEBUG>")
-add_compile_options("$<$<CONFIG:COVERAGE>:-DREALM_DEBUG>")
-add_compile_options(
-    -DREALM_HAVE_CONFIG
-    -Wall
-    -Wextra
-    -Wno-missing-field-initializers
-    -Wempty-body
-    -Wparentheses
-    -Wunknown-pragmas
-    -Wunreachable-code
+
+set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS
+    $<$<CONFIG:DEBUG>:REALM_DEBUG>
+    $<$<CONFIG:COVERAGE>:REALM_DEBUG>
 )
+
+if(${CMAKE_CXX_COMPILER_ID} MATCHES "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
+    add_compile_options(
+        -Wall
+        -Wextra
+        -Wno-missing-field-initializers
+        -Wempty-body
+        -Wparentheses
+        -Wunknown-pragmas
+        -Wunreachable-code
+        -DREALM_HAVE_CONFIG
+    )
+endif()
+
+if(MSVC)
+    add_definitions(
+        /D_UNICODE
+        /DPTW32_STATIC_LIB
+        /D_CRT_SECURE_NO_WARNINGS
+        /D_SCL_SECURE_NO_WARNINGS
+    )
+endif()
 
 if(${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
     add_compile_options(
@@ -68,9 +85,20 @@ elseif(REALM_PLATFORM STREQUAL "Android")
 endif()
 
 if(REALM_PLATFORM STREQUAL "Node")
-    find_library(UV_LIBRARY NAMES uv libuv)
+    set(PLATFORM_DEFINES "REALM_PLATFORM_NODE=1")
+endif()
+
+find_library(UV_LIBRARY NAMES uv libuv)
+if(UV_LIBRARY)
     find_path(UV_INCLUDE_DIR uv.h)
 
-    set(PLATFORM_DEFINES "REALM_PLATFORM_NODE=1")
     list(APPEND PLATFORM_LIBRARIES ${UV_LIBRARY})
+    add_definitions(-DREALM_HAVE_UV)
+elseif(REALM_PLATFORM STREQUAL "Node")
+    message(FATAL_ERROR "Platform set to Node but libuv was not found!")
+endif()
+
+check_symbol_exists(epoll_create sys/epoll.h REALM_HAVE_EPOLL)
+if(REALM_HAVE_EPOLL)
+    add_definitions(-DREALM_HAVE_EPOLL)
 endif()

@@ -84,7 +84,7 @@ class SwiftPerformanceTests: TestCase {
         }
     }
 
-    func inMeasureBlock(block: @escaping () -> ()) {
+    func inMeasureBlock(block: @escaping () -> Void) {
         measureMetrics(type(of: self).defaultPerformanceMetrics(), automaticallyStartMeasuring: false) {
             _ = block()
         }
@@ -334,7 +334,7 @@ class SwiftPerformanceTests: TestCase {
             }
         }
         measure {
-            _ = realm.objects(SwiftIntObject.self).sorted(byProperty: "intCol", ascending: true).last
+            _ = realm.objects(SwiftIntObject.self).sorted(byKeyPath: "intCol", ascending: true).last
         }
     }
 
@@ -478,7 +478,7 @@ class SwiftPerformanceTests: TestCase {
             while object.intCol < stopValue {
                 RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: Date.distantFuture)
             }
-            queue.sync() {}
+            queue.sync {}
             self.stopMeasuring()
             token.stop()
         }
@@ -550,7 +550,7 @@ class SwiftPerformanceTests: TestCase {
         }
     }
 
-    func inMeasureBlock(block: () -> ()) {
+    func inMeasureBlock(block: () -> Void) {
         measureMetrics(self.dynamicType.defaultPerformanceMetrics(), automaticallyStartMeasuring: false) {
             _ = block()
         }

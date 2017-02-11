@@ -1,7 +1,173 @@
+2.3.0 Release notes (2017-01-19)
+=============================================================
+
+### Sync Breaking Changes
+
+* Make `PermissionChange`'s `id` property a primary key.
+
+### API Breaking Changes
+
+* None.
+
+### Enhancements
+
+* Add `SyncPermissionOffer` and `SyncPermissionOfferResponse` classes to allow
+  creating and accepting permission change events to synchronized Realms between
+  different users.
+* Support monitoring sync transfer progress by registering notification blocks
+  on `SyncSession`. Specify the transfer direction (`.upload`/`.download`) and
+  mode (`.reportIndefinitely`/`.forCurrentlyOutstandingWork`) to monitor.
+
+### Bugfixes
+
+* Fix a call to `commitWrite(withoutNotifying:)` committing a transaction that
+  would not have triggered a notification incorrectly skipping the next
+  notification.
+* Fix incorrect results and crashes when conflicting object insertions are
+  merged by the synchronization mechanism when there is a collection
+  notification registered for that object type.
+
+2.2.0 Release notes (2017-01-12)
+=============================================================
+
+### Sync Breaking Changes (In Beta)
+
+* Sync-related error reporting behavior has been changed. Errors not related
+  to a particular user or session are only reported if they are classed as
+  'fatal' by the underlying sync engine.
+* Added `RLMSyncErrorClientResetError` to `RLMSyncError` enum.
+
+### API Breaking Changes
+
+* The following Objective-C APIs have been deprecated in favor of newer or preferred versions:
+
+| Deprecated API                                              | New API                                                     |
+|:------------------------------------------------------------|:------------------------------------------------------------|
+| `-[RLMArray sortedResultsUsingProperty:]`                   | `-[RLMArray sortedResultsUsingKeyPath:]`                    |
+| `-[RLMCollection sortedResultsUsingProperty:]`              | `-[RLMCollection sortedResultsUsingKeyPath:]`               |
+| `-[RLMResults sortedResultsUsingProperty:]`                 | `-[RLMResults sortedResultsUsingKeyPath:]`                  |
+| `+[RLMSortDescriptor sortDescriptorWithProperty:ascending]` | `+[RLMSortDescriptor sortDescriptorWithKeyPath:ascending:]` |
+| `RLMSortDescriptor.property`                                | `RLMSortDescriptor.keyPath`                                 |
+
+* The following Swift APIs have been deprecated in favor of newer or preferred versions:
+
+| Deprecated API                                        | New API                                          |
+|:------------------------------------------------------|:-------------------------------------------------|
+| `LinkingObjects.sorted(byProperty:ascending:)`        | `LinkingObjects.sorted(byKeyPath:ascending:)`    |
+| `List.sorted(byProperty:ascending:)`                  | `List.sorted(byKeyPath:ascending:)`              |
+| `RealmCollection.sorted(byProperty:ascending:)`       | `RealmCollection.sorted(byKeyPath:ascending:)`   |
+| `Results.sorted(byProperty:ascending:)`               | `Results.sorted(byKeyPath:ascending:)`           |
+| `SortDescriptor(property:ascending:)`                 | `SortDescriptor(keyPath:ascending:)`             |
+| `SortDescriptor.property`                             | `SortDescriptor.keyPath`                         |
+
+### Enhancements
+
+* Introduce APIs for safely passing objects between threads. Create a
+  thread-safe reference to a thread-confined object by passing it to the
+  `+[RLMThreadSafeReference referenceWithThreadConfined:]`/`ThreadSafeReference(to:)`
+  constructor, which you can then safely pass to another thread to resolve in
+  the new Realm with `-[RLMRealm resolveThreadSafeReference:]`/`Realm.resolve(_:)`.
+* Realm collections can now be sorted by properties over to-one relationships.
+* Optimized `CONTAINS` queries to use Boyer-Moore algorithm
+  (around 10x speedup on large datasets).
+
+### Bugfixes
+
+* Setting `deleteRealmIfMigrationNeeded` now also deletes the Realm if a file
+  format migration is required, such as when moving from a file last accessed
+  with Realm 0.x to 1.x, or 1.x to 2.x.
+* Fix queries containing nested `SUBQUERY` expressions.
+* Fix spurious incorrect thread exceptions when a thread id happens to be
+  reused while an RLMRealm instance from the old thread still exists.
+* Fixed various bugs in aggregate methods (max, min, avg, sum).
+
+2.1.2 Release notes (2016--12-19)
+=============================================================
+
+This release adds binary versions of Swift 3.0.2 frameworks built with Xcode 8.2.
+
+### Sync Breaking Changes (In Beta)
+
+* Rename occurences of "iCloud" with "CloudKit" in APIs and comments to match
+  naming in the Realm Object Server.
+
+### API Breaking Changes
+
+* None.
+
+### Enhancements
+
+* Add support for 'LIKE' queries (wildcard matching).
+
+### Bugfixes
+
+* Fix authenticating with CloudKit.
+* Fix linker warning about "Direct access to global weak symbol".
+
+2.1.1 Release notes (2016-12-02)
+=============================================================
+
+### Enhancements
+
+* Add `RealmSwift.ObjectiveCSupport.convert(object:)` methods to help write
+  code that interoperates between Realm Objective-C and Realm Swift APIs.
+* Throw exceptions when opening a Realm with an incorrect configuration, like:
+    * `readOnly` set with a sync configuration.
+    * `readOnly` set with a migration block.
+    * migration block set with a sync configuration.
+* Greatly improve performance of write transactions which make a large number of
+  changes to indexed properties, including the automatic migration when opening
+  files written by Realm 1.x.
+
+### Bugfixes
+
+* Reset sync metadata Realm in case of decryption error.
+* Fix issue preventing using synchronized Realms in Xcode Playgrounds.
+* Fix assertion failure when migrating a model property from object type to
+  `RLMLinkingObjects` type.
+* Fix a `LogicError: Bad version number` exception when using `RLMResults` with
+  no notification blocks and explicitly called `-[RLMRealm refresh]` from that
+  thread.
+* Logged-out users are no longer returned from `+[RLMSyncUser currentUser]` or
+  `+[RLMSyncUser allUsers]`.
+* Fix several issues which could occur when the 1001st object of a given type
+  was created or added to an RLMArray/List, including crashes when rerunning
+  existing queries and possibly data corruption.
+* Fix a potential crash when the application exits due to a race condition in
+  the destruction of global static variables.
+* Fix race conditions when waiting for sync uploads or downloads to complete
+  which could result in crashes or the callback being called too early.
+
+2.1.0 Release notes (2016-11-18)
+=============================================================
+
+### Sync Breaking Changes (In Beta)
+
+* None.
+
+### API breaking changes
+
+* None.
+
+### Enhancements
+
+* Add the ability to skip calling specific notification blocks when committing
+  a write transaction.
+
+### Bugfixes
+
+* Deliver collection notifications when beginning a write transaction which
+  advances the read version of a Realm (previously only Realm-level
+  notifications were sent).
+* Fix some scenarios which would lead to inconsistent states when using
+  collection notifications.
+* Fix several race conditions in the notification functionality.
+* Don't send Realm change notifications when canceling a write transaction.
+
 2.0.4 Release notes (2016-11-14)
 =============================================================
 
-### API breaking changes
+### Sync Breaking Changes (In Beta)
 
 * Remove `RLMAuthenticationActions` and replace
   `+[RLMSyncCredential credentialWithUsername:password:actions:]` with
@@ -21,6 +187,10 @@
   struct rather than a named tuple.
 * `+[RLMSyncUser logInWithCredentials:]` now invokes its callback block on a
   background queue.
+
+### API breaking changes
+
+* None.
 
 ### Enhancements
 

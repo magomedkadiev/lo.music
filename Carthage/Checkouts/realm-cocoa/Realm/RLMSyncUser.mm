@@ -123,7 +123,8 @@ using namespace realm;
     if (!_user) {
         return nil;
     }
-    return [[RLMSyncSession alloc] initWithSyncSession:_user->session_for_url([[url absoluteString] UTF8String])];
+    auto path = SyncManager::shared().path_for_realm(_user->identity(), [url.absoluteString UTF8String]);
+    return [[RLMSyncSession alloc] initWithSyncSession:_user->session_for_on_disk_path(path)];
 }
 
 - (NSArray<RLMSyncSession *> *)allSessions {
@@ -205,46 +206,46 @@ using namespace realm;
                 }
                 [[RLMSyncManager sharedManager] _fireError:error];
                 return;
-            } else {
-                // SUCCESS
-                NSString *accessToken = model.accessToken.token;
-                RLMServerPath resolvedPath = model.accessToken.tokenData.path;
-                // Munge the path onto the original URL, because reasons.
-                NSURLComponents *urlBuffer = [NSURLComponents componentsWithURL:realmURL resolvingAgainstBaseURL:YES];
-                urlBuffer.path = resolvedPath;
-                NSString *resolvedURLString = [[urlBuffer URL] absoluteString];
-                if (!resolvedURLString) {
-                    @throw RLMException(@"Resolved path returned from the server was invalid (%@).", resolvedPath);
-                }
-                // Refresh the access token.
-                std::string resolved_url = resolvedURLString.UTF8String;
-                session->refresh_access_token([accessToken UTF8String], util::make_optional(std::move(resolved_url)));
-                bool success = session->is_valid();
-                if (success) {
-                    // Schedule the session for automatic refreshing on a timer.
-                    auto handle = [[RLMSyncSessionRefreshHandle alloc] initWithFullURLPath:resolvedURLString
-                                                                                      user:self
-                                                                                   session:session];
-                    [self.refreshHandles[resolvedURLString] invalidate];
-                    self.refreshHandles[resolvedURLString] = handle;
-                    [handle scheduleRefreshTimer:model.accessToken.tokenData.expires];
-                }
-                if (completion) {
-                    completion(success ? nil : [NSError errorWithDomain:RLMSyncErrorDomain
-                                                                   code:RLMSyncErrorClientSessionError
-                                                               userInfo:nil]);
-                }
             }
-        } else {
-            // Something else went wrong
-            NSError *syncError = [NSError errorWithDomain:RLMSyncErrorDomain
-                                                     code:RLMSyncErrorBadResponse
-                                                 userInfo:@{kRLMSyncUnderlyingErrorKey: error}];
+
+            // SUCCESS
+            NSString *accessToken = model.accessToken.token;
+            RLMServerPath resolvedPath = model.accessToken.tokenData.path;
+            // Munge the path onto the original URL, because reasons.
+            NSURLComponents *urlBuffer = [NSURLComponents componentsWithURL:realmURL resolvingAgainstBaseURL:YES];
+            urlBuffer.path = resolvedPath;
+            NSString *resolvedURLString = [[urlBuffer URL] absoluteString];
+            if (!resolvedURLString) {
+                @throw RLMException(@"Resolved path returned from the server was invalid (%@).", resolvedPath);
+            }
+            // Refresh the access token.
+            session->refresh_access_token([accessToken UTF8String], {resolvedURLString.UTF8String});
+            bool success = session->state() != SyncSession::PublicState::Error;
+            if (success) {
+                // Schedule the session for automatic refreshing on a timer.
+                auto handle = [[RLMSyncSessionRefreshHandle alloc] initWithFullURLPath:resolvedURLString
+                                                                                  user:self
+                                                                               session:session];
+                [self.refreshHandles[resolvedURLString] invalidate];
+                self.refreshHandles[resolvedURLString] = handle;
+                [handle scheduleRefreshTimer:model.accessToken.tokenData.expires];
+            }
             if (completion) {
-                completion(syncError);
+                completion(success ? nil : [NSError errorWithDomain:RLMSyncErrorDomain
+                                                               code:RLMSyncErrorClientSessionError
+                                                           userInfo:nil]);
             }
-            [[RLMSyncManager sharedManager] _fireError:syncError];
+            return;
         }
+
+        // Something else went wrong
+        NSError *syncError = [NSError errorWithDomain:RLMSyncErrorDomain
+                                                 code:RLMSyncErrorBadResponse
+                                             userInfo:@{kRLMSyncUnderlyingErrorKey: error}];
+        if (completion) {
+            completion(syncError);
+        }
+        [[RLMSyncManager sharedManager] _fireError:syncError];
     };
     [RLMNetworkClient postRequestToEndpoint:RLMServerEndpointAuth
                                      server:self.authenticationServer
@@ -261,17 +262,9 @@ using namespace realm;
                authServerURL:(NSURL *)authServerURL
                      timeout:(NSTimeInterval)timeout
              completionBlock:(RLMUserCompletionBlock)completion {
-    // Wrap the completion block.
-    RLMUserCompletionBlock theBlock = ^(RLMSyncUser *user, NSError *error){
-        if (!completion) { return; }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(user, error);
-        });
-    };
-
     // Special credential login should be treated differently.
     if (credentials.provider == RLMIdentityProviderAccessToken) {
-        [self _performLoginForDirectAccessTokenCredentials:credentials user:user completionBlock:theBlock];
+        [self _performLoginForDirectAccessTokenCredentials:credentials user:user completionBlock:completion];
         return;
     }
 
@@ -298,7 +291,7 @@ using namespace realm;
                 error = [NSError errorWithDomain:RLMSyncErrorDomain
                                             code:RLMSyncErrorBadResponse
                                         userInfo:@{kRLMSyncErrorJSONKey: json}];
-                theBlock(nil, error);
+                completion(nil, error);
                 return;
             } else {
                 std::string server_url = authServerURL.absoluteString.UTF8String;
@@ -316,7 +309,7 @@ using namespace realm;
             }
         } else {
             // Something else went wrong
-            theBlock(nil, error);
+            completion(nil, error);
         }
     };
     [RLMNetworkClient postRequestToEndpoint:RLMServerEndpointAuth

@@ -19,6 +19,7 @@
 #import "RLMSyncConfiguration_Private.hpp"
 
 #import "RLMSyncManager_Private.h"
+#import "RLMSyncSession_Private.hpp"
 #import "RLMSyncUser_Private.hpp"
 #import "RLMSyncUtil_Private.hpp"
 #import "RLMUtil.hpp"
@@ -26,17 +27,27 @@
 #import "sync/sync_manager.hpp"
 #import "sync/sync_config.hpp"
 
+#import <realm/sync/protocol.hpp>
+
 using namespace realm;
 
 namespace {
-RLMSyncSessionErrorKind errorKindForSessionError(SyncSessionError error) {
-    switch (error) {
-        case SyncSessionError::AccessDenied:    return RLMSyncSessionErrorKindAccessDenied;
-        case SyncSessionError::Debug:           return RLMSyncSessionErrorKindDebug;
-        case SyncSessionError::SessionFatal:    return RLMSyncSessionErrorKindSessionFatal;
-        case SyncSessionError::UserFatal:       return RLMSyncSessionErrorKindUserFatal;
+using ProtocolError = realm::sync::ProtocolError;
+
+RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
+    if (error.is_client_reset_requested()) {
+        return RLMSyncSystemErrorKindClientReset;
+    } else if (error.error_code == ProtocolError::bad_authentication) {
+        return RLMSyncSystemErrorKindUser;
+    } else if (error.is_session_level_protocol_error()) {
+        return RLMSyncSystemErrorKindSession;
+    } else if (error.is_connection_level_protocol_error()) {
+        return RLMSyncSystemErrorKindConnection;
+    } else if (error.is_client_error()) {
+        return RLMSyncSystemErrorKindClient;
+    } else {
+        return RLMSyncSystemErrorKindUnknown;
     }
-    REALM_UNREACHABLE();
 }
 }
 
@@ -61,6 +72,8 @@ static BOOL isValidRealmURL(NSURL *url) {
 
 @implementation RLMSyncConfiguration
 
+@dynamic stopPolicy;
+
 - (instancetype)initWithRawConfig:(realm::SyncConfig)config {
     if (self = [super init]) {
         _config = std::make_unique<realm::SyncConfig>(config);
@@ -73,9 +86,9 @@ static BOOL isValidRealmURL(NSURL *url) {
         return NO;
     }
     RLMSyncConfiguration *that = (RLMSyncConfiguration *)object;
-    return ([self.realmURL isEqual:that.realmURL]
-            && [self.user isEqual:that.user]
-            && self.stopPolicy == that.stopPolicy);
+    return [self.realmURL isEqual:that.realmURL]
+        && [self.user isEqual:that.user]
+        && self.stopPolicy == that.stopPolicy;
 }
 
 - (realm::SyncConfig)rawConfiguration {
@@ -88,6 +101,10 @@ static BOOL isValidRealmURL(NSURL *url) {
 
 - (RLMSyncStopPolicy)stopPolicy {
     return translateStopPolicy(_config->stop_policy);
+}
+
+- (void)setStopPolicy:(RLMSyncStopPolicy)stopPolicy {
+    _config->stop_policy = translateStopPolicy(stopPolicy);
 }
 
 - (NSURL *)realmURL {
@@ -122,20 +139,30 @@ static BOOL isValidRealmURL(NSURL *url) {
                           isStandalone:NO];
         };
         if (!errorHandler) {
-            errorHandler = [=](int error_code, std::string message, realm::SyncSessionError error_type) {
-                RLMSyncSession *session = [user sessionForURL:url];
-                [[RLMSyncManager sharedManager] _fireErrorWithCode:error_code
-                                                           message:@(message.c_str())
+            errorHandler = [=](std::shared_ptr<SyncSession> errored_session,
+                               SyncError error) {
+                RLMSyncSession *session = [[RLMSyncSession alloc] initWithSyncSession:errored_session];
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:error.user_info.size()];
+                for (auto& pair : error.user_info) {
+                    userInfo[@(pair.first.c_str())] = @(pair.second.c_str());
+                }
+                // FIXME: how should the binding respond if the `is_fatal` bool is true?
+                [[RLMSyncManager sharedManager] _fireErrorWithCode:error.error_code.value()
+                                                           message:@(error.message.c_str())
+                                                           isFatal:error.is_fatal
                                                            session:session
-                                                        errorClass:errorKindForSessionError(error_type)];
+                                                          userInfo:userInfo
+                                                        errorClass:errorKindForSyncError(error)];
             };
         }
 
-        _config = std::make_unique<realm::SyncConfig>([user _syncUser],
-                                                      [[url absoluteString] UTF8String],
-                                                      translateStopPolicy(stopPolicy),
-                                                      std::move(bindHandler),
-                                                      std::move(errorHandler));
+        _config = std::make_unique<SyncConfig>(SyncConfig{
+            [user _syncUser],
+            [[url absoluteString] UTF8String],
+            translateStopPolicy(stopPolicy),
+            std::move(bindHandler),
+            std::move(errorHandler)
+        });
         self.customFileURL = customFileURL;
         return self;
     }

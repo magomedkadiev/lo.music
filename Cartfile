@@ -1,6 +1,5 @@
-github "lo-sultan/vk-sdk" >= 1.4
 github "Alamofire/Alamofire" == 3.5.1
-github "lo-sultan/realm-cocoa"
+github "magomedkadiev/realm-cocoa"
 github "valery-bashkatov/Keychain" ~> 2.0.0
 github "WE-St0r/SwiftyVK"
-github "YuAo/MDSOfferView" == 0.3
+github "magomedkadiev/MSDownloadIndicator" == 0.4

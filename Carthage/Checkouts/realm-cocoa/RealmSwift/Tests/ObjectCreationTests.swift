@@ -362,7 +362,7 @@ class ObjectCreationTests: TestCase {
             "binaryCol": "b".data(using: String.Encoding.utf8)!,
             "dateCol": Date(timeIntervalSince1970: 2),
             "objectCol": SwiftBoolObject(value: [true]),
-            "arrayCol": [SwiftBoolObject(value: [true]), SwiftBoolObject()],
+            "arrayCol": [SwiftBoolObject(value: [true]), SwiftBoolObject()]
         ]
 
         realmWithTestPath().beginWrite()
@@ -388,7 +388,7 @@ class ObjectCreationTests: TestCase {
             "binaryCol": "b".data(using: String.Encoding.utf8)!,
             "dateCol": Date(timeIntervalSince1970: 2),
             "objectCol": SwiftBoolObject(value: [true]),
-            "arrayCol": [SwiftBoolObject(value: [true]), SwiftBoolObject()],
+            "arrayCol": [SwiftBoolObject(value: [true]), SwiftBoolObject()]
         ]
 
         let realmA = realmWithTestPath()
@@ -439,7 +439,7 @@ class ObjectCreationTests: TestCase {
             "binaryCol": "b".data(using: String.Encoding.utf8)!,
             "dateCol": Date(timeIntervalSince1970: 2),
             "objectCol": NSNull(),
-            "arrayCol": NSNull(),
+            "arrayCol": NSNull()
         ]
 
         realmWithTestPath().beginWrite()
@@ -460,7 +460,7 @@ class ObjectCreationTests: TestCase {
         try! Realm().commitWrite()
 
         try! Realm().beginWrite()
-        let object = SwiftObject(value: ["objectCol" : existingObject])
+        let object = SwiftObject(value: ["objectCol": existingObject])
         try! Realm().add(object)
         try! Realm().commitWrite()
 
@@ -587,7 +587,7 @@ class ObjectCreationTests: TestCase {
             case .data:     return ["invalid"]
             case .date:     return ["invalid"]
             case .object:   return ["invalid", ["a"], ["boolCol": "a"], SwiftIntObject()]
-            case .array:    return ["invalid", [["a"]], [["boolCol" : "a"]], [[SwiftIntObject()]], [[persistedObject]]]
+            case .array:    return ["invalid", [["a"]], [["boolCol": "a"]], [[SwiftIntObject()]], [[persistedObject]]]
 
             case .any: XCTFail("not supported")
             case .linkingObjects: XCTFail("not supported")

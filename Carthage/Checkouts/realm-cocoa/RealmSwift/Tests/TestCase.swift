@@ -128,7 +128,7 @@ class TestCase: XCTestCase {
     }
 
     func assertSucceeds(message: String? = nil, fileName: StaticString = #file,
-                        lineNumber: UInt = #line, block: () throws -> ()) {
+                        lineNumber: UInt = #line, block: () throws -> Void) {
         do {
             try block()
         } catch {
@@ -153,8 +153,8 @@ class TestCase: XCTestCase {
     }
 
     func assertFails<T>(_ expectedError: Error, _ message: String? = nil,
-                     fileName: StaticString = #file, lineNumber: UInt = #line,
-                     block: () throws -> T) {
+                        fileName: StaticString = #file, lineNumber: UInt = #line,
+                        block: () throws -> T) {
         do {
             _ = try block()
             XCTFail("Expected to catch <\(expectedError)>, but no error was thrown.",
@@ -292,7 +292,7 @@ class TestCase: XCTestCase {
     }
 
     func assertSucceeds(message: String? = nil, fileName: StaticString = #file,
-                        lineNumber: UInt = #line, @noescape block: () throws -> ()) {
+                        lineNumber: UInt = #line, @noescape block: () throws -> Void) {
         do {
             try block()
         } catch {

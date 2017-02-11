@@ -68,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -79,7 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if #available(iOS 9.0, *) {
-            VK.process(url: url, options: options)
+            let app = options[.sourceApplication] as? String
+            VK.process(url: url, sourceApplication: app)
             window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
         }
         return true

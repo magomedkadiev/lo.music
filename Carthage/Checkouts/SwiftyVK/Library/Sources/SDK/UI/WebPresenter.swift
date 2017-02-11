@@ -51,29 +51,29 @@ internal final class WebPresenter {
 
 
 
-    func handleResponse(_ urlString: String) {
+    func handle(response: String) {
 
-        if urlString.contains("access_token=") {
-            _ = Token(urlString: urlString)
-            error = nil
+        if response.contains("access_token=") {
             controller.hide()
-        }
-        else if urlString.contains("success=1") {
+            _ = Token(fromResponse: response)
             error = nil
-            controller.hide()
         }
-        else if urlString.contains("access_denied") || urlString.contains("cancel=1") {
+        else if response.contains("success=1") {
+            controller.hide()
+            error = nil
+        }
+        else if response.contains("access_denied") || response.contains("cancel=1") {
+            controller.hide()
             error = AuthError.deniedFromUser
-            controller.hide()
         }
-        else if urlString.contains("fail=1") {
+        else if response.contains("fail=1") {
+            controller.hide()
             error = .failedAuthorization
-            controller.hide()
         }
-        else if urlString.contains(authorizeUrl) ||
-            urlString.contains("act=security_check") ||
-            urlString.contains("api_validation_test") ||
-            urlString.contains("https://m.vk.com/login?") {
+        else if response.contains(authorizeUrl) ||
+            response.contains("act=security_check") ||
+            response.contains("api_validation_test") ||
+            response.contains("https://m.vk.com/login?") {
             controller.expand()
         }
         else {
@@ -83,7 +83,7 @@ internal final class WebPresenter {
 
 
 
-    func handleError(_ error: AuthError) {
+    func handle(error: AuthError) {
         VK.Log.put("WebPresenter", "handle \(error)")
 
         if fails <= 3 {
