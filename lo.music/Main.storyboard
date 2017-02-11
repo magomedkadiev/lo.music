@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GIo-RL-Z09">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jkn-SE-e9a">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="GIo-RL-Z09" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tb1-Nv-eYs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nlJ-t2-006" kind="relationship" relationship="rootViewController" id="1JL-Mh-omO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUY-rn-dsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-666" y="139"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="LeU-hk-fQs">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nlJ-t2-006" customClass="TabBarViewController" customModule="lo_music" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="T51-R8-0ON"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="mAn-n8-AKb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="O4L-FZ-Ei6" kind="relationship" relationship="viewControllers" id="vGK-W7-Tfp"/>
+                        <segue destination="xxU-sU-veT" kind="relationship" relationship="viewControllers" id="u7D-iR-eFo"/>
+                        <segue destination="ftr-4t-5Nc" kind="relationship" relationship="viewControllers" id="YTi-Ow-kn1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6x-IS-RG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Audio-->
+        <scene sceneID="gla-Hw-z50">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Audio" id="O4L-FZ-Ei6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4RZ-Xm-ta6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2LB-5B-L3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="10"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="BfC-5D-NPz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" id="xxU-sU-veT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="YwM-nh-WgD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAD-hK-v7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="139"/>
+        </scene>
+        <!--SavedAudio-->
+        <scene sceneID="Le1-x8-WqO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SavedAudio" id="ftr-4t-5Nc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Fuf-es-PV6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TC8-1q-2Gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911" y="255"/>
+        </scene>
+    </scenes>
+</document>

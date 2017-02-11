@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "3.5.1"
+github "valery-bashkatov/Keychain" "2.0.2"
+github "magomedkadiev/MSDownloadIndicator" "0.4"
+github "WE-St0r/SwiftyVK" "2.0.5"
+github "magomedkadiev/realm-cocoa" "v2.3.0"

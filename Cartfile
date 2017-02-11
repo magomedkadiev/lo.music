@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" == 3.5.1
+github "magomedkadiev/realm-cocoa"
+github "valery-bashkatov/Keychain" ~> 2.0.0
+github "WE-St0r/SwiftyVK"
+github "magomedkadiev/MSDownloadIndicator" == 0.4

@@ -1,0 +1,2446 @@
+BCSymbolMap Version: 2.0
+-[VKDocs id]
+-[VKDocs setId:]
+-[VKDocs owner_id]
+-[VKDocs setOwner_id:]
+-[VKDocs title]
+-[VKDocs setTitle:]
+-[VKDocs size]
+-[VKDocs setSize:]
+-[VKDocs ext]
+-[VKDocs setExt:]
+-[VKDocs url]
+-[VKDocs setUrl:]
+-[VKDocs photo_100]
+-[VKDocs setPhoto_100:]
+-[VKDocs photo_130]
+-[VKDocs setPhoto_130:]
+-[VKDocs date]
+-[VKDocs setDate:]
+-[VKDocs type]
+-[VKDocs setType:]
+-[VKDocs .cxx_destruct]
+-[VKDocsArray objectClass]
+_OBJC_IVAR_$_VKDocs._id
+_OBJC_IVAR_$_VKDocs._owner_id
+_OBJC_IVAR_$_VKDocs._title
+_OBJC_IVAR_$_VKDocs._size
+_OBJC_IVAR_$_VKDocs._ext
+_OBJC_IVAR_$_VKDocs._url
+_OBJC_IVAR_$_VKDocs._photo_100
+_OBJC_IVAR_$_VKDocs._photo_130
+_OBJC_IVAR_$_VKDocs._date
+_OBJC_IVAR_$_VKDocs._type
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKDocs.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKDocs.h
++[VKHTTPOperation operationWithRequest:]
++[VKHTTPOperation networkRequestThreadEntryPoint:]
++[VKHTTPOperation networkRequestThread]
+___39+[VKHTTPOperation networkRequestThread]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[VKHTTPOperation initWithURLRequest:]
+-[VKHTTPOperation dealloc]
+-[VKHTTPOperation outputStream]
+-[VKHTTPOperation setShouldExecuteAsBackgroundTaskWithExpirationHandler:]
+___73-[VKHTTPOperation setShouldExecuteAsBackgroundTaskWithExpirationHandler:]_block_invoke
+___copy_helper_block_.72
+___destroy_helper_block_.73
+-[VKHTTPOperation setUploadProgressBlock:]
+-[VKHTTPOperation setDownloadProgressBlock:]
+-[VKHTTPOperation responseString]
+-[VKHTTPOperation responseJson]
+-[VKHTTPOperation responseStringEncoding]
+-[VKHTTPOperation pause]
+-[VKHTTPOperation isPaused]
+-[VKHTTPOperation resume]
+-[VKHTTPOperation start]
+-[VKHTTPOperation operationDidStart]
+-[VKHTTPOperation finish]
+-[VKHTTPOperation cancel]
+-[VKHTTPOperation cancelConnection]
+-[VKHTTPOperation connection:didSendBodyData:totalBytesWritten:totalBytesExpectedToWrite:]
+___90-[VKHTTPOperation connection:didSendBodyData:totalBytesWritten:totalBytesExpectedToWrite:]_block_invoke
+___copy_helper_block_.223
+___destroy_helper_block_.224
+-[VKHTTPOperation connection:didReceiveResponse:]
+-[VKHTTPOperation connection:didReceiveData:]
+___45-[VKHTTPOperation connection:didReceiveData:]_block_invoke
+___copy_helper_block_.246
+___destroy_helper_block_.247
+-[VKHTTPOperation connectionDidFinishLoading:]
+-[VKHTTPOperation connection:didFailWithError:]
+-[VKHTTPOperation initWithCoder:]
+-[VKHTTPOperation encodeWithCoder:]
+-[VKHTTPOperation copyWithZone:]
+-[VKHTTPOperation hasAcceptableStatusCode]
+-[VKHTTPOperation error]
+-[VKHTTPOperation setSuccessCallbackQueue:]
+-[VKHTTPOperation setFailureCallbackQueue:]
+-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]
+___57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke
+___57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke_2
+___copy_helper_block_.316
+___destroy_helper_block_.317
+___57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke.321
+___copy_helper_block_.322
+___destroy_helper_block_.323
+___copy_helper_block_.325
+___destroy_helper_block_.326
+-[VKHTTPOperation loadingRequest]
+-[VKHTTPOperation setLoadingRequest:]
+-[VKHTTPOperation runLoopModes]
+-[VKHTTPOperation setRunLoopModes:]
+-[VKHTTPOperation vkRequest]
+-[VKHTTPOperation setVkRequest:]
+-[VKHTTPOperation request]
+-[VKHTTPOperation setRequest:]
+-[VKHTTPOperation responseData]
+-[VKHTTPOperation setResponseData:]
+-[VKHTTPOperation response]
+-[VKHTTPOperation setResponse:]
+-[VKHTTPOperation successCallbackQueue]
+-[VKHTTPOperation failureCallbackQueue]
+-[VKHTTPOperation isCancelled]
+-[VKHTTPOperation setWasCanceled:]
+-[VKHTTPOperation connection]
+-[VKHTTPOperation setConnection:]
+-[VKHTTPOperation setError:]
+-[VKHTTPOperation setResponseString:]
+-[VKHTTPOperation setResponseJson:]
+-[VKHTTPOperation setResponseStringEncoding:]
+-[VKHTTPOperation totalBytesRead]
+-[VKHTTPOperation setTotalBytesRead:]
+-[VKHTTPOperation backgroundTaskIdentifier]
+-[VKHTTPOperation setBackgroundTaskIdentifier:]
+-[VKHTTPOperation uploadProgress]
+-[VKHTTPOperation setUploadProgress:]
+-[VKHTTPOperation downloadProgress]
+-[VKHTTPOperation setDownloadProgress:]
+-[VKHTTPOperation HTTPError]
+-[VKHTTPOperation setHTTPError:]
+-[VKHTTPOperation setOutputStream:]
+-[VKHTTPOperation JSONError]
+-[VKHTTPOperation setJSONError:]
+-[VKHTTPOperation .cxx_destruct]
+_networkRequestThread._networkRequestThread
+_networkRequestThread.oncePredicate
+___block_descriptor_tmp
+_OBJC_IVAR_$_VKHTTPOperation._backgroundTaskIdentifier
+_OBJC_IVAR_$_VKHTTPOperation._successCallbackQueue
+_OBJC_IVAR_$_VKHTTPOperation._failureCallbackQueue
+_OBJC_IVAR_$_VKHTTPOperation._outputStream
+___block_descriptor_tmp.74
+_OBJC_IVAR_$_VKHTTPOperation._responseString
+_OBJC_IVAR_$_VKHTTPOperation._responseJson
+_OBJC_IVAR_$_VKHTTPOperation._responseStringEncoding
+___block_descriptor_tmp.225
+___block_descriptor_tmp.248
+_OBJC_IVAR_$_VKHTTPOperation._error
+___block_descriptor_tmp.318
+___block_descriptor_tmp.324
+___block_descriptor_tmp.327
+_OBJC_IVAR_$_VKHTTPOperation._loadingRequest
+_OBJC_IVAR_$_VKHTTPOperation._runLoopModes
+_OBJC_IVAR_$_VKHTTPOperation._vkRequest
+_OBJC_IVAR_$_VKHTTPOperation._request
+_OBJC_IVAR_$_VKHTTPOperation._responseData
+_OBJC_IVAR_$_VKHTTPOperation._response
+_OBJC_IVAR_$_VKHTTPOperation._wasCanceled
+_OBJC_IVAR_$_VKHTTPOperation._connection
+_OBJC_IVAR_$_VKHTTPOperation._totalBytesRead
+_OBJC_IVAR_$_VKHTTPOperation._uploadProgress
+_OBJC_IVAR_$_VKHTTPOperation._downloadProgress
+_OBJC_IVAR_$_VKHTTPOperation._HTTPError
+_OBJC_IVAR_$_VKHTTPOperation._JSONError
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_NSURLConnectionDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLConnectionDelegate
+l_OBJC_PROTOCOL_$_NSURLConnectionDataDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLConnectionDataDelegate
+l_OBJC_PROTOCOL_$_NSCoding
+l_OBJC_LABEL_PROTOCOL_$_NSCoding
+l_OBJC_PROTOCOL_$_NSCopying
+l_OBJC_LABEL_PROTOCOL_$_NSCopying
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKHTTPOperation.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKHTTPOperation.h
+__destroy_helper_block_
+__copy_helper_block_
+__57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke.321
+__57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke_2
+__57-[VKHTTPOperation setCompletionBlockWithSuccess:failure:]_block_invoke
+__45-[VKHTTPOperation connection:didReceiveData:]_block_invoke
+__90-[VKHTTPOperation connection:didSendBodyData:totalBytesWritten:totalBytesExpectedToWrite:]_block_invoke
+VKGetMediaTypeAndSubtypeWithString
+__73-[VKHTTPOperation setShouldExecuteAsBackgroundTaskWithExpirationHandler:]_block_invoke
+__39+[VKHTTPOperation networkRequestThread]_block_invoke
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/include/dispatch/once.h
+-[VKSharedTransitioningObject animationControllerForPresentedController:presentingController:sourceController:]
+-[VKSharedTransitioningObject animationControllerForDismissedController:]
+-[VKSharedTransitioningObject interactionControllerForPresentation:]
+-[VKSharedTransitioningObject interactionControllerForDismissal:]
+-[AnimatedTransitioning transitionDuration:]
+-[AnimatedTransitioning animateTransition:]
+___43-[AnimatedTransitioning animateTransition:]_block_invoke
+___43-[AnimatedTransitioning animateTransition:]_block_invoke.86
+___copy_helper_block_.91
+___destroy_helper_block_.92
+-[AnimatedTransitioning isPresenting]
+-[AnimatedTransitioning setIsPresenting:]
+l_OBJC_PROTOCOL_$_UIViewControllerTransitioningDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIViewControllerTransitioningDelegate
+___block_descriptor_tmp.94
+_OBJC_IVAR_$_AnimatedTransitioning._isPresenting
+l_OBJC_PROTOCOL_$_UIViewControllerAnimatedTransitioning
+l_OBJC_LABEL_PROTOCOL_$_UIViewControllerAnimatedTransitioning
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKSharedTransitioningObject.m
+__43-[AnimatedTransitioning animateTransition:]_block_invoke.86
+__43-[AnimatedTransitioning animateTransition:]_block_invoke
++[VKImageParameters pngImage]
++[VKImageParameters jpegImageWithQuality:]
+-[VKImageParameters fileExtension]
+-[VKImageParameters mimeType]
+-[VKImageParameters imageType]
+-[VKImageParameters setImageType:]
+-[VKImageParameters jpegQuality]
+-[VKImageParameters setJpegQuality:]
+_OBJC_IVAR_$_VKImageParameters._imageType
+_OBJC_IVAR_$_VKImageParameters._jpegQuality
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Image/VKImageParameters.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Image/VKImageParameters.h
+-[VKAudio id]
+-[VKAudio setId:]
+-[VKAudio owner_id]
+-[VKAudio setOwner_id:]
+-[VKAudio artist]
+-[VKAudio setArtist:]
+-[VKAudio title]
+-[VKAudio setTitle:]
+-[VKAudio duration]
+-[VKAudio setDuration:]
+-[VKAudio url]
+-[VKAudio setUrl:]
+-[VKAudio lyrics_id]
+-[VKAudio setLyrics_id:]
+-[VKAudio album_id]
+-[VKAudio setAlbum_id:]
+-[VKAudio genre_id]
+-[VKAudio setGenre_id:]
+-[VKAudio fromCache]
+-[VKAudio setFromCache:]
+-[VKAudio ignoreCache]
+-[VKAudio setIgnoreCache:]
+-[VKAudio .cxx_destruct]
+-[VKAudios objectClass]
+-[VKAudios parseItems:asClass:]
+-[VKAudios user]
+-[VKAudios setUser:]
+-[VKAudios .cxx_destruct]
+_OBJC_IVAR_$_VKAudio._id
+_OBJC_IVAR_$_VKAudio._owner_id
+_OBJC_IVAR_$_VKAudio._artist
+_OBJC_IVAR_$_VKAudio._title
+_OBJC_IVAR_$_VKAudio._duration
+_OBJC_IVAR_$_VKAudio._url
+_OBJC_IVAR_$_VKAudio._lyrics_id
+_OBJC_IVAR_$_VKAudio._album_id
+_OBJC_IVAR_$_VKAudio._genre_id
+_OBJC_IVAR_$_VKAudio._fromCache
+_OBJC_IVAR_$_VKAudio._ignoreCache
+_OBJC_IVAR_$_VKAudios._user
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKAudio.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKAudio.h
+-[VKSchool initWithDictionary:]
+-[VKSchool id]
+-[VKSchool setId:]
+-[VKSchool country]
+-[VKSchool setCountry:]
+-[VKSchool city]
+-[VKSchool setCity:]
+-[VKSchool name]
+-[VKSchool setName:]
+-[VKSchool year_from]
+-[VKSchool setYear_from:]
+-[VKSchool year_to]
+-[VKSchool setYear_to:]
+-[VKSchool year_graduated]
+-[VKSchool setYear_graduated:]
+-[VKSchool Mclass]
+-[VKSchool setMclass:]
+-[VKSchool speciality]
+-[VKSchool setSpeciality:]
+-[VKSchool type]
+-[VKSchool setType:]
+-[VKSchool type_str]
+-[VKSchool setType_str:]
+-[VKSchool .cxx_destruct]
+-[VKSchools objectClass]
+_OBJC_IVAR_$_VKSchool._id
+_OBJC_IVAR_$_VKSchool._country
+_OBJC_IVAR_$_VKSchool._city
+_OBJC_IVAR_$_VKSchool._name
+_OBJC_IVAR_$_VKSchool._year_from
+_OBJC_IVAR_$_VKSchool._year_to
+_OBJC_IVAR_$_VKSchool._year_graduated
+_OBJC_IVAR_$_VKSchool._Mclass
+_OBJC_IVAR_$_VKSchool._speciality
+_OBJC_IVAR_$_VKSchool._type
+_OBJC_IVAR_$_VKSchool._type_str
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKSchool.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKSchool.h
+-[VKResponse description]
+-[VKResponse request]
+-[VKResponse setRequest:]
+-[VKResponse json]
+-[VKResponse setJson:]
+-[VKResponse parsedModel]
+-[VKResponse setParsedModel:]
+-[VKResponse responseString]
+-[VKResponse setResponseString:]
+-[VKResponse .cxx_destruct]
+_OBJC_IVAR_$_VKResponse._request
+_OBJC_IVAR_$_VKResponse._json
+_OBJC_IVAR_$_VKResponse._parsedModel
+_OBJC_IVAR_$_VKResponse._responseString
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKResponse.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKResponse.h
+-[VKJSONOperation setCompletionBlockWithSuccess:failure:]
+___57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke
+___57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke_2
+___57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke.7
+___copy_helper_block_.8
+___destroy_helper_block_.9
+___copy_helper_block_.11
+___destroy_helper_block_.12
+___block_descriptor_tmp.10
+___block_descriptor_tmp.13
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKJSONOperation.m
+__57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke.7
+__57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke_2
+__57-[VKJSONOperation setCompletionBlockWithSuccess:failure:]_block_invoke
+-[VKUploadWallPhotoRequest initWithImage:parameters:userId:groupId:]
+-[VKUploadWallPhotoRequest getServerRequest]
+-[VKUploadWallPhotoRequest getSaveRequest:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/upload/VKUploadWallPhotoRequest.m
+-[VKApiBase init]
+-[VKApiBase getMethodGroup]
+-[VKApiBase setMethodGroup:]
+-[VKApiBase prepareRequestWithMethodName:parameters:]
+-[VKApiBase prepareRequestWithMethodName:parameters:modelClass:]
+-[VKApiBase .cxx_destruct]
+_OBJC_IVAR_$_VKApiBase._methodGroup
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiBase.m
++[VKActivity activityCategory]
++[VKActivity vkShareExtensionEnabled]
+-[VKActivity activityType]
+-[VKActivity activityImage]
+-[VKActivity activityTitle]
+-[VKActivity canPerformWithActivityItems:]
+-[VKActivity prepareWithActivityItems:]
+___39-[VKActivity prepareWithActivityItems:]_block_invoke
+-[VKActivity activityViewController]
+-[VKActivity shareDialog]
+-[VKActivity setShareDialog:]
+-[VKActivity .cxx_destruct]
+_OBJC_IVAR_$_VKActivity._shareDialog
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKActivity.m
+__39-[VKActivity prepareWithActivityItems:]_block_invoke
+-[VKPropertyHelper initWith:]
+-[VKPropertyHelper propertyName]
+-[VKPropertyHelper setPropertyName:]
+-[VKPropertyHelper propertyClassName]
+-[VKPropertyHelper setPropertyClassName:]
+-[VKPropertyHelper propertyClass]
+-[VKPropertyHelper setPropertyClass:]
+-[VKPropertyHelper isPrimitive]
+-[VKPropertyHelper setIsPrimitive:]
+-[VKPropertyHelper isModelsArray]
+-[VKPropertyHelper setIsModelsArray:]
+-[VKPropertyHelper isModel]
+-[VKPropertyHelper setIsModel:]
+-[VKPropertyHelper property]
+-[VKPropertyHelper setProperty:]
+-[VKPropertyHelper .cxx_destruct]
+-[VKApiObject initWithDictionary:]
+-[VKApiObject parse:]
+___21-[VKApiObject parse:]_block_invoke
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___21-[VKApiObject parse:]_block_invoke.79
+-[VKApiObject enumPropertiesWithBlock:]
+-[VKApiObject ignoredProperties]
+-[VKApiObject serialize]
+___24-[VKApiObject serialize]_block_invoke
+___copy_helper_block_.133
+___destroy_helper_block_.134
++[VKApiObject createWithDictionary:]
++[VKApiObject createWithArray:]
+-[VKApiObject setValue:forUndefinedKey:]
+-[VKApiObject fields]
+-[VKApiObject setFields:]
+-[VKApiObject .cxx_destruct]
+_OBJC_IVAR_$_VKPropertyHelper._property
+_OBJC_IVAR_$_VKPropertyHelper._propertyName
+_OBJC_IVAR_$_VKPropertyHelper._propertyClassName
+_OBJC_IVAR_$_VKPropertyHelper._isPrimitive
+_OBJC_IVAR_$_VKPropertyHelper._propertyClass
+_OBJC_IVAR_$_VKPropertyHelper._isModelsArray
+_OBJC_IVAR_$_VKPropertyHelper._isModel
+_parse:.classesProperties
+_parse:.classSemaphore
+_parse:.onceToken
+___block_literal_global
+___block_descriptor_tmp.86
+___block_descriptor_tmp.135
+_OBJC_IVAR_$_VKApiObject._fields
+l_OBJC_PROTOCOL_$_VKApiObject
+l_OBJC_LABEL_PROTOCOL_$_VKApiObject
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKApiObject.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKApiObject.h
+__24-[VKApiObject serialize]_block_invoke
+__21-[VKApiObject parse:]_block_invoke.79
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+__21-[VKApiObject parse:]_block_invoke
+VK_ENSURE_DICT
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Utils/VKUtil.h
+getPropertyType
+NSMakeRange
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+getPropertyName
++[VKHTTPClient getClient]
+-[VKHTTPClient init]
+-[VKHTTPClient defaultValueForHeader:]
+-[VKHTTPClient setDefaultHeader:value:]
+-[VKHTTPClient requestWithMethod:path:parameters:secure:]
+-[VKHTTPClient multipartFormRequestWithMethod:path:images:]
+-[VKHTTPClient enqueueOperation:]
+-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]
+___82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke
+___82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_2
+___copy_helper_block_.155
+___destroy_helper_block_.156
+___82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke.166
+___82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_2.167
+___82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_3
+___copy_helper_block_.174
+___destroy_helper_block_.175
+___copy_helper_block_.177
+___destroy_helper_block_.178
+-[VKHTTPClient encodeWithCoder:]
+-[VKHTTPClient initWithCoder:]
+-[VKHTTPClient operationQueue]
+-[VKHTTPClient setOperationQueue:]
+-[VKHTTPClient defaultHeaders]
+-[VKHTTPClient setDefaultHeaders:]
+-[VKHTTPClient .cxx_destruct]
+___clientInstance
+___block_descriptor_tmp.157
+___block_descriptor_tmp.171
+___block_descriptor_tmp.176
+___block_descriptor_tmp.179
+_OBJC_IVAR_$_VKHTTPClient._operationQueue
+_OBJC_IVAR_$_VKHTTPClient._defaultHeaders
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKHTTPClient.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKHTTPClient.h
+__82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_3
+__82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_2.167
+__82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke.166
+__82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke_2
+__82-[VKHTTPClient enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:]_block_invoke
+-[VKAuthorizationResult token]
+-[VKAuthorizationResult setToken:]
+-[VKAuthorizationResult user]
+-[VKAuthorizationResult setUser:]
+-[VKAuthorizationResult error]
+-[VKAuthorizationResult setError:]
+-[VKAuthorizationResult state]
+-[VKAuthorizationResult setState:]
+-[VKAuthorizationResult .cxx_destruct]
+_OBJC_IVAR_$_VKAuthorizationResult._token
+_OBJC_IVAR_$_VKAuthorizationResult._user
+_OBJC_IVAR_$_VKAuthorizationResult._error
+_OBJC_IVAR_$_VKAuthorizationResult._state
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKAuthorizationResult.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKAuthorizationResult.h
++[VKApi users]
++[VKApi wall]
++[VKApi photos]
++[VKApi friends]
++[VKApi groups]
++[VKApi requestWithMethod:andParameters:]
++[VKApi requestWithMethod:andParameters:andHttpMethod:]
++[VKApi uploadWallPhotoRequest:parameters:userId:groupId:]
++[VKApi uploadAlbumPhotoRequest:parameters:albumId:groupId:]
++[VKApi uploadMessagePhotoRequest:parameters:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/VKApi.m
+-[UINavigationController(LastControllerBar) preferredStatusBarStyle]
++[VKAuthorizeController presentForAuthorizeWithAppId:andPermissions:revokeAccess:displayType:]
++[VKAuthorizeController presentForValidation:]
++[VKAuthorizeController presentThisController:]
++[VKAuthorizeController buildAuthorizationURLWithContext:]
+-[VKAuthorizeController loadView]
+-[VKAuthorizeController didRotateFromInterfaceOrientation:]
+-[VKAuthorizeController initWith:andPermissions:revokeAccess:displayType:]
+-[VKAuthorizeController viewDidLoad]
+-[VKAuthorizeController startLoading]
+-[VKAuthorizeController webView:shouldStartLoadWithRequest:navigationType:]
+___75-[VKAuthorizeController webView:shouldStartLoadWithRequest:navigationType:]_block_invoke
+-[VKAuthorizeController webView:didFailLoadWithError:]
+___54-[VKAuthorizeController webView:didFailLoadWithError:]_block_invoke
+___copy_helper_block_.257
+___destroy_helper_block_.258
+-[VKAuthorizeController setRightBarButtonActivity]
+-[VKAuthorizeController webViewDidFinishLoad:]
+___46-[VKAuthorizeController webViewDidFinishLoad:]_block_invoke
+___copy_helper_block_.268
+___destroy_helper_block_.269
+-[VKAuthorizeController makeViewport]
+-[VKAuthorizeController cancelAuthorization:]
+___45-[VKAuthorizeController cancelAuthorization:]_block_invoke
+___copy_helper_block_.279
+___destroy_helper_block_.280
+-[VKAuthorizeController dismissWithCompletion:]
+___47-[VKAuthorizeController dismissWithCompletion:]_block_invoke
+___copy_helper_block_.302
+___destroy_helper_block_.303
+___47-[VKAuthorizeController dismissWithCompletion:]_block_invoke.307
+___copy_helper_block_.308
+___destroy_helper_block_.309
+-[VKAuthorizeController preferredStatusBarStyle]
+-[VKAuthorizeController webView]
+-[VKAuthorizeController setWebView:]
+-[VKAuthorizeController appId]
+-[VKAuthorizeController setAppId:]
+-[VKAuthorizeController scope]
+-[VKAuthorizeController setScope:]
+-[VKAuthorizeController redirectUri]
+-[VKAuthorizeController setRedirectUri:]
+-[VKAuthorizeController activityMark]
+-[VKAuthorizeController setActivityMark:]
+-[VKAuthorizeController warningLabel]
+-[VKAuthorizeController setWarningLabel:]
+-[VKAuthorizeController statusBar]
+-[VKAuthorizeController setStatusBar:]
+-[VKAuthorizeController validationError]
+-[VKAuthorizeController setValidationError:]
+-[VKAuthorizeController lastRequest]
+-[VKAuthorizeController setLastRequest:]
+-[VKAuthorizeController internalNavigationController]
+-[VKAuthorizeController setInternalNavigationController:]
+-[VKAuthorizeController finished]
+-[VKAuthorizeController setFinished:]
+-[VKAuthorizeController .cxx_destruct]
++[VKAuthorizationContext contextWithAuthType:clientId:displayType:scope:revoke:]
+-[VKAuthorizationContext clientId]
+-[VKAuthorizationContext setClientId:]
+-[VKAuthorizationContext displayType]
+-[VKAuthorizationContext setDisplayType:]
+-[VKAuthorizationContext scope]
+-[VKAuthorizationContext setScope:]
+-[VKAuthorizationContext revoke]
+-[VKAuthorizationContext setRevoke:]
+-[VKAuthorizationContext authPrefix]
+-[VKAuthorizationContext setAuthPrefix:]
+-[VKAuthorizationContext redirectUri]
+-[VKAuthorizationContext setRedirectUri:]
+-[VKAuthorizationContext responseType]
+-[VKAuthorizationContext setResponseType:]
+-[VKAuthorizationContext usingVkApp]
+-[VKAuthorizationContext setUsingVkApp:]
+-[VKAuthorizationContext .cxx_destruct]
+_OBJC_IVAR_$_VKAuthorizeController._activityMark
+_OBJC_IVAR_$_VKAuthorizeController._warningLabel
+_OBJC_IVAR_$_VKAuthorizeController._webView
+_OBJC_IVAR_$_VKAuthorizeController._appId
+_OBJC_IVAR_$_VKAuthorizeController._scope
+_OBJC_IVAR_$_VKAuthorizeController._redirectUri
+_OBJC_IVAR_$_VKAuthorizeController._lastRequest
+___block_descriptor_tmp.259
+___block_descriptor_tmp.270
+_OBJC_IVAR_$_VKAuthorizeController._validationError
+___block_descriptor_tmp.281
+_OBJC_IVAR_$_VKAuthorizeController._finished
+_OBJC_IVAR_$_VKAuthorizeController._internalNavigationController
+___block_descriptor_tmp.304
+___block_descriptor_tmp.310
+_OBJC_IVAR_$_VKAuthorizeController._statusBar
+l_OBJC_PROTOCOL_$_UIWebViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIWebViewDelegate
+_OBJC_IVAR_$_VKAuthorizationContext._clientId
+_OBJC_IVAR_$_VKAuthorizationContext._displayType
+_OBJC_IVAR_$_VKAuthorizationContext._scope
+_OBJC_IVAR_$_VKAuthorizationContext._revoke
+_OBJC_IVAR_$_VKAuthorizationContext._authPrefix
+_OBJC_IVAR_$_VKAuthorizationContext._redirectUri
+_OBJC_IVAR_$_VKAuthorizationContext._responseType
+_OBJC_IVAR_$_VKAuthorizationContext._usingVkApp
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKAuthorizeController.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKAuthorizeController.h
+__47-[VKAuthorizeController dismissWithCompletion:]_block_invoke.307
+__47-[VKAuthorizeController dismissWithCompletion:]_block_invoke
+__45-[VKAuthorizeController cancelAuthorization:]_block_invoke
+__46-[VKAuthorizeController webViewDidFinishLoad:]_block_invoke
+__54-[VKAuthorizeController webView:didFailLoadWithError:]_block_invoke
+__75-[VKAuthorizeController webView:shouldStartLoadWithRequest:navigationType:]_block_invoke
+-[VKUploadMessagesPhotoRequest getServerRequest]
+-[VKUploadMessagesPhotoRequest getSaveRequest:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/upload/VKUploadMessagesPhotoRequest.m
+-[VKLastSeen time]
+-[VKLastSeen setTime:]
+-[VKLastSeen platform]
+-[VKLastSeen setPlatform:]
+-[VKLastSeen .cxx_destruct]
+-[VKUser description]
+-[VKUser id]
+-[VKUser setId:]
+-[VKUser first_name]
+-[VKUser setFirst_name:]
+-[VKUser last_name]
+-[VKUser setLast_name:]
+-[VKUser first_name_acc]
+-[VKUser setFirst_name_acc:]
+-[VKUser last_name_acc]
+-[VKUser setLast_name_acc:]
+-[VKUser first_name_gen]
+-[VKUser setFirst_name_gen:]
+-[VKUser last_name_gen]
+-[VKUser setLast_name_gen:]
+-[VKUser first_name_dat]
+-[VKUser setFirst_name_dat:]
+-[VKUser last_name_dat]
+-[VKUser setLast_name_dat:]
+-[VKUser first_name_ins]
+-[VKUser setFirst_name_ins:]
+-[VKUser last_name_ins]
+-[VKUser setLast_name_ins:]
+-[VKUser domain]
+-[VKUser setDomain:]
+-[VKUser personal]
+-[VKUser setPersonal:]
+-[VKUser sex]
+-[VKUser setSex:]
+-[VKUser invited_by]
+-[VKUser setInvited_by:]
+-[VKUser online]
+-[VKUser setOnline:]
+-[VKUser bdate]
+-[VKUser setBdate:]
+-[VKUser city]
+-[VKUser setCity:]
+-[VKUser country]
+-[VKUser setCountry:]
+-[VKUser lists]
+-[VKUser setLists:]
+-[VKUser screen_name]
+-[VKUser setScreen_name:]
+-[VKUser has_mobile]
+-[VKUser setHas_mobile:]
+-[VKUser rate]
+-[VKUser setRate:]
+-[VKUser mobile_phone]
+-[VKUser setMobile_phone:]
+-[VKUser home_phone]
+-[VKUser setHome_phone:]
+-[VKUser can_post]
+-[VKUser setCan_post:]
+-[VKUser can_see_all_posts]
+-[VKUser setCan_see_all_posts:]
+-[VKUser status]
+-[VKUser setStatus:]
+-[VKUser status_audio]
+-[VKUser setStatus_audio:]
+-[VKUser status_loaded]
+-[VKUser setStatus_loaded:]
+-[VKUser last_seen]
+-[VKUser setLast_seen:]
+-[VKUser relation]
+-[VKUser setRelation:]
+-[VKUser relation_partner]
+-[VKUser setRelation_partner:]
+-[VKUser counters]
+-[VKUser setCounters:]
+-[VKUser nickname]
+-[VKUser setNickname:]
+-[VKUser exports]
+-[VKUser setExports:]
+-[VKUser wall_comments]
+-[VKUser setWall_comments:]
+-[VKUser can_write_private_message]
+-[VKUser setCan_write_private_message:]
+-[VKUser can_see_audio]
+-[VKUser setCan_see_audio:]
+-[VKUser phone]
+-[VKUser setPhone:]
+-[VKUser online_mobile]
+-[VKUser setOnline_mobile:]
+-[VKUser faculty]
+-[VKUser setFaculty:]
+-[VKUser university]
+-[VKUser setUniversity:]
+-[VKUser universities]
+-[VKUser setUniversities:]
+-[VKUser schools]
+-[VKUser setSchools:]
+-[VKUser graduation]
+-[VKUser setGraduation:]
+-[VKUser friendState]
+-[VKUser setFriendState:]
+-[VKUser common_count]
+-[VKUser setCommon_count:]
+-[VKUser faculty_name]
+-[VKUser setFaculty_name:]
+-[VKUser university_name]
+-[VKUser setUniversity_name:]
+-[VKUser books]
+-[VKUser setBooks:]
+-[VKUser games]
+-[VKUser setGames:]
+-[VKUser interests]
+-[VKUser setInterests:]
+-[VKUser movies]
+-[VKUser setMovies:]
+-[VKUser tv]
+-[VKUser setTv:]
+-[VKUser about]
+-[VKUser setAbout:]
+-[VKUser music]
+-[VKUser setMusic:]
+-[VKUser quoutes]
+-[VKUser setQuoutes:]
+-[VKUser activities]
+-[VKUser setActivities:]
+-[VKUser photo_max]
+-[VKUser setPhoto_max:]
+-[VKUser photo_50]
+-[VKUser setPhoto_50:]
+-[VKUser photo_100]
+-[VKUser setPhoto_100:]
+-[VKUser photo_200]
+-[VKUser setPhoto_200:]
+-[VKUser photo_200_orig]
+-[VKUser setPhoto_200_orig:]
+-[VKUser photo_400_orig]
+-[VKUser setPhoto_400_orig:]
+-[VKUser photo_max_orig]
+-[VKUser setPhoto_max_orig:]
+-[VKUser photos]
+-[VKUser setPhotos:]
+-[VKUser photos_count]
+-[VKUser setPhotos_count:]
+-[VKUser relatives]
+-[VKUser setRelatives:]
+-[VKUser bdateIntervalSort]
+-[VKUser setBdateIntervalSort:]
+-[VKUser verified]
+-[VKUser setVerified:]
+-[VKUser deactivated]
+-[VKUser setDeactivated:]
+-[VKUser site]
+-[VKUser setSite:]
+-[VKUser home_town]
+-[VKUser setHome_town:]
+-[VKUser blacklisted]
+-[VKUser setBlacklisted:]
+-[VKUser blacklisted_by_me]
+-[VKUser setBlacklisted_by_me:]
+-[VKUser twitter]
+-[VKUser setTwitter:]
+-[VKUser skype]
+-[VKUser setSkype:]
+-[VKUser facebook]
+-[VKUser setFacebook:]
+-[VKUser instagram]
+-[VKUser setInstagram:]
+-[VKUser livejournal]
+-[VKUser setLivejournal:]
+-[VKUser wall_default]
+-[VKUser setWall_default:]
+-[VKUser followers_count]
+-[VKUser setFollowers_count:]
+-[VKUser .cxx_destruct]
+-[VKGeoObject id]
+-[VKGeoObject setId:]
+-[VKGeoObject title]
+-[VKGeoObject setTitle:]
+-[VKGeoObject .cxx_destruct]
+-[VKExports twitter]
+-[VKExports setTwitter:]
+-[VKExports facebook]
+-[VKExports setFacebook:]
+-[VKExports livejournal]
+-[VKExports setLivejournal:]
+-[VKExports instagram]
+-[VKExports setInstagram:]
+-[VKExports .cxx_destruct]
+-[VKUsersArray objectClass]
+_OBJC_IVAR_$_VKLastSeen._time
+_OBJC_IVAR_$_VKLastSeen._platform
+_OBJC_IVAR_$_VKUser._id
+_OBJC_IVAR_$_VKUser._first_name
+_OBJC_IVAR_$_VKUser._last_name
+_OBJC_IVAR_$_VKUser._first_name_acc
+_OBJC_IVAR_$_VKUser._last_name_acc
+_OBJC_IVAR_$_VKUser._first_name_gen
+_OBJC_IVAR_$_VKUser._last_name_gen
+_OBJC_IVAR_$_VKUser._first_name_dat
+_OBJC_IVAR_$_VKUser._last_name_dat
+_OBJC_IVAR_$_VKUser._first_name_ins
+_OBJC_IVAR_$_VKUser._last_name_ins
+_OBJC_IVAR_$_VKUser._domain
+_OBJC_IVAR_$_VKUser._personal
+_OBJC_IVAR_$_VKUser._sex
+_OBJC_IVAR_$_VKUser._invited_by
+_OBJC_IVAR_$_VKUser._online
+_OBJC_IVAR_$_VKUser._bdate
+_OBJC_IVAR_$_VKUser._city
+_OBJC_IVAR_$_VKUser._country
+_OBJC_IVAR_$_VKUser._lists
+_OBJC_IVAR_$_VKUser._screen_name
+_OBJC_IVAR_$_VKUser._has_mobile
+_OBJC_IVAR_$_VKUser._rate
+_OBJC_IVAR_$_VKUser._mobile_phone
+_OBJC_IVAR_$_VKUser._home_phone
+_OBJC_IVAR_$_VKUser._can_post
+_OBJC_IVAR_$_VKUser._can_see_all_posts
+_OBJC_IVAR_$_VKUser._status
+_OBJC_IVAR_$_VKUser._status_audio
+_OBJC_IVAR_$_VKUser._status_loaded
+_OBJC_IVAR_$_VKUser._last_seen
+_OBJC_IVAR_$_VKUser._relation
+_OBJC_IVAR_$_VKUser._relation_partner
+_OBJC_IVAR_$_VKUser._counters
+_OBJC_IVAR_$_VKUser._nickname
+_OBJC_IVAR_$_VKUser._exports
+_OBJC_IVAR_$_VKUser._wall_comments
+_OBJC_IVAR_$_VKUser._can_write_private_message
+_OBJC_IVAR_$_VKUser._can_see_audio
+_OBJC_IVAR_$_VKUser._phone
+_OBJC_IVAR_$_VKUser._online_mobile
+_OBJC_IVAR_$_VKUser._faculty
+_OBJC_IVAR_$_VKUser._university
+_OBJC_IVAR_$_VKUser._universities
+_OBJC_IVAR_$_VKUser._schools
+_OBJC_IVAR_$_VKUser._graduation
+_OBJC_IVAR_$_VKUser._friendState
+_OBJC_IVAR_$_VKUser._common_count
+_OBJC_IVAR_$_VKUser._faculty_name
+_OBJC_IVAR_$_VKUser._university_name
+_OBJC_IVAR_$_VKUser._books
+_OBJC_IVAR_$_VKUser._games
+_OBJC_IVAR_$_VKUser._interests
+_OBJC_IVAR_$_VKUser._movies
+_OBJC_IVAR_$_VKUser._tv
+_OBJC_IVAR_$_VKUser._about
+_OBJC_IVAR_$_VKUser._music
+_OBJC_IVAR_$_VKUser._quoutes
+_OBJC_IVAR_$_VKUser._activities
+_OBJC_IVAR_$_VKUser._photo_max
+_OBJC_IVAR_$_VKUser._photo_50
+_OBJC_IVAR_$_VKUser._photo_100
+_OBJC_IVAR_$_VKUser._photo_200
+_OBJC_IVAR_$_VKUser._photo_200_orig
+_OBJC_IVAR_$_VKUser._photo_400_orig
+_OBJC_IVAR_$_VKUser._photo_max_orig
+_OBJC_IVAR_$_VKUser._photos
+_OBJC_IVAR_$_VKUser._photos_count
+_OBJC_IVAR_$_VKUser._relatives
+_OBJC_IVAR_$_VKUser._bdateIntervalSort
+_OBJC_IVAR_$_VKUser._verified
+_OBJC_IVAR_$_VKUser._deactivated
+_OBJC_IVAR_$_VKUser._site
+_OBJC_IVAR_$_VKUser._home_town
+_OBJC_IVAR_$_VKUser._blacklisted
+_OBJC_IVAR_$_VKUser._blacklisted_by_me
+_OBJC_IVAR_$_VKUser._twitter
+_OBJC_IVAR_$_VKUser._skype
+_OBJC_IVAR_$_VKUser._facebook
+_OBJC_IVAR_$_VKUser._instagram
+_OBJC_IVAR_$_VKUser._livejournal
+_OBJC_IVAR_$_VKUser._wall_default
+_OBJC_IVAR_$_VKUser._followers_count
+_OBJC_IVAR_$_VKGeoObject._id
+_OBJC_IVAR_$_VKGeoObject._title
+_OBJC_IVAR_$_VKExports._twitter
+_OBJC_IVAR_$_VKExports._facebook
+_OBJC_IVAR_$_VKExports._livejournal
+_OBJC_IVAR_$_VKExports._instagram
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKUser.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKUser.h
++[VKUploadImage uploadImageWithData:andParams:]
++[VKUploadImage uploadImageWithImage:andParams:]
+-[VKUploadImage imageData]
+-[VKUploadImage setImageData:]
+-[VKUploadImage sourceImage]
+-[VKUploadImage setSourceImage:]
+-[VKUploadImage parameters]
+-[VKUploadImage setParameters:]
+-[VKUploadImage .cxx_destruct]
+_OBJC_IVAR_$_VKUploadImage._imageData
+_OBJC_IVAR_$_VKUploadImage._sourceImage
+_OBJC_IVAR_$_VKUploadImage._parameters
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Image/VKUploadImage.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Image/VKUploadImage.h
+-[VKApiGroups getById:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiGroups.m
+-[VKApiPhotos getUploadServer:]
+-[VKApiPhotos getUploadServer:andGroupId:]
+-[VKApiPhotos getWallUploadServer]
+-[VKApiPhotos getWallUploadServer:]
+-[VKApiPhotos saveWallPhoto:]
+-[VKApiPhotos save:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiPhotos.m
+-[VKGeoPlace id]
+-[VKGeoPlace setId:]
+-[VKGeoPlace title]
+-[VKGeoPlace setTitle:]
+-[VKGeoPlace latitude]
+-[VKGeoPlace setLatitude:]
+-[VKGeoPlace longitude]
+-[VKGeoPlace setLongitude:]
+-[VKGeoPlace created]
+-[VKGeoPlace setCreated:]
+-[VKGeoPlace icon]
+-[VKGeoPlace setIcon:]
+-[VKGeoPlace group_id]
+-[VKGeoPlace setGroup_id:]
+-[VKGeoPlace group_photo]
+-[VKGeoPlace setGroup_photo:]
+-[VKGeoPlace checkins]
+-[VKGeoPlace setCheckins:]
+-[VKGeoPlace updated]
+-[VKGeoPlace setUpdated:]
+-[VKGeoPlace type]
+-[VKGeoPlace setType:]
+-[VKGeoPlace country]
+-[VKGeoPlace setCountry:]
+-[VKGeoPlace city]
+-[VKGeoPlace setCity:]
+-[VKGeoPlace address]
+-[VKGeoPlace setAddress:]
+-[VKGeoPlace showmap]
+-[VKGeoPlace setShowmap:]
+-[VKGeoPlace .cxx_destruct]
+-[VKGroupContact user_id]
+-[VKGroupContact setUser_id:]
+-[VKGroupContact desc]
+-[VKGroupContact setDesc:]
+-[VKGroupContact email]
+-[VKGroupContact setEmail:]
+-[VKGroupContact .cxx_destruct]
+-[VKGroupContacts objectClass]
+-[VKGroupLink url]
+-[VKGroupLink setUrl:]
+-[VKGroupLink name]
+-[VKGroupLink setName:]
+-[VKGroupLink desc]
+-[VKGroupLink setDesc:]
+-[VKGroupLink photo_50]
+-[VKGroupLink setPhoto_50:]
+-[VKGroupLink photo_100]
+-[VKGroupLink setPhoto_100:]
+-[VKGroupLink .cxx_destruct]
+-[VKGroupLinks objectClass]
+-[VKGroup description]
+-[VKGroup setDescription:]
+-[VKGroup id]
+-[VKGroup setId:]
+-[VKGroup name]
+-[VKGroup setName:]
+-[VKGroup screen_name]
+-[VKGroup setScreen_name:]
+-[VKGroup is_closed]
+-[VKGroup setIs_closed:]
+-[VKGroup type]
+-[VKGroup setType:]
+-[VKGroup is_admin]
+-[VKGroup setIs_admin:]
+-[VKGroup admin_level]
+-[VKGroup setAdmin_level:]
+-[VKGroup is_member]
+-[VKGroup setIs_member:]
+-[VKGroup city]
+-[VKGroup setCity:]
+-[VKGroup country]
+-[VKGroup setCountry:]
+-[VKGroup place]
+-[VKGroup setPlace:]
+-[VKGroup wiki_page]
+-[VKGroup setWiki_page:]
+-[VKGroup members_count]
+-[VKGroup setMembers_count:]
+-[VKGroup counters]
+-[VKGroup setCounters:]
+-[VKGroup start_date]
+-[VKGroup setStart_date:]
+-[VKGroup end_date]
+-[VKGroup setEnd_date:]
+-[VKGroup finish_date]
+-[VKGroup setFinish_date:]
+-[VKGroup can_post]
+-[VKGroup setCan_post:]
+-[VKGroup can_see_all_posts]
+-[VKGroup setCan_see_all_posts:]
+-[VKGroup can_create_topic]
+-[VKGroup setCan_create_topic:]
+-[VKGroup can_upload_doc]
+-[VKGroup setCan_upload_doc:]
+-[VKGroup activity]
+-[VKGroup setActivity:]
+-[VKGroup status]
+-[VKGroup setStatus:]
+-[VKGroup status_audio]
+-[VKGroup setStatus_audio:]
+-[VKGroup contacts]
+-[VKGroup setContacts:]
+-[VKGroup links]
+-[VKGroup setLinks:]
+-[VKGroup fixed_post]
+-[VKGroup setFixed_post:]
+-[VKGroup verified]
+-[VKGroup setVerified:]
+-[VKGroup site]
+-[VKGroup setSite:]
+-[VKGroup photo_50]
+-[VKGroup setPhoto_50:]
+-[VKGroup photo_100]
+-[VKGroup setPhoto_100:]
+-[VKGroup photo_200]
+-[VKGroup setPhoto_200:]
+-[VKGroup photo_max_orig]
+-[VKGroup setPhoto_max_orig:]
+-[VKGroup is_request]
+-[VKGroup setIs_request:]
+-[VKGroup is_invite]
+-[VKGroup setIs_invite:]
+-[VKGroup photos]
+-[VKGroup setPhotos:]
+-[VKGroup photos_count]
+-[VKGroup setPhotos_count:]
+-[VKGroup invited_by]
+-[VKGroup setInvited_by:]
+-[VKGroup invite_state]
+-[VKGroup setInvite_state:]
+-[VKGroup deactivated]
+-[VKGroup setDeactivated:]
+-[VKGroup blacklisted]
+-[VKGroup setBlacklisted:]
+-[VKGroup .cxx_destruct]
+-[VKGroups objectClass]
+_OBJC_IVAR_$_VKGeoPlace._id
+_OBJC_IVAR_$_VKGeoPlace._title
+_OBJC_IVAR_$_VKGeoPlace._latitude
+_OBJC_IVAR_$_VKGeoPlace._longitude
+_OBJC_IVAR_$_VKGeoPlace._created
+_OBJC_IVAR_$_VKGeoPlace._icon
+_OBJC_IVAR_$_VKGeoPlace._group_id
+_OBJC_IVAR_$_VKGeoPlace._group_photo
+_OBJC_IVAR_$_VKGeoPlace._checkins
+_OBJC_IVAR_$_VKGeoPlace._updated
+_OBJC_IVAR_$_VKGeoPlace._type
+_OBJC_IVAR_$_VKGeoPlace._country
+_OBJC_IVAR_$_VKGeoPlace._city
+_OBJC_IVAR_$_VKGeoPlace._address
+_OBJC_IVAR_$_VKGeoPlace._showmap
+_OBJC_IVAR_$_VKGroupContact._user_id
+_OBJC_IVAR_$_VKGroupContact._desc
+_OBJC_IVAR_$_VKGroupContact._email
+_OBJC_IVAR_$_VKGroupLink._url
+_OBJC_IVAR_$_VKGroupLink._name
+_OBJC_IVAR_$_VKGroupLink._desc
+_OBJC_IVAR_$_VKGroupLink._photo_50
+_OBJC_IVAR_$_VKGroupLink._photo_100
+_OBJC_IVAR_$_VKGroup._description
+_OBJC_IVAR_$_VKGroup._id
+_OBJC_IVAR_$_VKGroup._name
+_OBJC_IVAR_$_VKGroup._screen_name
+_OBJC_IVAR_$_VKGroup._is_closed
+_OBJC_IVAR_$_VKGroup._type
+_OBJC_IVAR_$_VKGroup._is_admin
+_OBJC_IVAR_$_VKGroup._admin_level
+_OBJC_IVAR_$_VKGroup._is_member
+_OBJC_IVAR_$_VKGroup._city
+_OBJC_IVAR_$_VKGroup._country
+_OBJC_IVAR_$_VKGroup._place
+_OBJC_IVAR_$_VKGroup._wiki_page
+_OBJC_IVAR_$_VKGroup._members_count
+_OBJC_IVAR_$_VKGroup._counters
+_OBJC_IVAR_$_VKGroup._start_date
+_OBJC_IVAR_$_VKGroup._end_date
+_OBJC_IVAR_$_VKGroup._finish_date
+_OBJC_IVAR_$_VKGroup._can_post
+_OBJC_IVAR_$_VKGroup._can_see_all_posts
+_OBJC_IVAR_$_VKGroup._can_create_topic
+_OBJC_IVAR_$_VKGroup._can_upload_doc
+_OBJC_IVAR_$_VKGroup._activity
+_OBJC_IVAR_$_VKGroup._status
+_OBJC_IVAR_$_VKGroup._status_audio
+_OBJC_IVAR_$_VKGroup._contacts
+_OBJC_IVAR_$_VKGroup._links
+_OBJC_IVAR_$_VKGroup._fixed_post
+_OBJC_IVAR_$_VKGroup._verified
+_OBJC_IVAR_$_VKGroup._site
+_OBJC_IVAR_$_VKGroup._photo_50
+_OBJC_IVAR_$_VKGroup._photo_100
+_OBJC_IVAR_$_VKGroup._photo_200
+_OBJC_IVAR_$_VKGroup._photo_max_orig
+_OBJC_IVAR_$_VKGroup._is_request
+_OBJC_IVAR_$_VKGroup._is_invite
+_OBJC_IVAR_$_VKGroup._photos
+_OBJC_IVAR_$_VKGroup._photos_count
+_OBJC_IVAR_$_VKGroup._invited_by
+_OBJC_IVAR_$_VKGroup._invite_state
+_OBJC_IVAR_$_VKGroup._deactivated
+_OBJC_IVAR_$_VKGroup._blacklisted
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKGroup.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKGroup.h
+-[VKUniversity id]
+-[VKUniversity setId:]
+-[VKUniversity country]
+-[VKUniversity setCountry:]
+-[VKUniversity city]
+-[VKUniversity setCity:]
+-[VKUniversity name]
+-[VKUniversity setName:]
+-[VKUniversity faculty]
+-[VKUniversity setFaculty:]
+-[VKUniversity faculty_name]
+-[VKUniversity setFaculty_name:]
+-[VKUniversity chair]
+-[VKUniversity setChair:]
+-[VKUniversity chair_name]
+-[VKUniversity setChair_name:]
+-[VKUniversity graduation]
+-[VKUniversity setGraduation:]
+-[VKUniversity education_form]
+-[VKUniversity setEducation_form:]
+-[VKUniversity education_status]
+-[VKUniversity setEducation_status:]
+-[VKUniversity .cxx_destruct]
+-[VKUniversities objectClass]
+_OBJC_IVAR_$_VKUniversity._id
+_OBJC_IVAR_$_VKUniversity._country
+_OBJC_IVAR_$_VKUniversity._city
+_OBJC_IVAR_$_VKUniversity._name
+_OBJC_IVAR_$_VKUniversity._faculty
+_OBJC_IVAR_$_VKUniversity._faculty_name
+_OBJC_IVAR_$_VKUniversity._chair
+_OBJC_IVAR_$_VKUniversity._chair_name
+_OBJC_IVAR_$_VKUniversity._graduation
+_OBJC_IVAR_$_VKUniversity._education_form
+_OBJC_IVAR_$_VKUniversity._education_status
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKUniversity.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKUniversity.h
+-[VKApiWall post:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiWall.m
++[VKBundle vkLibraryResourcesBundle]
+___36+[VKBundle vkLibraryResourcesBundle]_block_invoke
++[VKBundle vkLibraryImageNamed:]
++[VKBundle localizedString:]
+_vkLibraryResourcesBundle.onceToken
+_vkLibraryResourcesBundle.myLibraryResourcesBundle
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKBundle.m
+__36+[VKBundle vkLibraryResourcesBundle]_block_invoke
+-[VKApiDocs get]
+-[VKApiDocs get:]
+-[VKApiDocs get:andOffset:]
+-[VKApiDocs get:andOffset:andOwnerID:]
+-[VKApiDocs getByID:]
+-[VKApiDocs getUploadServer]
+-[VKApiDocs getUploadServer:]
+-[VKApiDocs getWallUploadServer]
+-[VKApiDocs getWallUploadServer:]
+-[VKApiDocs save:]
+-[VKApiDocs save:andTitle:]
+-[VKApiDocs save:andTitle:andTags:]
+-[VKApiDocs delete:andDocID:]
+-[VKApiDocs add:andDocID:]
+-[VKApiDocs add:andDocID:andAccessKey:]
+-[VKApiDocs search:]
+-[VKApiDocs search:count:]
+-[VKApiDocs search:count:andOffset:]
+-[VKApiDocs edit:title:]
+-[VKApiDocs edit:title:tags:]
+-[VKApiDocs edit:docID:title:]
+-[VKApiDocs edit:docID:title:tags:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiDocs.m
+-[VKPhotoSize src]
+-[VKPhotoSize setSrc:]
+-[VKPhotoSize width]
+-[VKPhotoSize setWidth:]
+-[VKPhotoSize height]
+-[VKPhotoSize setHeight:]
+-[VKPhotoSize type]
+-[VKPhotoSize setType:]
+-[VKPhotoSize .cxx_destruct]
+-[VKPhotoSizes objectClass]
+-[VKPhotoSizes initWithArray:]
+-[VKPhotoSizes photoSizeWithType:]
+-[VKPhotoSizes .cxx_destruct]
+_OBJC_IVAR_$_VKPhotoSize._src
+_OBJC_IVAR_$_VKPhotoSize._width
+_OBJC_IVAR_$_VKPhotoSize._height
+_OBJC_IVAR_$_VKPhotoSize._type
+_OBJC_IVAR_$_VKPhotoSizes.sizesDictionary
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKPhotoSize.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKPhotoSize.h
+-[VKUploadPhotoRequest initWithImage:parameters:albumId:groupId:]
+-[VKUploadPhotoRequest getServerRequest]
+-[VKUploadPhotoRequest getSaveRequest:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/upload/VKUploadPhotoRequest.m
++[VKAccessToken tokenWithToken:secret:userId:]
++[VKAccessToken tokenFromUrlString:]
+-[VKAccessToken initWithToken:secret:userId:]
+-[VKAccessToken initWithCoder:]
+-[VKAccessToken encodeWithCoder:]
+-[VKAccessToken restorePermissions:]
+-[VKAccessToken initWithUrlString:]
+-[VKAccessToken initWithVKAccessToken:]
++[VKAccessToken savedToken:]
+-[VKAccessToken isExpired]
+-[VKAccessToken checkIfExpired]
+-[VKAccessToken accessToken]
+-[VKAccessToken saveTokenToDefaults:]
+-[VKAccessToken copy]
+-[VKAccessToken mutableCopy]
++[VKAccessToken getKeychainQuery:]
++[VKAccessToken save:data:]
++[VKAccessToken load:]
++[VKAccessToken delete:]
+-[VKAccessToken userId]
+-[VKAccessToken secret]
+-[VKAccessToken permissions]
+-[VKAccessToken email]
+-[VKAccessToken expiresIn]
+-[VKAccessToken httpsRequired]
+-[VKAccessToken created]
+-[VKAccessToken localUser]
+-[VKAccessToken setAccessToken:]
+-[VKAccessToken .cxx_destruct]
+-[VKAccessTokenMutable setAccessToken:]
+-[VKAccessTokenMutable setExpiresIn:]
+-[VKAccessTokenMutable setUserId:]
+-[VKAccessTokenMutable setSecret:]
+-[VKAccessTokenMutable setPermissions:]
+-[VKAccessTokenMutable setHttpsRequired:]
+-[VKAccessTokenMutable setLocalUser:]
+_OBJC_IVAR_$_VKAccessToken._email
+_OBJC_IVAR_$_VKAccessToken._created
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKAccessToken.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKAccessToken.h
+-[NSString(VKSMD5) vks_md5]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Utils/NSString+MD5.m
+-[VKRequestTiming description]
+-[VKRequestTiming started]
+-[VKRequestTiming loaded]
+-[VKRequestTiming parseStarted]
+-[VKRequestTiming parseFinished]
+-[VKRequestTiming finished]
+-[VKRequestTiming totalTime]
+-[VKRequestTiming startTime]
+-[VKRequestTiming setStartTime:]
+-[VKRequestTiming finishTime]
+-[VKRequestTiming setFinishTime:]
+-[VKRequestTiming loadTime]
+-[VKRequestTiming setLoadTime:]
+-[VKRequestTiming parseTime]
+-[VKRequestTiming setParseTime:]
+-[VKRequestTiming .cxx_destruct]
+-[VKRequest dealloc]
++[VKRequest processingQueue]
++[VKRequest requestWithMethod:andParameters:andHttpMethod:]
++[VKRequest requestWithMethod:andParameters:]
++[VKRequest requestWithMethod:andParameters:andHttpMethod:classOfModel:]
++[VKRequest requestWithMethod:andParameters:modelClass:]
++[VKRequest requestWithMethod:parameters:]
++[VKRequest requestWithMethod:parameters:modelClass:]
++[VKRequest photoRequestWithPostUrl:withPhotos:]
+-[VKRequest init]
+-[VKRequest debugDescription]
+-[VKRequest executeWithResultBlock:errorBlock:]
+-[VKRequest executeAfter:withResultBlock:errorBlock:]
+-[VKRequest addPostRequest:]
+-[VKRequest getPreparedRequest]
+-[VKRequest createExecutionOperation]
+___37-[VKRequest createExecutionOperation]_block_invoke
+___37-[VKRequest createExecutionOperation]_block_invoke.206
+___37-[VKRequest createExecutionOperation]_block_invoke_2
+___copy_helper_block_.221
+___destroy_helper_block_.222
+___copy_helper_block_.232
+___destroy_helper_block_.233
+-[VKRequest start]
+-[VKRequest operationDidStart:]
+-[VKRequest provideResponse:responseString:]
+-[VKRequest provideError:]
+-[VKRequest finishRequest]
+___26-[VKRequest finishRequest]_block_invoke
+___copy_helper_block_.295
+___destroy_helper_block_.296
+___26-[VKRequest finishRequest]_block_invoke.298
+___copy_helper_block_.301
+___destroy_helper_block_.302
+-[VKRequest repeat]
+-[VKRequest cancel]
+-[VKRequest setupProgress:]
+___27-[VKRequest setupProgress:]_block_invoke
+___copy_helper_block_.315
+___destroy_helper_block_.316
+___27-[VKRequest setupProgress:]_block_invoke.321
+-[VKRequest addExtraParameters:]
+-[VKRequest generateSig:token:]
+-[VKRequest processCommonError:]
+___32-[VKRequest processCommonError:]_block_invoke
+___copy_helper_block_.358
+___destroy_helper_block_.359
+___32-[VKRequest processCommonError:]_block_invoke.361
+___copy_helper_block_.364
+___destroy_helper_block_.365
+___32-[VKRequest processCommonError:]_block_invoke.367
+___copy_helper_block_.370
+___destroy_helper_block_.371
+___32-[VKRequest processCommonError:]_block_invoke.375
+___copy_helper_block_.379
+___destroy_helper_block_.380
+-[VKRequest language]
+___21-[VKRequest language]_block_invoke
+-[VKRequest responseQueue]
+-[VKRequest setPreferredLang:]
+-[VKRequest isExecuting]
+-[VKRequest progressBlock]
+-[VKRequest setProgressBlock:]
+-[VKRequest completeBlock]
+-[VKRequest setCompleteBlock:]
+-[VKRequest errorBlock]
+-[VKRequest setErrorBlock:]
+-[VKRequest attempts]
+-[VKRequest setAttempts:]
+-[VKRequest secure]
+-[VKRequest setSecure:]
+-[VKRequest useSystemLanguage]
+-[VKRequest setUseSystemLanguage:]
+-[VKRequest parseModel]
+-[VKRequest setParseModel:]
+-[VKRequest debugTiming]
+-[VKRequest setDebugTiming:]
+-[VKRequest requestTimeout]
+-[VKRequest setRequestTimeout:]
+-[VKRequest setResponseQueue:]
+-[VKRequest waitUntilDone]
+-[VKRequest setWaitUntilDone:]
+-[VKRequest methodName]
+-[VKRequest setMethodName:]
+-[VKRequest httpMethod]
+-[VKRequest setHttpMethod:]
+-[VKRequest methodParameters]
+-[VKRequest setMethodParameters:]
+-[VKRequest executionOperation]
+-[VKRequest setExecutionOperation:]
+-[VKRequest requestTiming]
+-[VKRequest setRequestTiming:]
+-[VKRequest preventThisErrorsHandling]
+-[VKRequest setPreventThisErrorsHandling:]
+-[VKRequest preparedParameters]
+-[VKRequest setPreparedParameters:]
+-[VKRequest uploadUrl]
+-[VKRequest setUploadUrl:]
+-[VKRequest postRequestsQueue]
+-[VKRequest setPostRequestsQueue:]
+-[VKRequest modelClass]
+-[VKRequest setModelClass:]
+-[VKRequest photoObjects]
+-[VKRequest setPhotoObjects:]
+-[VKRequest attemptsUsed]
+-[VKRequest setAttemptsUsed:]
+-[VKRequest response]
+-[VKRequest setResponse:]
+-[VKRequest error]
+-[VKRequest setError:]
+-[VKRequest requestLang]
+-[VKRequest setRequestLang:]
+-[VKRequest specialToken]
+-[VKRequest setSpecialToken:]
+-[VKRequest .cxx_destruct]
+_OBJC_IVAR_$_VKRequestTiming._loadTime
+_OBJC_IVAR_$_VKRequestTiming._parseTime
+_OBJC_IVAR_$_VKRequestTiming._startTime
+_OBJC_IVAR_$_VKRequestTiming._parseStartTime
+_OBJC_IVAR_$_VKRequestTiming._finishTime
+_OBJC_IVAR_$_VKRequest._waitMultiplier
+_OBJC_IVAR_$_VKRequest._postRequestsQueue
+_OBJC_IVAR_$_VKRequest._preparedParameters
+_OBJC_IVAR_$_VKRequest._uploadUrl
+_OBJC_IVAR_$_VKRequest._photoObjects
+_OBJC_IVAR_$_VKRequest._debugTiming
+_OBJC_IVAR_$_VKRequest._requestTiming
+_OBJC_IVAR_$_VKRequest._executionOperation
+_OBJC_IVAR_$_VKRequest._completeBlock
+_OBJC_IVAR_$_VKRequest._errorBlock
+___block_descriptor_tmp.224
+___block_descriptor_tmp.235
+_OBJC_IVAR_$_VKRequest._waitUntilDoneSemaphore
+_OBJC_IVAR_$_VKRequest._modelClass
+___block_descriptor_tmp.297
+___block_descriptor_tmp.303
+_OBJC_IVAR_$_VKRequest._attemptsUsed
+_OBJC_IVAR_$_VKRequest._methodParameters
+_OBJC_IVAR_$_VKRequest._methodName
+___block_descriptor_tmp.360
+___block_descriptor_tmp.366
+___block_descriptor_tmp.372
+___block_descriptor_tmp.381
+_language.sysLang
+_language.onceToken
+___block_descriptor_tmp.398
+_OBJC_IVAR_$_VKRequest._responseQueue
+_OBJC_IVAR_$_VKRequest._progressBlock
+_OBJC_IVAR_$_VKRequest._attempts
+_OBJC_IVAR_$_VKRequest._secure
+_OBJC_IVAR_$_VKRequest._useSystemLanguage
+_OBJC_IVAR_$_VKRequest._parseModel
+_OBJC_IVAR_$_VKRequest._requestTimeout
+_OBJC_IVAR_$_VKRequest._waitUntilDone
+_OBJC_IVAR_$_VKRequest._httpMethod
+_OBJC_IVAR_$_VKRequest._preventThisErrorsHandling
+_OBJC_IVAR_$_VKRequest._response
+_OBJC_IVAR_$_VKRequest._error
+_OBJC_IVAR_$_VKRequest._requestLang
+_OBJC_IVAR_$_VKRequest._specialToken
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKRequest.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKRequest.h
+__21-[VKRequest language]_block_invoke
+__32-[VKRequest processCommonError:]_block_invoke.375
+__32-[VKRequest processCommonError:]_block_invoke.367
+__32-[VKRequest processCommonError:]_block_invoke.361
+__32-[VKRequest processCommonError:]_block_invoke
+__27-[VKRequest setupProgress:]_block_invoke.321
+__27-[VKRequest setupProgress:]_block_invoke
+__26-[VKRequest finishRequest]_block_invoke.298
+__26-[VKRequest finishRequest]_block_invoke
+__37-[VKRequest createExecutionOperation]_block_invoke_2
+__37-[VKRequest createExecutionOperation]_block_invoke.206
+__37-[VKRequest createExecutionOperation]_block_invoke
+vksdk_dispatch_on_main_queue_now
+-[VKCaptchaView dealloc]
+-[VKCaptchaView initWithFrame:andError:]
+___40-[VKCaptchaView initWithFrame:andError:]_block_invoke
+___40-[VKCaptchaView initWithFrame:andError:]_block_invoke.74
+-[VKCaptchaView deviceDidRotate:]
+___33-[VKCaptchaView deviceDidRotate:]_block_invoke
+___copy_helper_block_.90
+___destroy_helper_block_.91
+-[VKCaptchaView doneButtonPressed:]
+-[VKCaptchaView didMoveToSuperview]
+-[VKCaptchaView textFieldShouldReturn:]
+-[VKCaptchaView .cxx_destruct]
+_OBJC_IVAR_$_VKCaptchaView._error
+_OBJC_IVAR_$_VKCaptchaView._imageLoadingActivity
+_OBJC_IVAR_$_VKCaptchaView._captchaImage
+_OBJC_IVAR_$_VKCaptchaView._captchaTextField
+___block_descriptor_tmp.76
+___block_descriptor_tmp.93
+_OBJC_IVAR_$_VKCaptchaView._doneButton
+_OBJC_IVAR_$_VKCaptchaView._infoLabel
+l_OBJC_PROTOCOL_$_UITextFieldDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextFieldDelegate
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKCaptchaView.m
+__33-[VKCaptchaView deviceDidRotate:]_block_invoke
+__40-[VKCaptchaView initWithFrame:andError:]_block_invoke.74
+__40-[VKCaptchaView initWithFrame:andError:]_block_invoke
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiConst.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKPermissions.m
+VKParseVkPermissionsFromInteger
+-[VKPhoto attachmentString]
+-[VKPhoto id]
+-[VKPhoto setId:]
+-[VKPhoto album_id]
+-[VKPhoto setAlbum_id:]
+-[VKPhoto owner_id]
+-[VKPhoto setOwner_id:]
+-[VKPhoto photo_75]
+-[VKPhoto setPhoto_75:]
+-[VKPhoto photo_130]
+-[VKPhoto setPhoto_130:]
+-[VKPhoto photo_604]
+-[VKPhoto setPhoto_604:]
+-[VKPhoto photo_807]
+-[VKPhoto setPhoto_807:]
+-[VKPhoto photo_1280]
+-[VKPhoto setPhoto_1280:]
+-[VKPhoto photo_2560]
+-[VKPhoto setPhoto_2560:]
+-[VKPhoto width]
+-[VKPhoto setWidth:]
+-[VKPhoto height]
+-[VKPhoto setHeight:]
+-[VKPhoto text]
+-[VKPhoto setText:]
+-[VKPhoto date]
+-[VKPhoto setDate:]
+-[VKPhoto sizes]
+-[VKPhoto setSizes:]
+-[VKPhoto .cxx_destruct]
+-[VKPhotoArray initWithDictionary:]
+_OBJC_IVAR_$_VKPhoto._owner_id
+_OBJC_IVAR_$_VKPhoto._id
+_OBJC_IVAR_$_VKPhoto._album_id
+_OBJC_IVAR_$_VKPhoto._photo_75
+_OBJC_IVAR_$_VKPhoto._photo_130
+_OBJC_IVAR_$_VKPhoto._photo_604
+_OBJC_IVAR_$_VKPhoto._photo_807
+_OBJC_IVAR_$_VKPhoto._photo_1280
+_OBJC_IVAR_$_VKPhoto._photo_2560
+_OBJC_IVAR_$_VKPhoto._width
+_OBJC_IVAR_$_VKPhoto._height
+_OBJC_IVAR_$_VKPhoto._text
+_OBJC_IVAR_$_VKPhoto._date
+_OBJC_IVAR_$_VKPhoto._sizes
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKPhoto.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKPhoto.h
+-[VKApiUsers get]
+-[VKApiUsers get:]
+-[VKApiUsers search:]
+-[VKApiUsers isAppUser]
+-[VKApiUsers isAppUser:]
+-[VKApiUsers getSubscriptions]
+-[VKApiUsers getSubscriptions:]
+-[VKApiUsers getFollowers]
+-[VKApiUsers getFollowers:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiUsers.m
+-[VKBatchRequest initWithRequests:]
+-[VKBatchRequest initWithRequestsArray:]
+-[VKBatchRequest executeWithResultBlock:errorBlock:]
+___52-[VKBatchRequest executeWithResultBlock:errorBlock:]_block_invoke
+___52-[VKBatchRequest executeWithResultBlock:errorBlock:]_block_invoke.28
+___copy_helper_block_.31
+___destroy_helper_block_.32
+-[VKBatchRequest cancel]
+-[VKBatchRequest provideResponse:]
+-[VKBatchRequest provideError:]
+-[VKBatchRequest completeBlock]
+-[VKBatchRequest setCompleteBlock:]
+-[VKBatchRequest errorBlock]
+-[VKBatchRequest setErrorBlock:]
+-[VKBatchRequest .cxx_destruct]
+_OBJC_IVAR_$_VKBatchRequest._requests
+_OBJC_IVAR_$_VKBatchRequest._responses
+___block_descriptor_tmp.34
+_OBJC_IVAR_$_VKBatchRequest._canceled
+_OBJC_IVAR_$_VKBatchRequest._completeBlock
+_OBJC_IVAR_$_VKBatchRequest._errorBlock
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKBatchRequest.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKBatchRequest.h
+__52-[VKBatchRequest executeWithResultBlock:errorBlock:]_block_invoke.28
+__52-[VKBatchRequest executeWithResultBlock:errorBlock:]_block_invoke
+-[VKRelative id]
+-[VKRelative setId:]
+-[VKRelative type]
+-[VKRelative setType:]
+-[VKRelative .cxx_destruct]
+-[VKRelativities objectClass]
+_OBJC_IVAR_$_VKRelative._id
+_OBJC_IVAR_$_VKRelative._type
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKRelative.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKRelative.h
+-[VKCounters friends]
+-[VKCounters setFriends:]
+-[VKCounters messages]
+-[VKCounters setMessages:]
+-[VKCounters photos]
+-[VKCounters setPhotos:]
+-[VKCounters videos]
+-[VKCounters setVideos:]
+-[VKCounters notifications]
+-[VKCounters setNotifications:]
+-[VKCounters groups]
+-[VKCounters setGroups:]
+-[VKCounters gifts]
+-[VKCounters setGifts:]
+-[VKCounters events]
+-[VKCounters setEvents:]
+-[VKCounters albums]
+-[VKCounters setAlbums:]
+-[VKCounters audios]
+-[VKCounters setAudios:]
+-[VKCounters online_friends]
+-[VKCounters setOnline_friends:]
+-[VKCounters mutual_friends]
+-[VKCounters setMutual_friends:]
+-[VKCounters user_videos]
+-[VKCounters setUser_videos:]
+-[VKCounters followers]
+-[VKCounters setFollowers:]
+-[VKCounters user_photos]
+-[VKCounters setUser_photos:]
+-[VKCounters subscriptions]
+-[VKCounters setSubscriptions:]
+-[VKCounters documents]
+-[VKCounters setDocuments:]
+-[VKCounters topics]
+-[VKCounters setTopics:]
+-[VKCounters pages]
+-[VKCounters setPages:]
+-[VKCounters .cxx_destruct]
+_OBJC_IVAR_$_VKCounters._friends
+_OBJC_IVAR_$_VKCounters._messages
+_OBJC_IVAR_$_VKCounters._photos
+_OBJC_IVAR_$_VKCounters._videos
+_OBJC_IVAR_$_VKCounters._notifications
+_OBJC_IVAR_$_VKCounters._groups
+_OBJC_IVAR_$_VKCounters._gifts
+_OBJC_IVAR_$_VKCounters._events
+_OBJC_IVAR_$_VKCounters._albums
+_OBJC_IVAR_$_VKCounters._audios
+_OBJC_IVAR_$_VKCounters._online_friends
+_OBJC_IVAR_$_VKCounters._mutual_friends
+_OBJC_IVAR_$_VKCounters._user_videos
+_OBJC_IVAR_$_VKCounters._followers
+_OBJC_IVAR_$_VKCounters._user_photos
+_OBJC_IVAR_$_VKCounters._subscriptions
+_OBJC_IVAR_$_VKCounters._documents
+_OBJC_IVAR_$_VKCounters._topics
+_OBJC_IVAR_$_VKCounters._pages
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKCounters.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKCounters.h
++[VKCaptchaViewController captchaControllerWithError:]
+-[VKCaptchaViewController loadView]
+-[VKCaptchaViewController captchaDidAnswered]
+-[VKCaptchaViewController captchaFrameForScreenSize:]
+-[VKCaptchaViewController willAnimateRotationToInterfaceOrientation:duration:]
+-[VKCaptchaViewController presentIn:]
+___37-[VKCaptchaViewController presentIn:]_block_invoke
+-[VKCaptchaViewController preferredStatusBarStyle]
+-[VKCaptchaViewController preferredContentSize]
+-[VKCaptchaViewController dealloc]
+-[VKCaptchaViewController captchaView]
+-[VKCaptchaViewController setCaptchaView:]
+-[VKCaptchaViewController .cxx_destruct]
+_OBJC_IVAR_$_VKCaptchaViewController._captchaError
+_OBJC_IVAR_$_VKCaptchaViewController._transitionDelegate
+_OBJC_IVAR_$_VKCaptchaViewController._captchaView
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKCaptchaViewController.m
+__37-[VKCaptchaViewController presentIn:]_block_invoke
+UIInterfaceOrientationIsLandscape
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h
++[VKError errorWithCode:]
++[VKError errorWithJson:]
++[VKError errorWithQuery:]
+-[VKError answerCaptcha:]
+-[VKError description]
+-[VKError httpError]
+-[VKError setHttpError:]
+-[VKError apiError]
+-[VKError setApiError:]
+-[VKError request]
+-[VKError setRequest:]
+-[VKError errorCode]
+-[VKError setErrorCode:]
+-[VKError errorMessage]
+-[VKError setErrorMessage:]
+-[VKError errorReason]
+-[VKError setErrorReason:]
+-[VKError errorText]
+-[VKError setErrorText:]
+-[VKError requestParams]
+-[VKError setRequestParams:]
+-[VKError captchaSid]
+-[VKError setCaptchaSid:]
+-[VKError captchaImg]
+-[VKError setCaptchaImg:]
+-[VKError redirectUri]
+-[VKError setRedirectUri:]
+-[VKError json]
+-[VKError setJson:]
+-[VKError .cxx_destruct]
+_OBJC_IVAR_$_VKError._httpError
+_OBJC_IVAR_$_VKError._apiError
+_OBJC_IVAR_$_VKError._request
+_OBJC_IVAR_$_VKError._errorCode
+_OBJC_IVAR_$_VKError._errorMessage
+_OBJC_IVAR_$_VKError._errorReason
+_OBJC_IVAR_$_VKError._errorText
+_OBJC_IVAR_$_VKError._requestParams
+_OBJC_IVAR_$_VKError._captchaSid
+_OBJC_IVAR_$_VKError._captchaImg
+_OBJC_IVAR_$_VKError._redirectUri
+_OBJC_IVAR_$_VKError._json
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKError.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKError.h
+-[OrderedDictionary init]
+-[OrderedDictionary initWithCapacity:]
+-[OrderedDictionary copy]
+-[OrderedDictionary setObject:forKey:]
+-[OrderedDictionary removeObjectForKey:]
+-[OrderedDictionary count]
+-[OrderedDictionary objectForKey:]
+-[OrderedDictionary keyEnumerator]
+-[OrderedDictionary reverseKeyEnumerator]
+-[OrderedDictionary insertObject:forKey:atIndex:]
+-[OrderedDictionary keyAtIndex:]
+-[OrderedDictionary descriptionWithLocale:indent:]
+-[OrderedDictionary .cxx_destruct]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Utils/OrderedDictionary.m
+VKDescriptionForObject
+-[VKLikes count]
+-[VKLikes setCount:]
+-[VKLikes user_likes]
+-[VKLikes setUser_likes:]
+-[VKLikes can_like]
+-[VKLikes setCan_like:]
+-[VKLikes can_publish]
+-[VKLikes setCan_publish:]
+-[VKLikes .cxx_destruct]
+_OBJC_IVAR_$_VKLikes._count
+_OBJC_IVAR_$_VKLikes._user_likes
+_OBJC_IVAR_$_VKLikes._can_like
+_OBJC_IVAR_$_VKLikes._can_publish
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKLikes.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKLikes.h
+-[VKPhotoAttachmentCell initWithFrame:]
+-[VKPhotoAttachmentCell setProgress:]
+-[VKPhotoAttachmentCell hideProgress]
+-[VKPhotoAttachmentCell progressView]
+-[VKPhotoAttachmentCell setProgressView:]
+-[VKPhotoAttachmentCell activity]
+-[VKPhotoAttachmentCell setActivity:]
+-[VKPhotoAttachmentCell attachImageView]
+-[VKPhotoAttachmentCell setAttachImageView:]
+-[VKPhotoAttachmentCell .cxx_destruct]
+-[VKUploadingAttachment isDownloading]
+-[VKUploadingAttachment setIsDownloading:]
+-[VKUploadingAttachment attachSize]
+-[VKUploadingAttachment setAttachSize:]
+-[VKUploadingAttachment attachmentString]
+-[VKUploadingAttachment setAttachmentString:]
+-[VKUploadingAttachment preview]
+-[VKUploadingAttachment setPreview:]
+-[VKUploadingAttachment uploadingRequest]
+-[VKUploadingAttachment setUploadingRequest:]
+-[VKUploadingAttachment .cxx_destruct]
+-[VKPostSettings friendsOnly]
+-[VKPostSettings setFriendsOnly:]
+-[VKPostSettings exportTwitter]
+-[VKPostSettings setExportTwitter:]
+-[VKPostSettings exportFacebook]
+-[VKPostSettings setExportFacebook:]
+-[VKPostSettings exportLivejournal]
+-[VKPostSettings setExportLivejournal:]
+-[VKPostSettings .cxx_destruct]
++[VKShareDialogController initialize]
+-[VKShareDialogController init]
+-[VKShareDialogController loadView]
+-[VKShareDialogController viewWillLayoutSubviews]
+-[VKShareDialogController preferredContentSize]
+-[VKShareDialogController viewWillAppear:]
+-[VKShareDialogController willAnimateRotationToInterfaceOrientation:duration:]
+-[VKShareDialogController rotateToInterfaceOrientation:appear:]
+-[VKShareDialogController shouldAutorotate]
+-[VKShareDialogController shouldAutorotateToInterfaceOrientation:]
+-[VKShareDialogController preferredStatusBarStyle]
+-[VKShareDialogController supportedInterfaceOrientations]
+-[VKShareDialogController viewDidLoad]
+-[VKShareDialogController setUploadImages:]
+___43-[VKShareDialogController setUploadImages:]_block_invoke
+-[VKShareDialogController viewDidAppear:]
+-[VKShareDialogController uploadImages]
+-[VKShareDialogController vkImages]
+-[VKShareDialogController setVkImages:]
+-[VKShareDialogController shareLink]
+-[VKShareDialogController setShareLink:]
+-[VKShareDialogController text]
+-[VKShareDialogController setText:]
+-[VKShareDialogController requestedScope]
+-[VKShareDialogController setRequestedScope:]
+-[VKShareDialogController completionHandler]
+-[VKShareDialogController setCompletionHandler:]
+-[VKShareDialogController dismissAutomatically]
+-[VKShareDialogController setDismissAutomatically:]
+-[VKShareDialogController postId]
+-[VKShareDialogController setPostId:]
+-[VKShareDialogController internalNavigation]
+-[VKShareDialogController transitionDelegate]
+-[VKShareDialogController targetShareDialog]
+-[VKShareDialogController .cxx_destruct]
+-[VKPlaceholderTextView dealloc]
+-[VKPlaceholderTextView awakeFromNib]
+-[VKPlaceholderTextView initWithFrame:]
+-[VKPlaceholderTextView textChanged:]
+-[VKPlaceholderTextView setText:]
+-[VKPlaceholderTextView setPlaceholder:]
+-[VKPlaceholderTextView measureHeightOfUITextView]
+-[VKPlaceholderTextView layoutSubviews]
+-[VKPlaceholderTextView placeholder]
+-[VKPlaceholderTextView placeholderColor]
+-[VKPlaceholderTextView setPlaceholderColor:]
+-[VKPlaceholderTextView placeholderLabel]
+-[VKPlaceholderTextView setPlaceholderLabel:]
+-[VKPlaceholderTextView .cxx_destruct]
+-[VKPrivacyButton initWithFrame:]
+-[VKPrivacyButton setHighlighted:]
+-[VKPrivacyButton imageRectForContentRect:]
+-[VKPrivacyButton titleRectForContentRect:]
+-[VKLinkAttachView initWithFrame:]
+-[VKLinkAttachView sizeToFit]
+-[VKLinkAttachView setTargetLink:]
+-[VKLinkAttachView linkTitle]
+-[VKLinkAttachView setLinkTitle:]
+-[VKLinkAttachView linkHost]
+-[VKLinkAttachView setLinkHost:]
+-[VKLinkAttachView .cxx_destruct]
+-[VKShareDialogView initWithFrame:]
+-[VKShareDialogView layoutSubviews]
+-[VKShareDialogView positionSubviews]
+-[VKShareDialogView textViewDidChange:]
+___39-[VKShareDialogView textViewDidChange:]_block_invoke
+-[VKShareDialogView textView:shouldChangeTextInRange:replacementText:]
+-[VKShareDialogView setShareLink:]
+-[VKShareDialogView notAuthorizedView]
+-[VKShareDialogView setNotAuthorizedView:]
+-[VKShareDialogView notAuthorizedLabel]
+-[VKShareDialogView setNotAuthorizedLabel:]
+-[VKShareDialogView notAuthorizedButton]
+-[VKShareDialogView setNotAuthorizedButton:]
+-[VKShareDialogView contentScrollView]
+-[VKShareDialogView setContentScrollView:]
+-[VKShareDialogView privacyButton]
+-[VKShareDialogView setPrivacyButton:]
+-[VKShareDialogView attachmentsCollection]
+-[VKShareDialogView setAttachmentsCollection:]
+-[VKShareDialogView textView]
+-[VKShareDialogView setTextView:]
+-[VKShareDialogView linkAttachView]
+-[VKShareDialogView setLinkAttachView:]
+-[VKShareDialogView activityIndicator]
+-[VKShareDialogView setActivityIndicator:]
+-[VKShareDialogView .cxx_destruct]
+-[VKShareDialogControllerInternal dealloc]
+-[VKShareDialogControllerInternal init]
+-[VKShareDialogControllerInternal loadView]
+-[VKShareDialogControllerInternal attachmentsScrollView]
+-[VKShareDialogControllerInternal viewDidLoad]
+-[VKShareDialogControllerInternal viewWillDisappear:]
+-[VKShareDialogControllerInternal viewWillAppear:]
+___50-[VKShareDialogControllerInternal viewWillAppear:]_block_invoke
+___copy_helper_block_.763
+___destroy_helper_block_.764
+-[VKShareDialogControllerInternal setAuthorizationState:]
+-[VKShareDialogControllerInternal willAnimateRotationToInterfaceOrientation:duration:]
+-[VKShareDialogControllerInternal prepare]
+___42-[VKShareDialogControllerInternal prepare]_block_invoke
+___copy_helper_block_.811
+___destroy_helper_block_.812
+-[VKShareDialogControllerInternal rightBarButtonItems]
+-[VKShareDialogControllerInternal close:]
+-[VKShareDialogControllerInternal sendMessage:]
+___47-[VKShareDialogControllerInternal sendMessage:]_block_invoke
+___copy_helper_block_.889
+___destroy_helper_block_.890
+___47-[VKShareDialogControllerInternal sendMessage:]_block_invoke.892
+___copy_helper_block_.904
+___destroy_helper_block_.905
+-[VKShareDialogControllerInternal openSettings:]
+-[VKShareDialogControllerInternal authorize:]
+-[VKShareDialogControllerInternal vkSdkNeedCaptchaEnter:]
+-[VKShareDialogControllerInternal vkSdkShouldPresentViewController:]
+-[VKShareDialogControllerInternal vkSdkAccessAuthorizationFinishedWithResult:]
+-[VKShareDialogControllerInternal vkSdkAuthorizationStateUpdatedWithResult:]
+-[VKShareDialogControllerInternal vkSdkUserAuthorizationFailed]
+-[VKShareDialogControllerInternal createAttachments]
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke
+___copy_helper_block_.954
+___destroy_helper_block_.955
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke.959
+___copy_helper_block_.966
+___destroy_helper_block_.967
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke.992
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke_2
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke_3
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke_4
+___copy_helper_block_.1032
+___destroy_helper_block_.1033
+___copy_helper_block_.1037
+___destroy_helper_block_.1038
+___copy_helper_block_.1040
+___destroy_helper_block_.1041
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1044
+___copy_helper_block_.1045
+___destroy_helper_block_.1046
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1058
+___copy_helper_block_.1065
+___destroy_helper_block_.1066
+___copy_helper_block_.1068
+___destroy_helper_block_.1069
+___52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1071
+-[VKShareDialogControllerInternal collectionView:numberOfItemsInSection:]
+-[VKShareDialogControllerInternal collectionView:layout:sizeForItemAtIndexPath:]
+-[VKShareDialogControllerInternal collectionView:cellForItemAtIndexPath:]
+___73-[VKShareDialogControllerInternal collectionView:cellForItemAtIndexPath:]_block_invoke
+___copy_helper_block_.1086
+___destroy_helper_block_.1087
+-[VKShareDialogControllerInternal removeAttachIfExists:]
+-[VKShareDialogControllerInternal textViewDidChange:]
+-[VKShareDialogControllerInternal parent]
+-[VKShareDialogControllerInternal setParent:]
+-[VKShareDialogControllerInternal sendButton]
+-[VKShareDialogControllerInternal setSendButton:]
+-[VKShareDialogControllerInternal attachmentsArray]
+-[VKShareDialogControllerInternal setAttachmentsArray:]
+-[VKShareDialogControllerInternal postSettings]
+-[VKShareDialogControllerInternal setPostSettings:]
+-[VKShareDialogControllerInternal prepared]
+-[VKShareDialogControllerInternal setPrepared:]
+-[VKShareDialogControllerInternal oldDelegate]
+-[VKShareDialogControllerInternal setOldDelegate:]
+-[VKShareDialogControllerInternal .cxx_destruct]
+-[VKShareSettingsController initWithPostSettings:]
+-[VKShareSettingsController viewDidLoad]
+-[VKShareSettingsController tableView:numberOfRowsInSection:]
+-[VKShareSettingsController tableView:cellForRowAtIndexPath:]
+-[VKShareSettingsController switchChanged:]
+-[VKShareSettingsController currentSettings]
+-[VKShareSettingsController setCurrentSettings:]
+-[VKShareSettingsController rows]
+-[VKShareSettingsController setRows:]
+-[VKShareSettingsController .cxx_destruct]
+-[VKShareLink initWithTitle:link:]
+-[VKShareLink title]
+-[VKShareLink setTitle:]
+-[VKShareLink link]
+-[VKShareLink setLink:]
+-[VKShareLink .cxx_destruct]
+_OBJC_IVAR_$_VKPhotoAttachmentCell._progressView
+_OBJC_IVAR_$_VKPhotoAttachmentCell._activity
+_OBJC_IVAR_$_VKPhotoAttachmentCell._attachImageView
+_OBJC_IVAR_$_VKUploadingAttachment._isDownloading
+_OBJC_IVAR_$_VKUploadingAttachment._attachSize
+_OBJC_IVAR_$_VKUploadingAttachment._attachmentString
+_OBJC_IVAR_$_VKUploadingAttachment._preview
+_OBJC_IVAR_$_VKUploadingAttachment._uploadingRequest
+_OBJC_IVAR_$_VKPostSettings._friendsOnly
+_OBJC_IVAR_$_VKPostSettings._exportTwitter
+_OBJC_IVAR_$_VKPostSettings._exportFacebook
+_OBJC_IVAR_$_VKPostSettings._exportLivejournal
+_OBJC_IVAR_$_VKShareDialogController._targetShareDialog
+_OBJC_IVAR_$_VKShareDialogController._internalNavigation
+_OBJC_IVAR_$_VKShareDialogController._requestedScope
+_OBJC_IVAR_$_VKShareDialogController._transitionDelegate
+_OBJC_IVAR_$_VKShareDialogController._uploadImages
+_OBJC_IVAR_$_VKShareDialogController.defaultBarStyle
+_OBJC_IVAR_$_VKShareDialogController._vkImages
+_OBJC_IVAR_$_VKShareDialogController._shareLink
+_OBJC_IVAR_$_VKShareDialogController._text
+_OBJC_IVAR_$_VKShareDialogController._completionHandler
+_OBJC_IVAR_$_VKShareDialogController._dismissAutomatically
+_OBJC_IVAR_$_VKShareDialogController._postId
+_OBJC_IVAR_$_VKPlaceholderTextView._placeholder
+_OBJC_IVAR_$_VKPlaceholderTextView._placeholderColor
+_OBJC_IVAR_$_VKPlaceholderTextView._placeholderLabel
+_OBJC_IVAR_$_VKLinkAttachView._linkTitle
+_OBJC_IVAR_$_VKLinkAttachView._linkHost
+_OBJC_IVAR_$_VKShareDialogView._notAuthorizedView
+_OBJC_IVAR_$_VKShareDialogView._notAuthorizedLabel
+_OBJC_IVAR_$_VKShareDialogView._notAuthorizedButton
+_OBJC_IVAR_$_VKShareDialogView._activityIndicator
+_OBJC_IVAR_$_VKShareDialogView._contentScrollView
+_OBJC_IVAR_$_VKShareDialogView._privacyButton
+_OBJC_IVAR_$_VKShareDialogView._textView
+_OBJC_IVAR_$_VKShareDialogView._attachmentsCollection
+_OBJC_IVAR_$_VKShareDialogView.lastTextViewHeight
+___block_descriptor_tmp.572
+_OBJC_IVAR_$_VKShareDialogView._linkAttachView
+l_OBJC_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_PROTOCOL_$_UITextViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextViewDelegate
+_OBJC_IVAR_$_VKShareDialogControllerInternal.imageProcessingQueue
+___block_descriptor_tmp.766
+___block_descriptor_tmp.814
+_OBJC_IVAR_$_VKShareDialogControllerInternal._attachmentsArray
+___block_descriptor_tmp.891
+___block_descriptor_tmp.907
+___block_descriptor_tmp.956
+___block_descriptor_tmp.968
+___block_descriptor_tmp.1034
+___block_descriptor_tmp.1039
+___block_descriptor_tmp.1043
+___block_descriptor_tmp.1048
+___block_descriptor_tmp.1067
+___block_descriptor_tmp.1070
+___block_descriptor_tmp.1074
+___block_literal_global.1075
+___block_descriptor_tmp.1089
+_OBJC_IVAR_$_VKShareDialogControllerInternal._parent
+_OBJC_IVAR_$_VKShareDialogControllerInternal._sendButton
+_OBJC_IVAR_$_VKShareDialogControllerInternal._postSettings
+_OBJC_IVAR_$_VKShareDialogControllerInternal._prepared
+_OBJC_IVAR_$_VKShareDialogControllerInternal._oldDelegate
+l_OBJC_PROTOCOL_$_UICollectionViewDataSource
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDataSource
+l_OBJC_PROTOCOL_$_UICollectionViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDelegate
+l_OBJC_PROTOCOL_$_UICollectionViewDelegateFlowLayout
+l_OBJC_LABEL_PROTOCOL_$_UICollectionViewDelegateFlowLayout
+l_OBJC_PROTOCOL_$_VKSdkDelegate
+l_OBJC_LABEL_PROTOCOL_$_VKSdkDelegate
+l_OBJC_PROTOCOL_$_VKSdkUIDelegate
+l_OBJC_LABEL_PROTOCOL_$_VKSdkUIDelegate
+_OBJC_IVAR_$_VKShareSettingsController._currentSettings
+_OBJC_IVAR_$_VKShareSettingsController._rows
+_OBJC_IVAR_$_VKShareLink._title
+_OBJC_IVAR_$_VKShareLink._link
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKShareDialogController.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Views/VKShareDialogController.h
+__73-[VKShareDialogControllerInternal collectionView:cellForItemAtIndexPath:]_block_invoke
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1071
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1058
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke.1044
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke_4
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke_3
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke_2
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke.992
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke.959
+__52-[VKShareDialogControllerInternal createAttachments]_block_invoke
+__47-[VKShareDialogControllerInternal sendMessage:]_block_invoke.892
+__47-[VKShareDialogControllerInternal sendMessage:]_block_invoke
+VK_ENSURE_NUM
+__42-[VKShareDialogControllerInternal prepare]_block_invoke
+__50-[VKShareDialogControllerInternal viewWillAppear:]_block_invoke
+__39-[VKShareDialogView textViewDidChange:]_block_invoke
+__43-[VKShareDialogController setUploadImages:]_block_invoke
+UIInterfaceOrientationIsPortrait
+-[VKApiFriends get]
+-[VKApiFriends get:]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiFriends.m
++[NSError(VKError) errorWithVkError:]
+-[NSError(VKError) copyWithVkError:]
+-[NSError(VKError) vkError]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/NSError+VKError.m
+-[VKUploadPhotoBase initWithImage:parameters:]
+-[VKUploadPhotoBase createExecutionOperation]
+-[VKUploadPhotoBase getServerRequest]
+-[VKUploadPhotoBase getSaveRequest:]
+-[VKUploadPhotoBase methodName]
+-[VKUploadPhotoBase albumId]
+-[VKUploadPhotoBase setAlbumId:]
+-[VKUploadPhotoBase groupId]
+-[VKUploadPhotoBase setGroupId:]
+-[VKUploadPhotoBase userId]
+-[VKUploadPhotoBase setUserId:]
+-[VKUploadPhotoBase imageParameters]
+-[VKUploadPhotoBase setImageParameters:]
+-[VKUploadPhotoBase image]
+-[VKUploadPhotoBase setImage:]
+-[VKUploadPhotoBase .cxx_destruct]
++[VKUploadImageOperation operationWithUploadRequest:]
+-[VKUploadImageOperation start]
+___31-[VKUploadImageOperation start]_block_invoke
+___31-[VKUploadImageOperation start]_block_invoke.78
+___31-[VKUploadImageOperation start]_block_invoke_2
+___31-[VKUploadImageOperation start]_block_invoke_3
+___copy_helper_block_.111
+___destroy_helper_block_.112
+___copy_helper_block_.117
+___destroy_helper_block_.118
+___copy_helper_block_.120
+___destroy_helper_block_.121
+-[VKUploadImageOperation finish]
+-[VKUploadImageOperation cancel]
+-[VKUploadImageOperation uploadRequest]
+-[VKUploadImageOperation setUploadRequest:]
+-[VKUploadImageOperation lastLoadingRequest]
+-[VKUploadImageOperation setLastLoadingRequest:]
+-[VKUploadImageOperation .cxx_destruct]
+_OBJC_IVAR_$_VKUploadPhotoBase._albumId
+_OBJC_IVAR_$_VKUploadPhotoBase._groupId
+_OBJC_IVAR_$_VKUploadPhotoBase._userId
+_OBJC_IVAR_$_VKUploadPhotoBase._imageParameters
+_OBJC_IVAR_$_VKUploadPhotoBase._image
+_OBJC_IVAR_$_VKUploadImageOperation._uploadRequest
+___block_descriptor_tmp.114
+___block_descriptor_tmp.119
+___block_descriptor_tmp.122
+_OBJC_IVAR_$_VKUploadImageOperation._lastLoadingRequest
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/upload/VKUploadPhotoBase.m
+__31-[VKUploadImageOperation start]_block_invoke_3
+__31-[VKUploadImageOperation start]_block_invoke_2
+__31-[VKUploadImageOperation start]_block_invoke.78
+__31-[VKUploadImageOperation start]_block_invoke
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/upload/VKUploadPhotoBase.h
+-[VKOperation init]
+-[VKOperation setState:]
+-[VKOperation isReady]
+-[VKOperation isExecuting]
+-[VKOperation isFinished]
+-[VKOperation isConcurrent]
+-[VKOperation cancel]
+-[VKOperation setCompletionBlock:]
+___34-[VKOperation setCompletionBlock:]_block_invoke
+-[VKOperation state]
+-[VKOperation lock]
+-[VKOperation setLock:]
+-[VKOperation responseQueue]
+-[VKOperation setResponseQueue:]
+-[VKOperation isCancelled]
+-[VKOperation setWasCancelled:]
+-[VKOperation .cxx_destruct]
+_OBJC_IVAR_$_VKOperation._state
+_OBJC_IVAR_$_VKOperation._wasCancelled
+_OBJC_IVAR_$_VKOperation._lock
+_OBJC_IVAR_$_VKOperation._responseQueue
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKOperation.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKOperation.h
+__34-[VKOperation setCompletionBlock:]_block_invoke
+VKKeyPathFromOperationState
+VKStateTransitionIsValid
++[VKUtil explodeQueryString:]
++[VKUtil generateGUID]
++[VKUtil parseNumberString:]
+___28+[VKUtil parseNumberString:]_block_invoke
++[VKUtil colorWithRGB:]
++[VKUtil escapeString:]
++[VKUtil queryStringFromParams:]
++[VKUtil isOperatingSystemAtLeastVersion:]
++[VKUtil isOperatingSystemAtLeastIOS7]
++[VKUtil isOperatingSystemAtLeastIOS8]
+-[UIImage(RoundedImage) vks_addRoundedRectToPath:rect:width:height:toCorners:]
+-[UIImage(RoundedImage) vks_roundCornersImage:resultSize:]
+_parseNumberString:.onceToken
+_parseNumberString:.semaphore
+_parseNumberString:.formatter
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Utils/VKUtil.m
+__28+[VKUtil parseNumberString:]_block_invoke
++[VKRequestsScheduler instance]
+___31+[VKRequestsScheduler instance]_block_invoke
+-[VKRequestsScheduler init]
+-[VKRequestsScheduler setEnabled:]
+-[VKRequestsScheduler currentAvailableInterval]
+-[VKRequestsScheduler scheduleRequest:]
+___39-[VKRequestsScheduler scheduleRequest:]_block_invoke
+___39-[VKRequestsScheduler scheduleRequest:]_block_invoke_2
+___copy_helper_block_.37
+___destroy_helper_block_.38
+___copy_helper_block_.40
+___destroy_helper_block_.41
+-[VKRequestsScheduler .cxx_destruct]
+_instance.sInstance
+_instance.onceToken
+_OBJC_IVAR_$_VKRequestsScheduler._currentLimitPerSecond
+_OBJC_IVAR_$_VKRequestsScheduler._schedulerQueue
+_OBJC_IVAR_$_VKRequestsScheduler._enabled
+_OBJC_IVAR_$_VKRequestsScheduler._scheduleDict
+___block_descriptor_tmp.39
+___block_descriptor_tmp.42
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKRequestsScheduler.m
+__39-[VKRequestsScheduler scheduleRequest:]_block_invoke_2
+__39-[VKRequestsScheduler scheduleRequest:]_block_invoke
+__31+[VKRequestsScheduler instance]_block_invoke
++[VKSdk initialize]
++[VKSdk instance]
++[VKSdk initialized]
++[VKSdk initializeWithAppId:]
++[VKSdk initializeWithAppId:apiVersion:]
+___40+[VKSdk initializeWithAppId:apiVersion:]_block_invoke
+-[VKSdk registerDelegate:]
+-[VKSdk unregisterDelegate:]
++[VKSdk authorize:]
++[VKSdk authorize:withOptions:]
++[VKSdk vkAppMayExists]
++[VKSdk setAccessToken:]
++[VKSdk accessToken]
++[VKSdk processOpenURL:validation:]
+___35+[VKSdk processOpenURL:validation:]_block_invoke
+___35+[VKSdk processOpenURL:validation:]_block_invoke_2
+___copy_helper_block_.119
+___destroy_helper_block_.120
+___copy_helper_block_.128
+___destroy_helper_block_.129
+___35+[VKSdk processOpenURL:validation:]_block_invoke.131
+___35+[VKSdk processOpenURL:validation:]_block_invoke_2.144
+___copy_helper_block_.158
+___destroy_helper_block_.159
+___copy_helper_block_.167
+___destroy_helper_block_.168
+___35+[VKSdk processOpenURL:validation:]_block_invoke.190
+___copy_helper_block_.193
+___destroy_helper_block_.194
++[VKSdk processOpenURL:fromApplication:]
++[VKSdk processOpenInternalURL:validation:]
++[VKSdk forceLogout]
++[VKSdk isLoggedIn]
++[VKSdk wakeUpSession:completeBlock:]
+___37+[VKSdk wakeUpSession:completeBlock:]_block_invoke
+___copy_helper_block_.272
+___destroy_helper_block_.273
+-[VKSdk hasPermissions:]
+-[VKSdk updatePermissions:]
++[VKSdk setSchedulerEnabled:]
+-[VKSdk initUniqueInstance]
+-[VKSdk dealloc]
+-[VKSdk handleDidBecomeActive]
+___30-[VKSdk handleDidBecomeActive]_block_invoke
+___copy_helper_block_.297
+___destroy_helper_block_.298
+-[VKSdk currentAppId]
+-[VKSdk requestSdkState:trackVisitor:token:]
+___44-[VKSdk requestSdkState:trackVisitor:token:]_block_invoke
+___copy_helper_block_.334
+___destroy_helper_block_.335
+___44-[VKSdk requestSdkState:trackVisitor:token:]_block_invoke.338
+___copy_helper_block_.339
+___destroy_helper_block_.340
+-[VKSdk notifyUserAuthorizationFailed:]
+-[VKSdk resetSdkState]
+-[VKSdk notifyDelegate:obj:]
+-[VKSdk setAccessToken:]
+-[VKSdk safariViewControllerDidFinish:]
+-[VKSdk uiDelegate]
+-[VKSdk setUiDelegate:]
+-[VKSdk apiVersion]
+-[VKSdk setApiVersion:]
+-[VKSdk sdkDelegates]
+-[VKSdk authState]
+-[VKSdk setAuthState:]
+-[VKSdk lastKnownOptions]
+-[VKSdk setLastKnownOptions:]
+-[VKSdk setCurrentAppId:]
+-[VKSdk accessToken]
+-[VKSdk presentedSafariViewController]
+-[VKSdk setPresentedSafariViewController:]
+-[VKSdk permissions]
+-[VKSdk setPermissions:]
+-[VKSdk .cxx_destruct]
++[VKWeakDelegate with:]
+-[VKWeakDelegate initWithObject:]
+-[VKWeakDelegate methodSignatureForSelector:]
+-[VKWeakDelegate forwardInvocation:]
+-[VKWeakDelegate isEqualTarget:]
+-[VKWeakDelegate weakTarget]
+-[VKWeakDelegate setWeakTarget:]
+-[VKWeakDelegate .cxx_destruct]
+-[VKAccessToken(Private) setAccessTokenRequiredHTTPS]
+-[VKAccessToken(Private) notifyTokenExpired]
+-[VKError(CaptchaRequest) notifyCaptchaRequired]
+-[VKError(CaptchaRequest) notifyAuthorizationFailed]
+-[UIViewController(VKController) vks_presentViewControllerThroughDelegate]
+-[UIViewController(VKController) vks_viewControllerWillDismiss]
+-[UIViewController(VKController) vks_viewControllerDidDismiss]
+_vkSdkInstance
+_kSpecialPermissions
+_initializeWithAppId:apiVersion:.onceToken
+___block_descriptor_tmp.121
+___block_descriptor_tmp.130
+___block_descriptor_tmp.162
+___block_descriptor_tmp.195
+___block_descriptor_tmp.275
+_OBJC_IVAR_$_VKSdk._sdkDelegates
+___block_descriptor_tmp.299
+_OBJC_IVAR_$_VKSdk._currentAppId
+___block_descriptor_tmp.337
+___block_descriptor_tmp.342
+_OBJC_IVAR_$_VKSdk._accessToken
+_OBJC_IVAR_$_VKSdk._uiDelegate
+_OBJC_IVAR_$_VKSdk._apiVersion
+_OBJC_IVAR_$_VKSdk._authState
+_OBJC_IVAR_$_VKSdk._lastKnownOptions
+_OBJC_IVAR_$_VKSdk._presentedSafariViewController
+_OBJC_IVAR_$_VKSdk._permissions
+l_OBJC_PROTOCOL_$_SFSafariViewControllerDelegate
+l_OBJC_LABEL_PROTOCOL_$_SFSafariViewControllerDelegate
+_OBJC_IVAR_$_VKWeakDelegate.objectClass
+_OBJC_IVAR_$_VKWeakDelegate._weakTarget
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKSdk.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/VKSdk.h
+__44-[VKSdk requestSdkState:trackVisitor:token:]_block_invoke.338
+__44-[VKSdk requestSdkState:trackVisitor:token:]_block_invoke
+__30-[VKSdk handleDidBecomeActive]_block_invoke
+__37+[VKSdk wakeUpSession:completeBlock:]_block_invoke
+__35+[VKSdk processOpenURL:validation:]_block_invoke.190
+__35+[VKSdk processOpenURL:validation:]_block_invoke_2.144
+__35+[VKSdk processOpenURL:validation:]_block_invoke.131
+__35+[VKSdk processOpenURL:validation:]_block_invoke_2
+__35+[VKSdk processOpenURL:validation:]_block_invoke
+__40+[VKSdk initializeWithAppId:apiVersion:]_block_invoke
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/Core/VKObject.m
+-[VKApiObjectArray initWithDictionary:]
+-[VKApiObjectArray initWithDictionary:objectClass:]
+-[VKApiObjectArray initWithArray:objectClass:]
+-[VKApiObjectArray initWithArray:]
+-[VKApiObjectArray parseItems:asClass:]
+-[VKApiObjectArray countByEnumeratingWithState:objects:count:]
+-[VKApiObjectArray objectAtIndex:]
+-[VKApiObjectArray objectAtIndexedSubscript:]
+-[VKApiObjectArray objectEnumerator]
+-[VKApiObjectArray reverseObjectEnumerator]
+-[VKApiObjectArray addObject:]
+-[VKApiObjectArray removeObject:]
+-[VKApiObjectArray insertObject:atIndex:]
+-[VKApiObjectArray firstObject]
+-[VKApiObjectArray lastObject]
+-[VKApiObjectArray serialize]
+-[VKApiObjectArray serializeTo:withName:]
+-[VKApiObjectArray objectClass]
++[VKApiObjectArray createWithDictionary:]
++[VKApiObjectArray createWithArray:]
+-[VKApiObjectArray count]
+-[VKApiObjectArray setCount:]
+-[VKApiObjectArray items]
+-[VKApiObjectArray setItems:]
+-[VKApiObjectArray .cxx_destruct]
+_OBJC_IVAR_$_VKApiObjectArray._count
+_OBJC_IVAR_$_VKApiObjectArray._items
+l_OBJC_PROTOCOL_$_NSFastEnumeration
+l_OBJC_LABEL_PROTOCOL_$_NSFastEnumeration
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKApiObjectArray.m
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/models/VKApiObjectArray.h
+VK_ENSURE_ARRAY
+-[VKApiCaptcha force]
+/Users/sultanmagomedkadiev/Documents/lo.music/Carthage/Checkouts/vk-ios-sdk/library/Source/API/methods/VKApiCaptcha.m
+/Users/sultanmagomedkadiev/Library/Developer/Xcode/DerivedData/VK-ios-sdk-dnahxlbuzpidwaewrlruajmlawvk/Build/Intermediates/VK-ios-sdk.build/Release-iphoneos/VKSdkFramework.build/DerivedSources/VKSdkFramework_vers.c
+__ZL15__ARCLite__loadv
+__ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+__ZL22add_image_hook_swiftV1PK11mach_headerl
+__ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+__ZL13replaceMethodP10objc_classP13objc_selectorPFP11objc_objectS4_S2_zEPS6_
+__ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+__ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+__ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+__ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+__ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+__ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+__ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+__ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+__ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+__ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+__ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+__ZL32__arclite_object_getIndexedIvarsP11objc_object
+__ZL23__arclite_objc_getClassPKc
+__ZL27__arclite_objc_getMetaClassPKc
+__ZL31__arclite_objc_getRequiredClassPKc
+__ZL26__arclite_objc_lookUpClassPKc
+__ZL26__arclite_objc_getProtocolPKc
+__ZL23__arclite_class_getNameP10objc_class
+__ZL26__arclite_protocol_getNameP8Protocol
+__ZL37__arclite_objc_copyClassNamesForImagePKcPj
+__ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+__ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+__ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+__ZL14initialize_impP11objc_objectP13objc_selector
+__ZL18allocateMaybeSwiftP18glue_swift_class_tm
+__ZL22copySwiftV1MangledNamePKcb
+__ZL13demangledNamePKcb
+__ZL16scanMangledFieldRPKcS0_S1_Ri
+__ZL30arclite_uninitialized_functionv
+__ZL12cxxConstructP11objc_object
+__ZL20fixStringForCoreDataP11objc_object
+_OBJC_METACLASS_$___ARCLite__
+__ZL24OBJC_CLASS_$___ARCLite__
+__ZL31OBJC_METACLASS_RO_$___ARCLite__
+__non_lazy_classes
+__ZL27OBJC_CLASS_RO_$___ARCLite__
+__ZL11_class_name
+__ZL32OBJC_$_CLASS_METHODS___ARCLite__
+__ZL17_load_method_name
+__ZL17_load_method_type
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+__ZL30NSUndoManagerProxy_targetClass
+__ZL29original_NSManagedObject_init
+__ZL40original_NSManagedObject_allocWithEntity
+__ZL35original_NSManagedObject_allocBatch
+__ZL25NSMutableDictionary_class
+__ZL22NSConstantString_class
+__ZL14NSString_class
+__ZL36original_NSKKMS_fastIndexForKnownKey
+__ZL27original_NSKKMS_indexForKey
+__ZL28original_NSKKsD_objectForKey
+__ZL34original_NSKKsD_removeObjectForKey
+__ZL32original_NSKKsD_setObject_forKey
+__ZL40original_NSKKsD_addEntriesFromDictionary
+__ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZL31original_objc_allocateClassPair
+__ZL31original_object_getIndexedIvars
+__ZL22original_objc_getClass
+__ZL26original_objc_getMetaClass
+__ZL30original_objc_getRequiredClass
+__ZL25original_objc_lookUpClass
+__ZL25original_objc_getProtocol
+__ZL22original_class_getName
+__ZL25original_protocol_getName
+__ZL36original_objc_copyClassNamesForImage
+__ZL12demangleLock
+__ZL9Demangled
+Apple LLVM version 8.0.0 (clang-800.0.42)
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -Wno-error=incomplete-umbrella -Wno-error=incomplete-umbrella -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=274.1
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65
+fixStringForCoreData
+cxxConstruct
+arclite_uninitialized_function
+scanMangledField
+isdigit
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk/usr/include/ctype.h
+__isctype
+demangledName
+copySwiftV1DemangledName
+copySwiftV1MangledName
+allocateMaybeSwift
+word_align
+isSwift
+initialize_imp
+transcribeProperties
+property_list_nth
+transcribeProtocols
+transcribeMethods
+data
+method_list_nth
+__arclite_objc_copyClassNamesForImage
+__arclite_protocol_getName
+__arclite_class_getName
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+__arclite_objc_getClass
+__arclite_object_getIndexedIvars
+__arclite_objc_allocateClassPair
+metaclass
+__arclite_objc_readClassPair
+transcribeIvars
+ivar_list_nth
+max
+alignment
+ro
+fastFlags
+__arclite_NSKKsD_addEntriesFromDictionary
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+__arclite_NSManagedObject_init
+replaceMethod
+__arclite_NSUndoManagerProxy_isKindOfClass
+add_image_hook_swiftV1
+patch_lazy_pointers
+patch_t<const char **(const char *, unsigned int *)>
+patch_t<const char *(Protocol *)>
+patch_t<const char *(Class)>
+patch_t<Protocol *(const char *)>
+patch_t<Class (const char *)>
+patch_t<void *(id)>
+patch_t<Class (Class, const char *, unsigned long)>
+patch_t<Class (Class, const objc_image_info *)>
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+__ARCLite__load
+install_swiftV1
+install_dict_nil_value
+addOrReplaceMethod
+keyedGetter
