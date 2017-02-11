@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MediaPlayer
 
 /// The plaer view controller scene.
 class PlayerViewController: UIViewController {
@@ -17,12 +17,14 @@ class PlayerViewController: UIViewController {
     /// Interacted class contains parameters.
     var interactor: Interactor?
     
+    @IBOutlet weak var volumeBar: MPVolumeView!
+    
     // MARK: - Initialization
     
     /// Initialazie view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        volumeBar.showsRouteButton = false
     }
     
     /// Calls when user tapped to hide controller button.

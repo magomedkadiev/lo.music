@@ -9,9 +9,8 @@
 import Foundation
 import RealmSwift
 
-/**
- The `Audio` is a model class that contains properties of the audio.
- */
+
+///  The `Audio` is a model class that contains properties of the audio.
 class Audio: Object {
     
     // MARK: - Properties
@@ -36,17 +35,16 @@ class Audio: Object {
     
     // MARK: - Initialization
     
-    /**
-     Creates `Audio` with specified properties.
-     
-     - parameter id: The ID.
-     - parameter url: The song's url.
-     - parameter title: The song's title.
-     - parameter artist: The song's artist.
-     - parameter duration: The song's duration.
-     
-     - returns: The `Audio` instance.
-     */
+    
+    /// Creates `Audio` with specified properties.
+    ///
+    /// - Parameters:
+    ///   - id: The ID.
+    ///   - url: The song's url.
+    ///   - ownerID: The owner ID.
+    ///   - title: The song's title.
+    ///   - artist: The song's artist.
+    ///   - duration: The song's duration.
     convenience init(id: Int,
                      url: String,
                      ownerID: Int,
@@ -63,9 +61,10 @@ class Audio: Object {
         self.duration = duration
     }
     
-    /**
-     Sets primary key.
-     */
+    
+    /// Static variable.
+    ///
+    /// - Returns: Primary key.
     override static func primaryKey() -> String? {
         return "id"
     }

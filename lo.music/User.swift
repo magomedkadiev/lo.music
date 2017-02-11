@@ -6,16 +6,13 @@
 //  Copyright © 2016 lo.music. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
+/// The current authorized user information.
 class User {
     
-    /**
-     A Boolean value indicating whether the user has completed registration.
-     
-     *Storage:* `NSUserDefaults`.
-     */
+    /// A Boolean value indicating whether the user has completed registration.
+    /// *Storage:* `NSUserDefaults`.
     static var isRegistered: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "user.isRegistered")
@@ -27,7 +24,7 @@ class User {
     }
     
     /**
-     A Boolean value indicating user token.
+     A String value indicating user token.
      
      *Storage:* `NSUserDefaults`.
      */
@@ -42,7 +39,7 @@ class User {
     }
     
     /**
-     A Boolean value indicating user ID.
+     A String value indicating user iD.
      
      *Storage:* `NSUserDefaults`.
      */

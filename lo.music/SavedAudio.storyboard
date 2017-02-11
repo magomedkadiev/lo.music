@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Etu-1w-QLq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Etu-1w-QLq">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,16 +40,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-VJ-bvL">
-                                                    <rect key="frame" x="16" y="8" width="296" height="44"/>
+                                                    <rect key="frame" x="16" y="8" width="263" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-EC-nxH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="263" height="29.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K3-eO-kWL">
-                                                            <rect key="frame" x="0.0" y="29.5" width="296" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="29.5" width="263" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="JO4-VJ-bvL" secondAttribute="bottom" constant="8" id="F0b-nF-NkJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="JO4-VJ-bvL" secondAttribute="trailing" constant="8" id="RmN-PR-FR5"/>
+                                                <constraint firstAttribute="trailing" secondItem="JO4-VJ-bvL" secondAttribute="trailing" constant="41" id="RmN-PR-FR5"/>
                                                 <constraint firstItem="JO4-VJ-bvL" firstAttribute="top" secondItem="ars-6f-xIe" secondAttribute="top" constant="8" id="hQ8-8Y-Lcm"/>
                                                 <constraint firstItem="JO4-VJ-bvL" firstAttribute="leading" secondItem="ars-6f-xIe" secondAttribute="leading" constant="16" id="nKv-JB-rKK"/>
                                             </constraints>

@@ -9,11 +9,10 @@
 import UIKit
 import MDSOfferView
 
-/**
- The `AudioCell` is a base class for the list audio.
- */
-class AudioCell: UITableViewCell {
 
+///  The `AudioCell` is a base class for the list audio.
+class AudioCell: UITableViewCell {
+    
     // MARK: - Properties
     
     /// The title label.
@@ -23,7 +22,6 @@ class AudioCell: UITableViewCell {
     @IBOutlet weak var artistLabel: UILabel!
     
     //@IBOutlet weak var downloadButton: UIButton!
-    
     @IBOutlet weak var offerView: MDSOfferView!
     
     /// Object of download action delegate.
@@ -31,13 +29,10 @@ class AudioCell: UITableViewCell {
     
     // MARK: - Actions
     
+    /// The audio object.
     var audio: Audio? {
         didSet {
-            self.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
-            self.offerView.setTitle("", for: .normal)
-            self.offerView.tintColor = nil
-            self.offerView.actionButton.layer.cornerRadius = 0
-            self.offerView.actionButton.layer.borderWidth = 0
+            setupOfferView(.normal, #imageLiteral(resourceName: "download"))
             
             self.offerView.actionHandler = { _ in
                 
@@ -54,9 +49,27 @@ class AudioCell: UITableViewCell {
         }
     }
     
+    
+    /// Setup offer view parameters.
+    ///
+    /// - Parameters:
+    ///   - state: MDSOfferViewState.
+    ///   - backgroundImage: The background image.
+    func setupOfferView(_ state: MDSOfferViewState, _ backgroundImage: UIImage?) {
+        offerView.state = state
+        offerView.enabled = true
+        offerView.setTitle("", for: .normal)
+        offerView.actionButton.setTitle("", for: .normal)
+        offerView.actionButton.setBackgroundImage(backgroundImage, for: .normal)
+        offerView.actionButton.layer.cornerRadius = 0
+        offerView.actionButton.layer.borderWidth = 0
+    }
+    
+    
+    /// Change offer view state when user tapped to download button.
     func offerViewTapped() {
         self.offerView.setTitle("", for: .normal)
         self.offerView.state = .pendingDownload
-    } 
+    }
     
 }

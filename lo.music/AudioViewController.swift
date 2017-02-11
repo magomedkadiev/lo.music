@@ -127,6 +127,19 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableViewController.refreshControl = tableViewRefreshControl
     }
     
+    /// Change offer view parameters.
+    func changeOfferViewStateIfActiveDownloads(_ audio: Audio, _ cell: AudioCell) {
+        if let download = activeDownloads[audio.url] {
+            let offerViewState: MDSOfferViewState = download.isDownloading ? .pendingDownload : .normal
+            let offerViewImage = download.isDownloading ? nil : #imageLiteral(resourceName: "download")
+            cell.offerView.setProgress(Double(download.progress), animated: true)
+            
+            cell.setupOfferView(offerViewState, offerViewImage)
+        } else {
+            cell.setupOfferView(.normal, #imageLiteral(resourceName: "download"))
+        }
+    }
+    
     // MARK: - Handler
     
     /// Call when user wants to see player scene from tapping to cell.
@@ -186,55 +199,17 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /// Tells the delegate the table view is about to draw a cell for a particular row.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let audioCell = cell as? AudioCell {
+            let audio = allAudios[indexPath.row]
+            let downloaded = DownloadManager.shared.localFileExistsForTrack(audio, activeDownloads)
+            
             audioCell.delegate = self
             audioCell.audio = allAudios[indexPath.row]
-        
-            let audio = allAudios[indexPath.row]
             
-            let downloaded = DownloadManager.shared.localFileExistsForTrack(audio, activeDownloads)
-
-            if downloaded {
-                
-                audioCell.offerView.isHidden = true
-//                audioCell.offerView.enabled = false
-//                audioCell.offerView.setTitle("", for: .normal)
-//                audioCell.offerView.actionButton.setTitle("", for: .normal)
-//                audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "downloded"), for: .normal)
-//                audioCell.offerView.actionButton.layer.cornerRadius = 0
-//                audioCell.offerView.actionButton.layer.borderWidth = 0
-                
-            } else {
+            if !downloaded {
                 audioCell.offerView.isHidden = false
-
-                if let download = activeDownloads[audio.url] {
-                    audioCell.offerView.setProgress(Double(download.progress), animated: true)
-
-                    if download.isDownloading {
-                        audioCell.offerView.state = .pendingDownload
-                        audioCell.offerView.enabled = true
-                        audioCell.offerView.setTitle("", for: .normal)
-                        audioCell.offerView.actionButton.setTitle("", for: .normal)
-                        audioCell.offerView.actionButton.setBackgroundImage(nil, for: .normal)
-                        audioCell.offerView.actionButton.layer.cornerRadius = 0
-                        audioCell.offerView.actionButton.layer.borderWidth = 0
-                    } else {
-                        audioCell.offerView.state = .normal
-                        audioCell.offerView.enabled = true
-                        audioCell.offerView.setTitle("", for: .normal)
-                        audioCell.offerView.actionButton.setTitle("", for: .normal)
-                        audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
-                        audioCell.offerView.actionButton.layer.cornerRadius = 0
-                        audioCell.offerView.actionButton.layer.borderWidth = 0
-                    }
-                } else {
-                    audioCell.offerView.state = .normal
-                    audioCell.offerView.enabled = true
-                    audioCell.offerView.setTitle("", for: .normal)
-                    audioCell.offerView.actionButton.setTitle("", for: .normal)
-                    audioCell.offerView.actionButton.setBackgroundImage(#imageLiteral(resourceName: "download"), for: .normal)
-                    audioCell.offerView.actionButton.layer.cornerRadius = 0
-                    audioCell.offerView.actionButton.layer.borderWidth = 0
-                }
+            } else {
+                audioCell.offerView.isHidden = true
+                changeOfferViewStateIfActiveDownloads(audio, audioCell)
             }
         }
     }

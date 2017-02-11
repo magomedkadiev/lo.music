@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="koD-U8-xbT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="koD-U8-xbT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -78,7 +77,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="898-3D-EKp" firstAttribute="top" secondItem="MOf-XW-Vbf" secondAttribute="top" constant="8" id="TP3-vJ-UEc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="z2K-qE-7Uq" secondAttribute="bottom" constant="8" id="U8u-7G-Uzt"/>
                                                 <constraint firstItem="z2K-qE-7Uq" firstAttribute="top" secondItem="MOf-XW-Vbf" secondAttribute="top" constant="18" id="e2h-AK-cj1"/>
                                                 <constraint firstAttribute="bottom" secondItem="898-3D-EKp" secondAttribute="bottom" constant="8" id="lDE-pq-20U"/>
                                                 <constraint firstItem="898-3D-EKp" firstAttribute="leading" secondItem="MOf-XW-Vbf" secondAttribute="leading" constant="16" id="rzM-90-mK4"/>

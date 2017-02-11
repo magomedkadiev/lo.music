@@ -13,6 +13,13 @@ import UIKit
 /// The dismiss animator class.
 class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
+    /// MARK: - Properties
+    
+    /// The singlton.
+    static let shared = DismissAnimator()
+    
+    // MARK: - UIViewControllerAnimatedTransitioning
+    
     /// The protocol’s method provide contextual information for transition animations between view controllers.
     ///
     /// - Parameter transitionContext: The view controller context.
@@ -41,11 +48,11 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         let finalFrame = CGRect(origin: bottomLeftCorner, size: screenBounds.size)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext),
-            animations: {
-                fromViewController.view.frame = finalFrame
+                       animations: {
+                        fromViewController.view.frame = finalFrame
         }, completion: { _ in
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
 }
- 
+

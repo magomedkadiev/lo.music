@@ -23,6 +23,11 @@ class ProfileViewController: UIViewController {
     /// The size label.
     @IBOutlet weak var sizeLabel: UILabel!
     
+    /// Set status bar style.
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     /**
      Initializes a view controller.
      */
@@ -37,6 +42,7 @@ class ProfileViewController: UIViewController {
         countLabel.text = "\(countSavedAudios) песни в избранном"
         sizeLabel.text = "\(count) MB из 2.0 GB"
     }
+    
  
     /**
      Log out button. Calls when user tap to logout.

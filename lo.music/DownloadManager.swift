@@ -54,7 +54,7 @@ class DownloadManager {
 
         OperationQueue().addOperation {
             if let url = downloadTask.originalRequest?.url?.absoluteString {
-                let array = RealmManager.shared.audios.sorted(byProperty: "id", ascending: false)
+                let array = RealmManager.shared.audios.sorted(byKeyPath: "id", ascending: false)
                 
                 for (index, track) in array.enumerated() {
                     if url == track.url {

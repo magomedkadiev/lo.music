@@ -8,9 +8,8 @@
 
 import Foundation
 
-/**
- The `Audio` is class that contains properties of the audio.
- */
+
+///  The `Audio` is class that contains properties of the audio.
 class AudioItem {
     
     // MARK: - Properties
@@ -35,11 +34,10 @@ class AudioItem {
     
     // MARK: - Initialization
     
-    /**
-     Initialized server data parameters.
-     
-     - parameter serverData: The dict.
-     */
+    
+    /// Initialized server data parameters.
+    ///
+    /// - Parameter serverData: The dict
     init(serverData: [String: AnyObject]) {
         
         id = serverData["id"] as! Int
@@ -50,16 +48,16 @@ class AudioItem {
         ownerID = serverData["owner_id"] as! Int
     }
     
-    /**
-     Creates `Audio` with specified properties.
-     
-     - parameter url: The song's url.
-     - parameter title: The song's title.
-     - parameter artist: The song's artist.
-     - parameter duration: The song's duration.
-     
-     - returns: The `Audio` instance.
-     */
+    
+    /// Creates `AudioItem` with specified properties.
+    ///
+    /// - Parameters:
+    ///   - id: The ID.
+    ///   - url: The song's url.
+    ///   - ownerID: The owner ID.
+    ///   - title: The song's title.
+    ///   - artist: The song's artist.
+    ///   - duration: The song's duration.
     init(id: Int, ownerID: Int, url: String, title: String, artist: String , duration: Int) {
         self.id = id
         self.url = url
