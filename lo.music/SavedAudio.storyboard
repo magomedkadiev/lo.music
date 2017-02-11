@@ -86,7 +86,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Сохраненные" id="1eE-BW-hyE">
-                        <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="N7W-ai-L8Y">
+                        <barButtonItem key="rightBarButtonItem" image="contact" id="N7W-ai-L8Y">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="rwu-az-wC3" kind="presentation" id="azz-4i-tvy"/>

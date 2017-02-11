@@ -46,7 +46,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Профиль" id="QNH-TX-29d">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="1yg-uK-byU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="1yg-uK-byU">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="backButtonTapped:" destination="g8G-ah-6b7" id="OnE-rR-Y05"/>

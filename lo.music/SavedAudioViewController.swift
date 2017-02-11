@@ -63,7 +63,7 @@ class SavedAudioViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        allAudios = RealmManager.shared.savedAudios.sorted(byProperty: "date", ascending: false)
+        allAudios = RealmManager.shared.savedAudios.sorted(byKeyPath: "date", ascending: false)
         
         tableView.tableHeaderView = searchBar
     }

@@ -85,7 +85,7 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
         syncAudios()
         _ = downloadsSession
 
-        allAudios = RealmManager.shared.audios.sorted(byProperty: "id", ascending: false)
+        allAudios = RealmManager.shared.audios.sorted(byKeyPath: "id", ascending: false)
         addRefreshControl()
         tableView.tableHeaderView = searchBar
     }
@@ -358,7 +358,7 @@ class AudioViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     let trackCell = self.tableView.cellForRow(at: IndexPath(row: trackIndex, section: 0)) as? AudioCell {
                     DispatchQueue.main.async(execute: {
                         let bitRate = String(Int(totalBytesExpectedToWrite) * 8 / 1000 / download.duration)
-                        let progress = String(format: "%.1f%% of %@",  download.progress * 100, totalSize) + " \(bitRate)kbps"
+                        _ = String(format: "%.1f%% of %@",  download.progress * 100, totalSize) + " \(bitRate)kbps"
                         
                         
                         trackCell.offerView.state = .downloading

@@ -107,7 +107,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Песни" id="0Vx-1y-s3X">
-                        <barButtonItem key="rightBarButtonItem" image="contact" style="plain" id="GDG-1E-xeq">
+                        <barButtonItem key="rightBarButtonItem" image="contact" id="GDG-1E-xeq">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6z2-yK-20G" kind="presentation" id="SUt-YC-We4"/>
