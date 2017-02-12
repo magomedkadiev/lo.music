@@ -1,10 +1,4 @@
-version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "e02b01413849eb1e46a477f5d91dd507"
-build_time: [532562026, 991202000]
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "c5f16dca9c4a6768622023166cd00558"
+build_time: [540175330, 327308000]
 inputs:
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/LogType.swift": [9223372036854775807, 0]
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/ViewController.swift": [9223372036854775807, 0]
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/AppDelegate.swift": [9223372036854775807, 0]
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/AuthorizationViewController.swift": [9223372036854775807, 0]
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/Log.swift": [9223372036854775807, 0]
-  "/Users/sultanmagomedkadiev/Documents/lo.music/lo.music/SettingsViewController.swift": [9223372036854775807, 0]
