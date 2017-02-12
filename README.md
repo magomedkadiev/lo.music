@@ -12,5 +12,8 @@ The application was written with the purpose of listening to music on iPhones/iP
 - iOS 9.0+
 - Swift 3.0+
 
+## Documentation
+API Reference is located at [https://magomedkadiev.github.io/lo.music/](https://magomedkadiev.github.io/lo.music/).
+
 ## License
 MIT - [http://alco.mit-license.org](http://alco.mit-license.org)
